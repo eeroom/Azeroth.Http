@@ -1,0 +1,141 @@
+﻿﻿<#@ template language="C#" hostspecific="True" debug="true"#>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Configuration" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@include file="MultipleOutputHelper.txt"#>
+<#@ output extension=".txt" #>
+<# var manager = Manager.Create(Host, GenerationEnvironment); #>
+
+<# manager.StartHeader(); #>
+using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace Azeroth.WebApi
+{
+<# manager.EndBlock(); #>
+ 
+<# manager.StartFooter(); #>
+    }
+}
+<# manager.EndBlock(); #>
+
+<#
+    //string connectionName="mssqlmaster";
+    //System.Diagnostics.Debugger.Launch();
+    //string configPath=Host.ResolveAssemblyReference("$(ProjectDir)")+"app.config";
+    //var configPathMap=new System.Configuration.ExeConfigurationFileMap(){ExeConfigFilename=configPath};
+    //var appConfig=System.Configuration.ConfigurationManager.OpenMappedExeConfiguration(configPathMap, System.Configuration.ConfigurationUserLevel.None);
+    //var connSection= appConfig.GetSection("connectionStrings") as System.Configuration.ConnectionStringsSection;  
+    string cnnstr= "Data Source=192.168.1.131;Initial Catalog=Hz.Foundation;User ID=sa;Password=as1234;";
+    
+    //类型名称转换一下
+    Dictionary<string,string> dictColDataType=new Dictionary<string,string>();
+    dictColDataType.Add("String","string");
+    dictColDataType.Add("Int32","int");
+    dictColDataType.Add("Boolean","bool");
+    dictColDataType.Add("Double","double");
+    
+    //审计字段对应的接口
+    Dictionary<string,List<string>> dictInterface=new Dictionary<string,List<string>>();
+    //dictInterface.Add("ICreationAudited",new List<string>(){"CreatetorId","CreateDateTime"});
+    //dictInterface.Add("IModificationAudited",new List<string>(){"CreatetorId","CreateDateTime","LastUpdaterId","LastUpdaterDatetime"});
+    //dictInterface.Add("IDeleteAudited",new List<string>(){"Active"});
+    //忽略序列化的字段
+    Dictionary<string,string> dictIgnor=new Dictionary<string,string>();
+    //dictIgnor.Add("ConnStr","[Newtonsoft.Json.JsonIgnore]");
+    //dictIgnor.Add("Password","[Newtonsoft.Json.JsonIgnore]");
+    //枚举处理
+    var eMathRegex=new System.Text.RegularExpressions.Regex("a枚举a\\|(.*)\\|");
+	using (var cnn = new System.Data.SqlClient.SqlConnection(cnnstr))
+    {
+        cnn.Open();
+        List<string> lstTableName = new List<string>();
+        using (var cmd = cnn.CreateCommand())
+        {
+            cmd.CommandText = "select TABLE_NAME from INFORMATION_SCHEMA.TABLES where TABLE_TYPE='BASE TABLE' ORDER BY TABLE_NAME";
+            using (var reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    lstTableName.Add(reader.GetString(0));
+                }
+            }
+        }
+        foreach (string nameClass in lstTableName)
+        {
+            System.Data.DataTable schemaTable;
+            using (var cmd = cnn.CreateCommand())
+            {
+                cmd.CommandText = string.Format("select * from [{0}]",nameClass);
+                using (var reader = cmd.ExecuteReader(System.Data.CommandBehavior.KeyInfo | System.Data.CommandBehavior.SchemaOnly))
+                {
+                    schemaTable = reader.GetSchemaTable();
+                }
+            }
+            System.Data.DataTable commentTable=new System.Data.DataTable("rt");
+            using (var cmd = cnn.CreateCommand())
+            {
+                cmd.CommandText = string.Format("with htt as({0}),gmm as ({1}) select htt.name,gmm.value from htt left join gmm on htt.column_id=gmm.minor_id",
+                        "select * from sys.columns where object_id=OBJECT_ID('" + nameClass + "')",
+                        "select * from sys.extended_properties where sys.extended_properties.major_id=OBJECT_ID('" + nameClass + "')");
+                using (var adapter=new System.Data.SqlClient.SqlDataAdapter(cmd))
+                {
+                    adapter.Fill(commentTable);
+                }
+            }
+            manager.StartNewFile(nameClass + ".cs");
+
+            List<string> lstLine=new List<string>();
+              List<string> lstAllColName = new List<string>();
+            List<string> lstInteface=new List<string>();
+
+            lstLine.Add(string.Format("{0}public partial class {1}", new String(' ', 4), nameClass));
+            lstLine.Add(new String(' ', 4) + "{");
+
+            foreach (System.Data.DataRow row in schemaTable.Select())
+            {
+                string colName = row["ColumnName"].ToString();
+                lstAllColName.Add(colName);
+                int columnSize = Convert.ToInt32(row["ColumnSize"]);
+                string colType = row["DataType"].ToString().Substring("System.".Length);
+                bool allowDBNull = Convert.ToBoolean(row["AllowDBNull"]);
+                bool isKey=Convert.ToBoolean(row["IsKey"]);
+                string comment = commentTable.Select("name='" + colName + "'")[0]["value"].ToString().Replace("\r\n", " ").Replace("\n", " ").Replace("\n", " ");
+                if(eMathRegex.IsMatch(comment))
+                    colType=eMathRegex.Match(comment).Groups[1].Value;
+                if(dictColDataType.ContainsKey(colType))
+                    colType=dictColDataType[colType];
+                 if (allowDBNull && !colType.Equals("string") && !colType.Equals("Byte[]"))
+                    colType = colType+"?";
+                lstLine.Add(string.Format("{0}/// <summary>",new String(' ', 8)));
+                lstLine.Add(string.Format("{0}///{1}", new String(' ', 8), comment));
+                lstLine.Add(string.Format("{0}/// </summary>", new String(' ', 8)));
+                if(!allowDBNull && colType.Equals("string"))
+                    lstLine.Add(string.Format("{0}[Required]",new String(' ',8)));
+                if(colType.Equals("string") && columnSize<int.MaxValue && columnSize>0)
+                    lstLine.Add(string.Format("{0}[StringLength({1})]",new String(' ',8),columnSize));
+                if(dictIgnor.ContainsKey(colName))
+                    lstLine.Add(string.Format("{0}{2}",new String(' ',8),columnSize,dictIgnor[colName]));     
+                if(isKey)
+                    lstLine.Add(string.Format("{2}[Key]",row["ColumnSize"],allowDBNull.ToString().ToLower(),new String(' ',8))); 
+                lstLine.Add(string.Format("{0}public {1} {2} {3}", new String(' ', 8), colType, colName, "{set;get;}"));
+            }
+            foreach(var kv in dictInterface){
+                if(kv.Value.Except(lstAllColName).Count()==0)
+                    lstInteface.Add(kv.Key);
+            }
+            string strInterface=string.Join(",",lstInteface);
+            if(!string.IsNullOrEmpty(strInterface))
+                lstLine[0]=lstLine[0]+":"+strInterface;
+            lstLine.ForEach(x=>this.WriteLine(x));
+            manager.EndBlock();
+        }
+    }
+#>
+<# manager.Process(true); #> 
