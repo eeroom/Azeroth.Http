@@ -15,6 +15,8 @@ namespace Azeroth.WebApi
         protected void Application_Start(object sender, EventArgs e)
         {
             System.Web.Http.GlobalConfiguration.Configuration.Routes.MapHttpRoute("htt", "{controller}/{action}");
+            System.Web.Http.GlobalConfiguration.Configuration.Filters.Add(new HaishanExceptionHandler());
+            System.Web.Http.GlobalConfiguration.Configuration.Filters.Add(new HaishanActionFilter());
 
             var flagIScoped = typeof(IScoped);
             var flagITransient = typeof(ITransient);

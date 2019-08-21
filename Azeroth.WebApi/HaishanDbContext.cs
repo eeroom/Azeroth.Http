@@ -5,9 +5,9 @@ using System.Web;
 using System.Data.Entity;
 namespace Azeroth.WebApi
 {
-    public class TopDbContext : System.Data.Entity.DbContext,IScoped
+    public class HaishanDbContext : System.Data.Entity.DbContext,IScoped
     {
-        public TopDbContext():base("name=mastermssqlserver")
+        public HaishanDbContext():base("name=mastermssqlserver")
         {
 
         }
