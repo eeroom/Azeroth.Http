@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Owin;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web.Http;
-using System.Net.Http;
-using Owin;
-[assembly: Microsoft.Owin.OwinStartup(typeof(Azeroth.WebApiOwinIIS.Startup))]
-namespace Azeroth.WebApiOwinIIS
+
+namespace Azeroth.WebApiOwinSelfHost
 {
     public class Startup
     {
