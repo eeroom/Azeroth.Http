@@ -4,10 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Http.Controllers;
 
 namespace Azeroth.WebApi.Controllers
 {
-    public class AccountController:ApiController
+    public class AccountController:HaishanController
     {
         public UserInfoWrapper CurrentUser { get; set; }
 

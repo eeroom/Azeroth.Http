@@ -16,6 +16,16 @@ namespace Azeroth.WebApi
 
         public async Task<HttpResponseMessage> ExecuteActionFilterAsync(HttpActionContext actionContext, CancellationToken cancellationToken, Func<Task<HttpResponseMessage>> continuation)
         {
+            if (!actionContext.ModelState.IsValid)
+            {
+                var lstErrorMsg= actionContext.ModelState.Select(x => x.Value)
+                    .SelectMany(x => x.Errors)
+                    .Where(x => !string.IsNullOrEmpty(x.ErrorMessage))
+                    .Select(x => x.ErrorMessage)
+                    .Distinct()
+                    .ToList();
+                throw new HaishanException(string.Join(",", lstErrorMsg));
+            }
             var response= await continuation();
             var content= response.Content as ObjectContent;
             if (content == null)

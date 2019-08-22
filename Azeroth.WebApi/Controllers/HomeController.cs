@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Http;
 namespace Azeroth.WebApi.Controllers
 {
-    public class HomeController:HaishanController
+    public class HomeController: HaishanAuthorizationController
     {
         
 

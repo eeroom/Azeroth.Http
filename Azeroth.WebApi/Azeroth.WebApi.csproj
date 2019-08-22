@@ -150,10 +150,11 @@
     <Compile Include="App_Start\HaishanAuthorizationFilterAttribute.cs" />
     <Compile Include="App_Start\HaishanExceptionHandler.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
+    <Compile Include="Controllers\HaishanController.cs" />
     <Compile Include="DTO\Account.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="HaishanException.cs" />
-    <Compile Include="Controllers\HaishanController.cs" />
+    <Compile Include="Controllers\HaishanAuthorizationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="JwtData.cs" />
     <Compile Include="JwtHelper.cs" />
