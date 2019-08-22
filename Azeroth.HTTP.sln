@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azeroth.WebApi", "Azeroth.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azeroth.WebApiSelfHost", "Azeroth.WebApiSelfHost\Azeroth.WebApiSelfHost.csproj", "{99EB3FA3-CE3C-43DC-9768-011B65EA1A0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azeroth.WebApiOwinIIS", "Azeroth.WebApiOwinIIS\Azeroth.WebApiOwinIIS.csproj", "{FF383145-EA10-4D08-8EA0-AD055FC07A18}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{99EB3FA3-CE3C-43DC-9768-011B65EA1A0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99EB3FA3-CE3C-43DC-9768-011B65EA1A0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99EB3FA3-CE3C-43DC-9768-011B65EA1A0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF383145-EA10-4D08-8EA0-AD055FC07A18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF383145-EA10-4D08-8EA0-AD055FC07A18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF383145-EA10-4D08-8EA0-AD055FC07A18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF383145-EA10-4D08-8EA0-AD055FC07A18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
