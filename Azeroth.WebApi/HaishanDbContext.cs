@@ -12,6 +12,12 @@ namespace Azeroth.WebApi
 
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<System.Data.Entity.ModelConfiguration.Conventions.PluralizingTableNameConvention>();
+            base.OnModelCreating(modelBuilder);
+            
+        }
         public virtual DbSet<InspectConfigResultStatus> InspectConfigResultStatuses { set; get; }
         
     }
