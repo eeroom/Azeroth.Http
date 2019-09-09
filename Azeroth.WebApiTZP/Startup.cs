@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Azeroth.WebApiTZP
 {
@@ -22,6 +23,11 @@ namespace Azeroth.WebApiTZP
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddMvc(HandlerMvcOptions);
+            services.AddSingleton<Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionGroupCollectionProvider,
+                Microsoft.AspNetCore.Mvc.ApiExplorer.ApiDescriptionGroupCollectionProvider>();
+            services.TryAddEnumerable(
+                ServiceDescriptor.Transient<Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionProvider,
+                Microsoft.AspNetCore.Mvc.ApiExplorer.DefaultApiDescriptionProvider>());
             return services.BuildServiceProvider();
         }
 
