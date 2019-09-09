@@ -11,6 +11,9 @@ namespace Azeroth.WebApiOwinIIS.Controllers
         [HttpGet]
         public List<int> GetEntities()
         {
+
+            var apiExplorer= new Microsoft.Web.Http.Description.VersionedApiExplorer(this.Configuration);
+            var lstApi= apiExplorer.ApiDescriptions.Flatten();
             var lst = System.Linq.Enumerable.Range(0, 10).ToList();
             return lst;
         }

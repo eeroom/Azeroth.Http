@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Http;
 using System.Net.Http;
 using Owin;
+using Microsoft.Web.Http;
 [assembly: Microsoft.Owin.OwinStartup(typeof(Azeroth.WebApiOwinIIS.Startup))]
 namespace Azeroth.WebApiOwinIIS
 {
@@ -14,6 +15,7 @@ namespace Azeroth.WebApiOwinIIS
         {
             HttpConfiguration config = new HttpConfiguration();
             config.Routes.MapHttpRoute("htt", "{controller}/{action}");
+            config.AddVersionedApiExplorer();
             app.UseWebApi(config);
         }
     }
