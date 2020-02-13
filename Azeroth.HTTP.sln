@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28803.156
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azeroth.WebApi", "Azeroth.WebApi\Azeroth.WebApi.csproj", "{E8D7A096-166C-4D87-9AE6-86AA798FED61}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azeroth.WebApiTZP", "Azeroth.WebApiTZP\Azeroth.WebApiTZP.csproj", "{000EA1FF-F888-43FA-9736-8F687DF6665D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azeroth.WebApiNancy", "Azeroth.WebApiNancy\Azeroth.WebApiNancy.csproj", "{68DC7121-609E-4B2D-AE13-BAEEEAD9F36B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azeroth.ASPXEngine", "Azeroth.ASPXEngine\Azeroth.ASPXEngine.csproj", "{C5229F7A-5535-4C36-B06D-0BCAED796BB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{68DC7121-609E-4B2D-AE13-BAEEEAD9F36B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68DC7121-609E-4B2D-AE13-BAEEEAD9F36B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68DC7121-609E-4B2D-AE13-BAEEEAD9F36B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5229F7A-5535-4C36-B06D-0BCAED796BB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5229F7A-5535-4C36-B06D-0BCAED796BB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5229F7A-5535-4C36-B06D-0BCAED796BB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5229F7A-5535-4C36-B06D-0BCAED796BB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
