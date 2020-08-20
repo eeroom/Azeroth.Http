@@ -10,7 +10,7 @@
     <div>
        <% =this.Context.Server.MachineName %>
     </div>
-    <% rptAge.DataSource = this.MyProperty; rptAge.DataBind(); %>
+    <%rptAge.DataSource = this.MyProperty;rptAge.DataBind(); %>
     <asp:Repeater runat="server" ID="rptAge">
         <ItemTemplate>
             <p><%# Container.DataItem.ToString() %></p>
