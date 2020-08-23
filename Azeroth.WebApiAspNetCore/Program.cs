@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
-namespace Azeroth.WebApiTZP
+namespace Azeroth.WebApiAspNetCore
 {
     class Program
     {

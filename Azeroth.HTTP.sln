@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azeroth.WebApiOwinIIS", "Az
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azeroth.WebApiOwinSelfHost", "Azeroth.WebApiOwinSelfHost\Azeroth.WebApiOwinSelfHost.csproj", "{AEF4FA91-1F68-4931-910C-D16F24B73C66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azeroth.WebApiTZP", "Azeroth.WebApiTZP\Azeroth.WebApiTZP.csproj", "{000EA1FF-F888-43FA-9736-8F687DF6665D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azeroth.WebApiAspNetCore", "Azeroth.WebApiAspNetCore\Azeroth.WebApiAspNetCore.csproj", "{000EA1FF-F888-43FA-9736-8F687DF6665D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azeroth.WebApiNancy", "Azeroth.WebApiNancy\Azeroth.WebApiNancy.csproj", "{68DC7121-609E-4B2D-AE13-BAEEEAD9F36B}"
 EndProject
