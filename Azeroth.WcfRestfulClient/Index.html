@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="jquery-1.11.2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $("input[type=button]").click(function () {
+                var url = $("input[type='text']").val();
+                var parameter = $("#parameter").val();
+                $.ajax(url, {
+                    contentType: "application/json",
+                    method: $("select").val(),
+                    data: parameter,
+                    dataType: "json",
+                    success: function (value) {
+                        $("#result").val(window.JSON.stringify(value));
+                    }
+                });
+            });
+
+           
+            
+        });
+    </script>
+    <style type="text/css">
+
+        body *{
+             display:block;
+            width:100%;
+            margin-bottom:20px;
+        }
+     body input[type=button]{
+         height:60px;
+         width:100px;
+     }
+    </style>
+</head>
+<body>
+    地址：<input type="text" value="http://localhost:8021/UserInfo" />
+    Method：<select>
+    <option value="GET">GET</option>
+               <option value="POST" selected="selected">POST</option>
+    </select>
+    参数：<textarea id="parameter" cols="10" rows="5"></textarea>
+    <input type="button" value="确定" />
+    结果：<textarea id="result" cols="10" rows="5"></textarea>
+</body>
+</html>
