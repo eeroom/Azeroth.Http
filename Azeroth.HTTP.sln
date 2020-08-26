@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azeroth.WebformSelfHost", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Download", "Download\Download.csproj", "{E41E204E-62F9-4137-A818-8C4BB43B9F72}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azeroth.WcfRestful", "Azeroth.WcfRestful\Azeroth.WcfRestful.csproj", "{6144E1C9-8CF6-4994-8FE1-4E3D0A0E1491}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{E41E204E-62F9-4137-A818-8C4BB43B9F72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E41E204E-62F9-4137-A818-8C4BB43B9F72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E41E204E-62F9-4137-A818-8C4BB43B9F72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6144E1C9-8CF6-4994-8FE1-4E3D0A0E1491}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6144E1C9-8CF6-4994-8FE1-4E3D0A0E1491}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6144E1C9-8CF6-4994-8FE1-4E3D0A0E1491}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6144E1C9-8CF6-4994-8FE1-4E3D0A0E1491}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
