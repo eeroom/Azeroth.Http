@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过下列特性集
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("Download")]
+[assembly: AssemblyTitle("Azeroth.Http.Utility")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Download")]
+[assembly: AssemblyProduct("Azeroth.Http.Utility")]
 [assembly: AssemblyCopyright("版权所有(C)  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("e41e204e-62f9-4137-a818-8c4bb43b9f72")]
+[assembly: Guid("020e50fa-2472-422a-8aaf-c4e5f8dcfc6e")]
 
 // 程序集的版本信息由下列四个值组成:
 //

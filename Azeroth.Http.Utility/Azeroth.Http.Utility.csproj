@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E41E204E-62F9-4137-A818-8C4BB43B9F72}</ProjectGuid>
+    <ProjectGuid>{020E50FA-2472-422A-8AAF-C4E5F8DCFC6E}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Download</RootNamespace>
-    <AssemblyName>Download</AssemblyName>
+    <RootNamespace>Azeroth.Http.Utility</RootNamespace>
+    <AssemblyName>Azeroth.Http.Utility</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -58,7 +58,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Default.html" />
+    <Content Include="Readme.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -85,9 +85,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50292</DevelopmentServerPort>
+          <DevelopmentServerPort>50854</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50292/</IISUrl>
+          <IISUrl>http://localhost:50854/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
