@@ -39,6 +39,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -58,13 +62,30 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="jQuey\jquery-1.11.3.intellisense.js" />
+    <Content Include="jQuey\jquery-1.11.3.js" />
+    <Content Include="jQuey\jquery-1.11.3.min.js" />
+    <None Include="jQuey\jquery-1.9.1.intellisense.js" />
+    <Content Include="jQuey\jquery-1.9.1.js" />
+    <Content Include="jQuey\jquery-1.9.1.min.js" />
     <Content Include="Readme.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Download.ashx.cs">
+      <DependentUpon>Download.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Download02.ashx.cs">
+      <DependentUpon>Download02.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Download.ashx" />
+    <Content Include="Download02.ashx" />
+    <Content Include="packages.config" />
+    <Content Include="jQuey\jquery-1.11.3.min.map" />
+    <Content Include="jQuey\jquery-1.9.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
