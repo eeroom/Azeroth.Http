@@ -15,8 +15,8 @@ namespace Azeroth.Http.Utility
         {
             if (context.Request.Files.Count < 1)
                 throw new ArgumentException("必须指定上传的文件内容");
-            int start = int.Parse(context.Request["start"]);
-            int size = int.Parse(context.Request["size"]);
+            long start = long.Parse(context.Request["start"]);
+            long size = long.Parse(context.Request["size"]);
             var fileFolder= context.Server.MapPath("/uploadData");
             if (!System.IO.Directory.Exists(fileFolder))
                 System.IO.Directory.CreateDirectory(fileFolder);

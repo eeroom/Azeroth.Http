@@ -69,6 +69,8 @@
     <Content Include="jQuey\jquery-1.9.1.js" />
     <Content Include="jQuey\jquery-1.9.1.min.js" />
     <Content Include="Readme.html" />
+    <Content Include="spark-md5\spark-md5.js" />
+    <Content Include="spark-md5\spark-md5.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +92,9 @@
     <Content Include="jQuey\jquery-1.11.3.min.map" />
     <Content Include="jQuey\jquery-1.9.1.min.map" />
     <Content Include="Upload.ashx" />
+    <Content Include="spark-md5\LICENSE" />
+    <Content Include="spark-md5\package.json" />
+    <Content Include="spark-md5\README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -97,6 +102,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
