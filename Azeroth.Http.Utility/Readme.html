@@ -9,7 +9,7 @@
     <p><a href="Download02.ashx">1、边打包边下载</a></p>
     <p><a href="Download.ashx">2、http响应头兼容ie,firefox,chrome。中文文件名不乱码</a></p>
     <div>
-        <p>3、分片上传</p>
+        <p>3、分片上传,（查看控制台日志）</p>
         <input type="file"  name="SprieContent" value="选择文件"  />
     </div>
     <p>3、浏览器计算md5</p>
@@ -23,9 +23,35 @@
                 var fileList = target.files;
                 var file = fileList[0];
                 console.log("file", file);
-                
+                var chunkSize = 1024*10;//50MB
+                var start = 0;
+                uploadfilebychunk(file, start, chunkSize);
             });
         });
+
+        function uploadfilebychunk(file, start, chunkSize) {
+            if (start > file.size)
+                return;
+            var data = file.slice(start, start + chunkSize);
+            var formdata = new FormData();
+            formdata.append("fileItem", data, file.name);
+            formdata.append("start", start);
+            formdata.append("size", file.size);
+            $.ajax({
+                "method": "POST",
+                "url": "/Upload.ashx",
+                "data": formdata,
+                "processData": false,
+                "contentType": false
+            }).then(function () {
+                window.setTimeout(function (parameter) {
+                    console.log("setTimeout");
+                    uploadfilebychunk(parameter.file, parameter.start, parameter.chunkSize);
+                }, 10, { "file": file, "start": start + chunkSize, "chunkSize": chunkSize });
+            }).fail(function () {
+                console.log("发生错误", arguments);
+            });
+        }
     </script>
 </body>
 </html>

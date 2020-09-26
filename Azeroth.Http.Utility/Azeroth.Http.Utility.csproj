@@ -79,6 +79,9 @@
       <DependentUpon>Download02.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Upload.ashx.cs">
+      <DependentUpon>Upload.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Download.ashx" />
@@ -86,6 +89,7 @@
     <Content Include="packages.config" />
     <Content Include="jQuey\jquery-1.11.3.min.map" />
     <Content Include="jQuey\jquery-1.9.1.min.map" />
+    <Content Include="Upload.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
