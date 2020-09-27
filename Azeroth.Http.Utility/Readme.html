@@ -21,19 +21,36 @@
     <script type="text/javascript">
         $(function () {
             $("input[name='sliceUpload']").change(function (sender) {
-                console.log("fileChange", arguments);
-                var target = sender.currentTarget || sender.target;
-                console.log("fileList", target.files);
-                var fileList = target.files;
-                var file = fileList[0];
+                var file = this.files[0];
                 console.log("file", file);
-                var chunkSize = 1024*1024*50;//50MB
-                var start = 0;
-                uploadfilebychunk(file, start, chunkSize);
+                var chunkSize = 1024 * 1024 * 50,
+                    start = 0,
+                    reader = new FileReader();
+                reader.onload = function (sender) {
+                    var formdata = new FormData();
+                    formdata.append("entity", new File([sender.target.result], file.name), file.name);
+                    formdata.append("size", file.size);
+                    formdata.append("start", start);
+                    $.ajax({
+                        "method": "POST",
+                        "url": "/Upload.ashx",
+                        "data": formdata,
+                        "processData": false,
+                        "contentType": false
+                    }).then(function () {
+                        start = start + chunkSize;
+                        if (start > file.size)
+                            return;
+                        reader.readAsArrayBuffer(file.slice(start, start + chunkSize));
+                    }).fail(function () {
+                        console.log("发生错误", arguments);
+                    });
+                }
+                reader.readAsArrayBuffer(file.slice(start, start + chunkSize));
+                //uploadfilebychunk(file, start, chunkSize);//这个方式在火狐65版本有bug,内存占用不释放
             });
 
             $("input[name='calMd5']").change(function () {
-                
                 console.log("calMd5");
                 var blobSlice = File.prototype.slice || File.prototype.mozSlice || File.prototype.webkitSlice,
                     file = this.files[0],
@@ -73,8 +90,6 @@
         });
 
         function uploadfilebychunk(file, start, chunkSize) {
-            if (start > file.size)
-                return;
             var data = file.slice(start, start + chunkSize);
             var formdata = new FormData();
             formdata.append("fileItem", data, file.name);
@@ -87,13 +102,11 @@
                 "processData": false,
                 "contentType": false
             }).then(function () {
-                data = null;
-                window.setTimeout(function (parameter) {
-                    console.log("setTimeout");
-                    uploadfilebychunk(parameter.file, parameter.start, parameter.chunkSize);
-                }, 10, { "file": file, "start": start + chunkSize, "chunkSize": chunkSize });
+                start = start + chunkSize;
+                if (start > file.size)
+                    return;
+                uploadfilebychunk(file, start, chunkSize);
             }).fail(function () {
-                data = null;
                 console.log("发生错误", arguments);
             });
         }
