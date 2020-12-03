@@ -61,19 +61,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Client.aspx" />
-    <Content Include="Default.html" />
+    <Content Include="Index.html" />
     <Content Include="Home.svc" />
-    <Content Include="Web.config" />
+    <Content Include="服务器和证书设置.png" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client.aspx.cs">
-      <DependentUpon>Client.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Client.aspx.designer.cs">
-      <DependentUpon>Client.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Home.svc.cs">
       <DependentUpon>Home.svc</DependentUpon>
     </Compile>
@@ -82,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="WCH.pfx2" />
+    <Content Include="Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -104,7 +97,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50698</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/WcfTwoWayAuthentication</IISUrl>
+          <IISUrl>https://localhost/WcfTwoWayAuthentication</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

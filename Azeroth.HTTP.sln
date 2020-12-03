@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azeroth.SignalR", "Azeroth.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azeroth.Http.Utility", "Azeroth.Http.Utility\Azeroth.Http.Utility.csproj", "{020E50FA-2472-422A-8AAF-C4E5F8DCFC6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfTwoWayAuthenticationClient", "WcfTwoWayAuthenticationClient\WcfTwoWayAuthenticationClient.csproj", "{5E51F407-EAFF-492D-BC08-59C0626FFEFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{020E50FA-2472-422A-8AAF-C4E5F8DCFC6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{020E50FA-2472-422A-8AAF-C4E5F8DCFC6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{020E50FA-2472-422A-8AAF-C4E5F8DCFC6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E51F407-EAFF-492D-BC08-59C0626FFEFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E51F407-EAFF-492D-BC08-59C0626FFEFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E51F407-EAFF-492D-BC08-59C0626FFEFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E51F407-EAFF-492D-BC08-59C0626FFEFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
