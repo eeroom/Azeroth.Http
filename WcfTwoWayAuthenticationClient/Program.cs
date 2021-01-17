@@ -12,7 +12,7 @@ namespace WcfTwoWayAuthenticationClient
         {
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls;
             System.Net.ServicePointManager.ServerCertificateValidationCallback = (x, y, z, a) => true;
-            using (var factory = new System.ServiceModel.ChannelFactory<IHome>("wch"))
+            using (var factory = new System.ServiceModel.Web.WebChannelFactory<IHome>("wch"))
             {
                 var client = factory.CreateChannel();
 
@@ -27,4 +27,5 @@ namespace WcfTwoWayAuthenticationClient
         [OperationContract]
         string DoWork();
     }
+
 }
