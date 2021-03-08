@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过下列特性集
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("Azeroth.Http.Utility")]
+[assembly: AssemblyTitle("Azeroth.Http.Util")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Azeroth.Http.Utility")]
+[assembly: AssemblyProduct("Azeroth.Http.Util")]
 [assembly: AssemblyCopyright("版权所有(C)  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

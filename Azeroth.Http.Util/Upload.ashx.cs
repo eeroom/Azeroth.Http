@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Azeroth.Http.Utility
+namespace Azeroth.Http.Util
 {
     /// <summary>
     /// Upload 的摘要说明

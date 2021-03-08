@@ -29,7 +29,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azeroth.WcfTwoWayAuthentica
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azeroth.SignalR", "Azeroth.SignalR\Azeroth.SignalR.csproj", "{8090842D-B9B0-46B8-BBB0-16E42A1B101C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azeroth.Http.Utility", "Azeroth.Http.Utility\Azeroth.Http.Utility.csproj", "{020E50FA-2472-422A-8AAF-C4E5F8DCFC6E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azeroth.Http.Util", "Azeroth.Http.Util\Azeroth.Http.Util.csproj", "{020E50FA-2472-422A-8AAF-C4E5F8DCFC6E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfTwoWayAuthenticationClient", "WcfTwoWayAuthenticationClient\WcfTwoWayAuthenticationClient.csproj", "{5E51F407-EAFF-492D-BC08-59C0626FFEFB}"
 EndProject
