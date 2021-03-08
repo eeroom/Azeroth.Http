@@ -11,7 +11,10 @@ namespace Azeroth.WcfRestful
         {
             var context = System.ServiceModel.Web.WebOperationContext.Current;
             //每次的响应都需要添加这个响应头，否则js取不到响应的数据
-            context.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
+            //*号不能传cookie
+            //context.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
+            var headerOrigin = context.IncomingRequest.Headers["Origin"];
+            context.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", headerOrigin);
         }
         public void OptionsHandler()
         {
@@ -20,7 +23,10 @@ namespace Azeroth.WcfRestful
             //context.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
             context.OutgoingResponse.Headers.Add("Access-Control-Allow-Methods", "GET, POST, PUT");
             context.OutgoingResponse.Headers.Add("Access-Control-Max-Age", "1728000");
-            context.OutgoingResponse.Headers.Add("Access-Control-Allow-Headers", "content-type");
+            //这个allow header，高版本火狐有x-request-header
+            //context.OutgoingResponse.Headers.Add("Access-Control-Allow-Headers", "content-type");
+            string headerAllow = context.IncomingRequest.Headers["Access-Control-Request-Headers"];
+            context.OutgoingResponse.Headers.Add("Access-Control-Allow-Headers", headerAllow);
 
         }
     }
