@@ -10,7 +10,10 @@
     <p><a href="Download.ashx">2、http响应头兼容ie,firefox,chrome。中文文件名不乱码</a></p>
     <div>
         <p>3、分片上传,（查看控制台日志，修改配置文件，服务端存在上传文件的大小上限配置）</p>
-        <input type="file"  name="sliceUpload" value="选择文件"  />
+        <input type="file"  name="chunkUpload" value="选择文件"  />
+        <ul id="lstUploadFile">
+
+        </ul>
     </div>
     <div>
         <p>3、浏览器计算md5（查看控制台日志）</p>
@@ -20,41 +23,38 @@
     <script src="spark-md5/spark-md5.js"></script>
     <script type="text/javascript">
         $(function () {
-            $("input[name='sliceUpload']").change(function (sender) {
+            $("input[name='chunkUpload']").change(function (sender) {
                 var file = this.files[0];
-                console.log("file", file);
-                var chunkSize = 1024 * 1024 * 50,
-                    start = 0,
-                    reader = new FileReader();
-                reader.onload = function (sender) {
-                    var formdata = new FormData();
-                    formdata.append("entity", new File([sender.target.result], file.name), file.name);
-                    formdata.append("size", file.size);
-                    formdata.append("start", start);
-                    $.ajax({
-                        "method": "POST",
-                        "url": "/Upload.ashx",
-                        "data": formdata,
-                        "processData": false,
-                        "contentType": false
-                    }).then(function () {
-                        start = start + chunkSize;
-                        if (start > file.size)
-                            return;
-                        reader.readAsArrayBuffer(file.slice(start, start + chunkSize));
-                    }).fail(function () {
-                        console.log("发生错误", arguments);
-                    });
-                }
-                reader.readAsArrayBuffer(file.slice(start, start + chunkSize));
-                //uploadfilebychunk(file, start, chunkSize);//这个方式在火狐65版本有bug,内存占用不释放
+                var chunkSize = 1024 * 1024 * 20;
+                var elfile = $("<li></li>");
+                $("<span></span>").html(file.name + "上传进度：").appendTo(elfile);
+                var eljd = $("<span></span>");
+                eljd.appendTo(elfile);
+                $("<span></span>").html("%").appendTo(elfile);
+                elfile.appendTo("#lstUploadFile");
+                uploadFileByChunk(file, "Upload.ashx", {
+                    chunkSize,
+                    completeHandler: function (opt, resdata) {
+                        eljd.html(100);
+                        console.log("上传成功");
+                    },
+                    uploadingHandler: function (opt, resdata) {
+                        eljd.html(parseInt(100.0 * opt.position / file.size));
+                        console.log("正在上传");
+                    },
+                    errorHandler: function (opt,resdata) {
+                        eljd.html("发生错误");
+                    }
+                })
+                
+                
             });
 
             $("input[name='calMd5']").change(function () {
                 console.log("calMd5");
                 var blobSlice = File.prototype.slice || File.prototype.mozSlice || File.prototype.webkitSlice,
                     file = this.files[0],
-                    chunkSize = 1024 * 1024 * 50,                             // Read in chunks of 2MB
+                    chunkSize = 1024 * 1024 * 1,                             // Read in chunks of 2MB
                     chunks = Math.ceil(file.size / chunkSize),
                     currentChunk = 0,
                     spark = new SparkMD5.ArrayBuffer(),
@@ -89,25 +89,31 @@
             })
         });
 
-        function uploadfilebychunk(file, start, chunkSize) {
-            var data = file.slice(start, start + chunkSize);
+        //opt:{formadataHandler, chunkSize,completeHandler,errorHandler,uploadingHandler}
+        function uploadFileByChunk(file, url, opt) {
+            opt.position = opt.position || 0;
+            var buffer = file.slice(opt.position, opt.position + opt.chunkSize);
             var formdata = new FormData();
-            formdata.append("fileItem", data, file.name);
-            formdata.append("start", start);
-            formdata.append("size", file.size);
+            formdata.append("FileEntity", buffer, file.name);
+            formdata.append("Position", opt.position);
+            formdata.append("FileSize", file.size);
+            opt.formadataHandler && opt.formadataHandler(formdata);
             $.ajax({
                 "method": "POST",
-                "url": "/Upload.ashx",
+                "url": url,
                 "data": formdata,
                 "processData": false,
                 "contentType": false
-            }).then(function () {
-                start = start + chunkSize;
-                if (start > file.size)
+            }).then(function (resdata) {
+                opt.position = opt.position + opt.chunkSize;
+                if (opt.position >= file.size) {
+                    opt.completeHandler(opt, resdata);
                     return;
-                uploadfilebychunk(file, start, chunkSize);
-            }).fail(function () {
-                console.log("发生错误", arguments);
+                }
+                opt.uploadingHandler(opt,resdata);
+                uploadFileByChunk(file, url, opt);
+            }).fail(function (resdata) {
+                opt.errorHandler(file,url,opt);
             });
         }
     </script>
