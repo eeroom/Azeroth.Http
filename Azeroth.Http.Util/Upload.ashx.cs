@@ -17,10 +17,13 @@ namespace Azeroth.Http.Util
                 throw new ArgumentException("必须指定上传的文件内容");
             long Position = long.Parse(context.Request["Position"]);
             long FileSize = long.Parse(context.Request["FileSize"]);
-            var fileFolder= context.Server.MapPath("/UploadFiles");
+            string fullName = context.Request["WebkitRelativePath"] ?? context.Request.Files[0].FileName;
+            var rootFolder= context.Server.MapPath("/UploadFiles");
+            var filePath = System.IO.Path.Combine(rootFolder, fullName);
+            var fileFolder = System.IO.Path.GetDirectoryName(filePath);
             if (!System.IO.Directory.Exists(fileFolder))
                 System.IO.Directory.CreateDirectory(fileFolder);
-            var filePath = System.IO.Path.Combine(fileFolder,   context.Request.Files[0].FileName);
+            
             using (var filestream=new System.IO.FileStream(filePath, System.IO.FileMode.OpenOrCreate))
             {
                 filestream.Position = Position;

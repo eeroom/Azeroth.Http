@@ -10,7 +10,8 @@
     <p><a href="Download.ashx">2、http响应头兼容ie,firefox,chrome。中文文件名不乱码</a></p>
     <div>
         <p>3、分片上传,（查看控制台日志，修改配置文件，服务端存在上传文件的大小上限配置）</p>
-        <input type="file"  name="chunkUpload" value="选择文件"  />
+        <input type="file"  name="chunkUpload" value="选择文件"  placeholder="选择文件" />
+        <input type="file" name="chunkUploadDir" value="选择文件夹" placeholder="选择文件夹" webkitdirectory />
         <ul id="lstUploadFile">
 
         </ul>
@@ -49,7 +50,46 @@
                 
                 
             });
-
+            $("input[name='chunkUploadDir']").change(function (sender) {
+                var lstFile = $.makeArray(this.files);
+                var lstFileWrapper=  $.map(lstFile, function (file,index) {
+                    var elfile = $("<li></li>");
+                    $("<span></span>").html((file.webkitRelativePath || file.name) + "上传进度：").appendTo(elfile);
+                    var eljd = $("<span></span>");
+                    eljd.appendTo(elfile);
+                    $("<span></span>").html("%").appendTo(elfile);
+                    elfile.appendTo("#lstUploadFile");
+                    return { file, eljd };
+                })
+                console.log("lstFileWrapper", lstFileWrapper);
+                var uploadHandler = function () {
+                    var fileWrapper = lstFileWrapper.shift();
+                    if (!fileWrapper)
+                        return;
+                    var chunkSize = 100;
+                    var file = fileWrapper.file;
+                    var eljd = fileWrapper.eljd;
+                    uploadFileByChunk(file, "Upload.ashx", {
+                        chunkSize,
+                            completeHandler: function (opt, resdata) {
+                                eljd.html(100);
+                                console.log("上传成功");
+                                uploadHandler();
+                            },
+                        uploadingHandler: function (opt, resdata) {
+                            eljd.html(parseInt(100.0 * opt.position / file.size));
+                            console.log("正在上传");
+                        },
+                        errorHandler: function (opt, resdata) {
+                            eljd.html("发生错误");
+                            uploadHandler();
+                        }
+                    })
+                }
+                for (var i = 0; i < 3; i++) {
+                    uploadHandler();
+                }
+            });
             $("input[name='calMd5']").change(function () {
                 console.log("calMd5");
                 var blobSlice = File.prototype.slice || File.prototype.mozSlice || File.prototype.webkitSlice,
@@ -97,6 +137,7 @@
             formdata.append("FileEntity", buffer, file.name);
             formdata.append("Position", opt.position);
             formdata.append("FileSize", file.size);
+            formdata.append("WebkitRelativePath", file.webkitRelativePath);
             opt.formadataHandler && opt.formadataHandler(formdata);
             $.ajax({
                 "method": "POST",
