@@ -71,6 +71,7 @@
     <Content Include="Readme.html" />
     <Content Include="spark-md5\spark-md5.js" />
     <Content Include="spark-md5\spark-md5.min.js" />
+    <Content Include="klzUploader.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
