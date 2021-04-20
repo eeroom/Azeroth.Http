@@ -6,30 +6,32 @@
     <meta charset="utf-8" />
 </head>
 <body>
-    <p><a href="Download02.ashx">1、边打包边下载</a></p>
-    <p><a href="Download.ashx">2、http响应头兼容ie,firefox,chrome。中文文件名不乱码</a></p>
-    <div>
-        <p>3、分片上传,（查看控制台日志，修改配置文件，服务端存在上传文件的大小上限配置）</p>
-        <input type="file"  name="chunkUpload" value="选择文件"  placeholder="选择文件" />
-        <input type="file" name="chunkUploadDir" value="选择文件夹" placeholder="选择文件夹" webkitdirectory />
-        <ul id="lstUploadFile">
-
-        </ul>
-    </div>
-    <div>
-        <p>3、浏览器计算md5（查看控制台日志）</p>
-        <input type="file" name="calMd5" value="选择文件" />
-    </div>
-    <p><a href="Download03.ashx">浏览器下载，断点续传</a></p>
+    <ol>
+        <li>
+            <p>浏览器计算md5（查看控制台日志）</p>
+            <input type="file" name="calMd5" value="选择文件" />
+        </li>
+        <li><a href="Download02.ashx">边打包边下载，无进度</a></li>
+        <li><a href="Download.ashx">下载文件名中文不乱码，兼容ie,firefox,chrome</a></li>
+        <li><a href="Download03.ashx">浏览器下载，下载进度，断点续传</a></li>
+        <li>
+            <div>
+                <p>多文件多任务分片上传</p>
+                <input type="file" name="chunkUpload" value="选择文件" placeholder="选择文件" multiple />
+                <input type="file" name="chunkUploadDir" value="选择文件夹" placeholder="选择文件夹" webkitdirectory />
+                <ul id="lstUploadFile"></ul>
+            </div>
+        </li>
+    </ol>
     <script src="jQuey/jquery-1.11.3.js"></script>
     <script src="spark-md5/spark-md5.js"></script>
     <script src="klzUploader.js"></script>
     <script type="text/javascript">
         $(function () {
             var uploader = new klzUploader({
-                maxTaskCount:1,
-                url:"Upload.ashx",
-                chunkSize:1024*1024,
+                maxTaskCount: 1,
+                url: "Upload.ashx",
+                chunkSize: 1024 * 1024,
                 completeHandler: function (opt, resdata, options) {
                     opt.fileWrapper.eljd.html(100);
                     console.log("上传成功");
@@ -42,8 +44,9 @@
                     opt.fileWrapper.eljd.html("发生错误");
                 }
             });
-            $("input[name='chunkUpload']").change(function (sender) {
-                $.each(this.files, function (index, file) {
+            
+            function uploadHandler(files) {
+                $.each(files, function (index, file) {
                     var elfile = $("<li></li>");
                     $("<span></span>").html((file.webkitRelativePath || file.name) + "上传进度：").appendTo(elfile);
                     var eljd = $("<span></span>");
@@ -52,17 +55,12 @@
                     elfile.appendTo("#lstUploadFile");
                     uploader.send({ file, eljd });
                     });
+            }
+            $("input[name='chunkUpload']").change(function (sender) {
+                uploadHandler(this.files);
             });
             $("input[name='chunkUploadDir']").change(function (sender) {
-                $.each(this.files, function (index, file) {
-                    var elfile = $("<li></li>");
-                    $("<span></span>").html((file.webkitRelativePath || file.name) + "上传进度：").appendTo(elfile);
-                    var eljd = $("<span></span>");
-                    eljd.appendTo(elfile);
-                    $("<span></span>").html("%").appendTo(elfile);
-                    elfile.appendTo("#lstUploadFile");
-                    uploader.send({ file, eljd });
-                });
+                uploadHandler(this.files);
             });
             $("input[name='calMd5']").change(function () {
                 console.log("calMd5");
@@ -73,6 +71,11 @@
                     currentChunk = 0,
                     spark = new SparkMD5.ArrayBuffer(),
                     fileReader = new FileReader();
+                function loadNext() {
+                    var start = currentChunk * chunkSize,
+                        end = ((start + chunkSize) >= file.size) ? file.size : start + chunkSize;
+                    fileReader.readAsArrayBuffer(blobSlice.call(file, start, end));
+                }
 
                 fileReader.onload = function (e) {
                     console.log('read chunk nr', currentChunk + 1, 'of', chunks);
@@ -91,19 +94,9 @@
                     console.warn('oops, something went wrong.');
                 };
 
-                function loadNext() {
-                    var start = currentChunk * chunkSize,
-                        end = ((start + chunkSize) >= file.size) ? file.size : start + chunkSize;
-
-                    fileReader.readAsArrayBuffer(blobSlice.call(file, start, end));
-                }
-
                 loadNext();
-
             })
         });
-
-        
     </script>
 </body>
 </html>
