@@ -17,7 +17,8 @@ namespace Azeroth.Http.Util
                 throw new ArgumentException("必须指定上传的文件内容");
             long Position = long.Parse(context.Request["Position"]);
             long FileSize = long.Parse(context.Request["FileSize"]);
-            string fullName = context.Request["WebkitRelativePath"] ?? context.Request.Files[0].FileName;
+            string fullName = context.Request["WebkitRelativePath"];
+            fullName = String.IsNullOrWhiteSpace(fullName) ? context.Request.Files[0].FileName : fullName;
             var rootFolder= context.Server.MapPath("/UploadFiles");
             var filePath = System.IO.Path.Combine(rootFolder, fullName);
             var fileFolder = System.IO.Path.GetDirectoryName(filePath);
