@@ -16,9 +16,9 @@ namespace Azeroth.Http.Util
             context.Response.ContentType = "application/octet-stream";
             //这涉及RFC标准
             context.Response.AddHeader("Content-Disposition", "attachment;filename*=utf-8'zh_cn'"+context.Server.UrlEncode("测试文件a下载1.txt"));
-            using (var fs=new System.IO.FileStream(context.Server.MapPath("Readme.html"), System.IO.FileMode.Open))
-            {
-                fs.CopyTo(context.Response.OutputStream);
+            using (var writer=new System.IO.StreamWriter(context.Response.OutputStream)) {
+                writer.WriteLine("hello world");
+                writer.WriteLine("hello world22222222");
             }
             context.Response.End();
 

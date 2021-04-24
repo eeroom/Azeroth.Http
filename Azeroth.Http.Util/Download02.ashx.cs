@@ -17,7 +17,7 @@ namespace Azeroth.Http.Util
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "application/octet-stream";
-            context.Response.AddHeader("Content-Disposition", "attachment;filename=code.zip");
+            context.Response.AddHeader("Content-Disposition", "attachment;filename=Azeroth.Http.Util.zip");
             
             ICSharpCode.SharpZipLib.Zip.ZipOutputStream zipStream = 
                 new ICSharpCode.SharpZipLib.Zip.ZipOutputStream(context.Response.OutputStream);
@@ -30,9 +30,10 @@ namespace Azeroth.Http.Util
                 zipStream.PutNextEntry(new ICSharpCode.SharpZipLib.Zip.ZipEntry(entryName));
                 using (var fs=System.IO.File.Open(filePath, System.IO.FileMode.Open))
                 {
-                    var buffer = new byte[81920];
+                    var bufferSize = 80 * 1024;
+                    var buffer = new byte[bufferSize];
                     int length = -1;
-                    while ((length=fs.Read(buffer,0,81920))>0)
+                    while ((length=fs.Read(buffer,0, bufferSize))>0)
                     {
                         zipStream.Write(buffer, 0, length);
                         context.Response.Flush();
