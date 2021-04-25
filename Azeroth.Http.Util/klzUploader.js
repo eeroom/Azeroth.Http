@@ -14,7 +14,7 @@ function klzUploader(options) {
         formdata.append("FileEntity", buffer, opt.fileWrapper.file.name);
         formdata.append("Position", opt.position);
         formdata.append("FileSize", opt.fileWrapper.file.size);
-        formdata.append("WebkitRelativePath", opt.fileWrapper.file.webkitRelativePath);
+        formdata.append("WebkitRelativePath", opt.fileWrapper.file.webkitRelativePath||"");
         opt.formadataHandler && opt.formadataHandler(formdata, opt);
         $.ajax({
             "method": "POST",
@@ -46,18 +46,21 @@ function klzUploader(options) {
             }
             return;
         }
+        runingTaskCount++;
         uploadFileByChunk({
-            fileWrapper,
+            fileWrapper: fileWrapper,
                 url: options.url,
             formadataHandler: options.formadataHandler,
             chunkSize: options.chunkSize,
             completeHandler: function (opt, resdata) {
+                runingTaskCount--;
                 options.completeHandler(opt, resdata, options);
                 var tmp = lstFileWrapper.shift();
                 if (tmp)
                     uploader.send(tmp);
             },
             errorHandler: function (opt, resdata) {
+                runingTaskCount--;
                 options.errorHandler(opt, resdata, options);
                 var tmp = lstFileWrapper.shift();
                 if (tmp)

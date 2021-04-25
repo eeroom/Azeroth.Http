@@ -30,9 +30,9 @@
     <script type="text/javascript">
         $(function () {
             var uploader = new klzUploader({
-                maxTaskCount: 1,
+                maxTaskCount: 3,
                 url: "Upload.ashx",
-                chunkSize: 1024 * 1024,
+                chunkSize: 40 * 1024,
                 completeHandler: function (opt, resdata, options) {
                     opt.fileWrapper.eljd.html(100);
                     console.log("上传成功");
@@ -54,7 +54,7 @@
                     eljd.appendTo(elfile);
                     $("<span></span>").html("%").appendTo(elfile);
                     elfile.appendTo("#lstUploadFile");
-                    uploader.send({ file, eljd });
+                    uploader.send({ file: file, eljd: eljd });
                     });
             }
             $("input[name='chunkUpload']").change(function (sender) {
