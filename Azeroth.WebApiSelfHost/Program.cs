@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Net.Http;
-namespace Azeroth.WebApiSelfHost
+namespace SelfHostApi
 {
     class Program
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Azeroth.WebApi
+namespace KlzApi
 {
     public class UserInfo
     {

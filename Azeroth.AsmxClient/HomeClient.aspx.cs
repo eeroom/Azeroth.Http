@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Azeroth.AsmxClient
+namespace AsmxDemo
 {
     public partial class HomeClient : System.Web.UI.Page
     {

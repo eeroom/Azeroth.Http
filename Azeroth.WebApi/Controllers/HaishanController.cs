@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Net.Http;
-namespace Azeroth.WebApi.Controllers
+namespace KlzApi.Controllers
 {
     public abstract class HaishanController:ApiController
     {

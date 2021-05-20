@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Nancy;
-namespace Azeroth.WebApiNancy
+namespace NancyApi
 {
     public class HomeModule:NancyModule
     {

@@ -7,8 +7,8 @@
     <ProjectGuid>{75FBC2A0-F2BF-4A7B-9ACA-4884A8463E0A}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Azeroth.WebformSelfHost</RootNamespace>
-    <AssemblyName>Azeroth.WebformSelfHost</AssemblyName>
+    <RootNamespace>SelfHostWebform</RootNamespace>
+    <AssemblyName>SelfHostWebform</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

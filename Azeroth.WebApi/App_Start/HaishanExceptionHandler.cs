@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Net.Http;
 using System.Web.Http;
-namespace Azeroth.WebApi
+namespace KlzApi
 {
     public class HaishanExceptionHandler : System.Web.Http.Filters.IExceptionFilter
     {

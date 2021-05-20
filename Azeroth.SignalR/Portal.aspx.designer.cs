@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Azeroth.SignalR {
+namespace SignalRDemo {
     
     
     public partial class Portal {

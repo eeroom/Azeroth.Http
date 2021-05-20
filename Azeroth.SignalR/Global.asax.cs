@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
 
-namespace Azeroth.SignalR
+namespace SignalRDemo
 {
     public class Global : System.Web.HttpApplication
     {

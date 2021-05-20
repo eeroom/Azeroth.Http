@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Azeroth.SignalR
+namespace SignalRDemo
 {
     public class LolHub : Microsoft.AspNet.SignalR.Hub
     {

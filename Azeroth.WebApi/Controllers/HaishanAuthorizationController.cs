@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 
-namespace Azeroth.WebApi.Controllers
+namespace KlzApi.Controllers
 {
     [HaishanAuthorizationFilter]
     public abstract class HaishanAuthorizationController : HaishanController

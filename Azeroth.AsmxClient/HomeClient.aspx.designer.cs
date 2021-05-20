@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Azeroth.AsmxClient {
+namespace AsmxDemo {
     
     
     public partial class HomeClient {

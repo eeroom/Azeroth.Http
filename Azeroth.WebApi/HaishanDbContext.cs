@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
-namespace Azeroth.WebApi
+namespace KlzApi
 {
     public class HaishanDbContext : System.Data.Entity.DbContext,IScoped
     {

@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http.Controllers;
 
-namespace Azeroth.WebApi
+namespace KlzApi
 {
     public class HaishanActionFilter : System.Web.Http.Filters.IActionFilter
     {

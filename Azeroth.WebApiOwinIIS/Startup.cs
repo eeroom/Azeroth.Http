@@ -6,8 +6,8 @@ using System.Web.Http;
 using System.Net.Http;
 using Owin;
 using Microsoft.Web.Http;
-[assembly: Microsoft.Owin.OwinStartup(typeof(Azeroth.WebApiOwinIIS.Startup))]
-namespace Azeroth.WebApiOwinIIS
+[assembly: Microsoft.Owin.OwinStartup(typeof(KlzOwinApi.Startup))]
+namespace KlzOwinApi
 {
     public class Startup
     {

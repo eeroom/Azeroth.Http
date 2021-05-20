@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Portal.aspx.cs" Inherits="Azeroth.SignalR.Portal" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Portal.aspx.cs" Inherits="SignalRDemo.Portal" %>
 
 <!DOCTYPE html>
 

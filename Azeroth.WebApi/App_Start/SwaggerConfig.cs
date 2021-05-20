@@ -1,11 +1,11 @@
 using System.Web.Http;
 using WebActivatorEx;
-using Azeroth.WebApi;
+using KlzApi;
 using Swashbuckle.Application;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
-namespace Azeroth.WebApi
+namespace KlzApi
 {
     public class SwaggerConfig
     {
@@ -32,7 +32,7 @@ namespace Azeroth.WebApi
                         // hold additional metadata for an API. Version and title are required but you can also provide
                         // additional fields by chaining methods off SingleApiVersion.
                         //
-                        c.SingleApiVersion("v1", "Azeroth.WebApi");
+                        c.SingleApiVersion("v1", "KlzApi");
 
                         // If you want the output Swagger docs to be indented properly, enable the "PrettyPrint" option.
                         //

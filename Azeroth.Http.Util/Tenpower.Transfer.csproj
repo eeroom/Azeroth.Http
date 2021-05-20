@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{ABC3C937-487A-43E1-B808-3074452E9121}</ProjectGuid>
+    <ProjectGuid>{020E50FA-2472-422A-8AAF-C4E5F8DCFC6E}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Azeroth.AsmxClient</RootNamespace>
-    <AssemblyName>Azeroth.AsmxClient</AssemblyName>
+    <RootNamespace>Tenpower.Transfer</RootNamespace>
+    <AssemblyName>Tenpower.Transfer</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -39,6 +39,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -58,27 +62,44 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Home.asmx" />
-    <Content Include="HomeClient.aspx" />
+    <Content Include="Download03.ashx" />
+    <None Include="jQuey\jquery-1.11.3.intellisense.js" />
+    <Content Include="jQuey\jquery-1.11.3.js" />
+    <Content Include="jQuey\jquery-1.11.3.min.js" />
+    <None Include="jQuey\jquery-1.9.1.intellisense.js" />
+    <Content Include="jQuey\jquery-1.9.1.js" />
+    <Content Include="jQuey\jquery-1.9.1.min.js" />
+    <Content Include="Readme.html" />
+    <Content Include="spark-md5\spark-md5.js" />
+    <Content Include="spark-md5\spark-md5.min.js" />
+    <Content Include="klzUploader.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AsmxClientProxy.cs" />
-    <Compile Include="Home.asmx.cs">
-      <DependentUpon>Home.asmx</DependentUpon>
-      <SubType>Component</SubType>
+    <Compile Include="Download.ashx.cs">
+      <DependentUpon>Download.ashx</DependentUpon>
     </Compile>
-    <Compile Include="HomeClient.aspx.cs">
-      <DependentUpon>HomeClient.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
+    <Compile Include="Download02.ashx.cs">
+      <DependentUpon>Download02.ashx</DependentUpon>
     </Compile>
-    <Compile Include="HomeClient.aspx.designer.cs">
-      <DependentUpon>HomeClient.aspx</DependentUpon>
+    <Compile Include="Download03.ashx.cs">
+      <DependentUpon>Download03.ashx</DependentUpon>
     </Compile>
-    <Compile Include="IHome.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Upload.ashx.cs">
+      <DependentUpon>Upload.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Download.ashx" />
+    <Content Include="Download02.ashx" />
+    <Content Include="packages.config" />
+    <Content Include="jQuey\jquery-1.11.3.min.map" />
+    <Content Include="jQuey\jquery-1.9.1.min.map" />
+    <Content Include="Upload.ashx" />
+    <Content Include="spark-md5\LICENSE" />
+    <Content Include="spark-md5\package.json" />
+    <Content Include="spark-md5\README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -86,6 +107,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -99,9 +121,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49755</DevelopmentServerPort>
+          <DevelopmentServerPort>50854</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49755/</IISUrl>
+          <IISUrl>http://localhost:50854/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

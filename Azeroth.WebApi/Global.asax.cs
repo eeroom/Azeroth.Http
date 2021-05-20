@@ -7,7 +7,7 @@ using System.Web.SessionState;
 using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
-namespace Azeroth.WebApi
+namespace KlzApi
 {
     public class Global : System.Web.HttpApplication
     {

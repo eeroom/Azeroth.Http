@@ -5,8 +5,8 @@ using System.Web;
 using Nancy;
 using Owin;
 using Nancy.Owin;
-[assembly: Microsoft.Owin.OwinStartup(typeof(Azeroth.WebApiNancy.Startup))]
-namespace Azeroth.WebApiNancy
+[assembly: Microsoft.Owin.OwinStartup(typeof(NancyApi.Startup))]
+namespace NancyApi
 {
     public class Startup
     {

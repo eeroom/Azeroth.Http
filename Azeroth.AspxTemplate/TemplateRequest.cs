@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Azeroth.AspxTemplate
+namespace AspxTemplate
 {
     /// <summary>
     /// 解决中文乱码

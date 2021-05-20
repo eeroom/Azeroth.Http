@@ -16,7 +16,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Azeroth.WebApi
+namespace KlzApi
 {
 <# manager.EndBlock(); #>
  

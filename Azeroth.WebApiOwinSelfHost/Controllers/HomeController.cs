@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace Azeroth.WebApiOwinSelfHost.Controllers
+namespace SelfHostOwinApi.Controllers
 {
     public class HomeController:ApiController
     {

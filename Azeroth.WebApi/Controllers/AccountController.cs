@@ -6,7 +6,7 @@ using System.Web.Http;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Http.Controllers;
 
-namespace Azeroth.WebApi.Controllers
+namespace KlzApi.Controllers
 {
     public class AccountController:HaishanController
     {

@@ -8,7 +8,7 @@ using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
 using System.Text;
 
-namespace Azeroth.WcfRestful
+namespace WcfRestful
 {
  public    class StormServiceBehavior : System.Attribute, System.ServiceModel.Description.IServiceBehavior
     {

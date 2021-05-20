@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Azeroth.WebApi
+namespace KlzApi
 {
     public partial class InspectStandardItem
     {

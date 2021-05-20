@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Azeroth.WcfRestful
+namespace WcfRestful
 {
     [System.ServiceModel.ServiceContract]
     public interface IUserInfo:ICrossDomainEnable

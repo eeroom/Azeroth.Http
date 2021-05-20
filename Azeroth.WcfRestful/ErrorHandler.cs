@@ -5,7 +5,7 @@ using System.ServiceModel.Channels;
 using System.Text;
 using System.Xml;
 
-namespace Azeroth.WcfRestful
+namespace WcfRestful
 {
     public class ErrorHandler : System.ServiceModel.Dispatcher.IErrorHandler
     {

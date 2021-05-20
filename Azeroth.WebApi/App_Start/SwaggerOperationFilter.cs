@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Http.Description;
 using Swashbuckle.Swagger;
 
-namespace Azeroth.WebApi
+namespace KlzApi
 {
     public class SwaggerOperationFilter : Swashbuckle.Swagger.IOperationFilter
     {

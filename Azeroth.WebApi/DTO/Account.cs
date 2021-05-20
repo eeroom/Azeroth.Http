@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
-namespace Azeroth.WebApi.DTO
+namespace KlzApi.DTO
 {
     public class LoginInput
     {

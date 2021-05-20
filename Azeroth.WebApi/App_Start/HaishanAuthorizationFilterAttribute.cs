@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Http.Controllers;
 using System.Web.Http;
 using System.Net.Http;
-namespace Azeroth.WebApi
+namespace KlzApi
 {
     public class HaishanAuthorizationFilterAttribute : System.Web.Http.Filters.AuthorizationFilterAttribute
     {

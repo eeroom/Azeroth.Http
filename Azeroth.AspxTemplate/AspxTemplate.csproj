@@ -7,8 +7,8 @@
     <ProjectGuid>{72F24378-AAB8-4357-987B-DE51722726D2}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Azeroth.AspxTemplate</RootNamespace>
-    <AssemblyName>Azeroth.AspxTemplate</AssemblyName>
+    <RootNamespace>AspxTemplate</RootNamespace>
+    <AssemblyName>AspxTemplate</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

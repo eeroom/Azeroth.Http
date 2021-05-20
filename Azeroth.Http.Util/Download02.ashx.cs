@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Azeroth.Http.Util
+namespace Tenpower.Transfer
 {
     /// <summary>
     /// Download02 的摘要说明
@@ -17,7 +17,7 @@ namespace Azeroth.Http.Util
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "application/octet-stream";
-            context.Response.AddHeader("Content-Disposition", "attachment;filename=Azeroth.Http.Util.zip");
+            context.Response.AddHeader("Content-Disposition", "attachment;filename=Tenpower.Transfer.zip");
             
             ICSharpCode.SharpZipLib.Zip.ZipOutputStream zipStream = 
                 new ICSharpCode.SharpZipLib.Zip.ZipOutputStream(context.Response.OutputStream);

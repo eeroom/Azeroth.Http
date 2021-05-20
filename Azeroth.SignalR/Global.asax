@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Azeroth.SignalR.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="SignalRDemo.Global" Language="C#" %>

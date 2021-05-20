@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 
-namespace Azeroth.AsmxClient
+namespace AsmxDemo
 {
     /// <summary>
     /// Home 的摘要说明
