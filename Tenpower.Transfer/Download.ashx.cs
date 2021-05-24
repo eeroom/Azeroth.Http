@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Tenpower.Transfer
+namespace Http.File
 {
     /// <summary>
     /// Dowanload 的摘要说明
