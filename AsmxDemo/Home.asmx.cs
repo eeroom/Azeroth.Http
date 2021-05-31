@@ -22,5 +22,17 @@ namespace AsmxDemo
         {
             return "Hello World"+a.ToString();
         }
+
+        [WebMethod]
+        public Student GetStudentById(int id) {
+            return new Student() { Age = 101, Name = Guid.NewGuid().ToString() };
+        }
+
+        [WebMethod]
+        public object[] Info() {
+            var lst= System.Linq.Enumerable.Range(0, 10).Select(x=>(object)x).ToList();
+            lst.Add("hello");
+            return lst.ToArray();
+        }
     }
 }
