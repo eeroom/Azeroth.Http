@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过下列特性集
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("VueDemo")]
+[assembly: AssemblyTitle("ITCast.React")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("VueDemo")]
+[assembly: AssemblyProduct("ITCast.React")]
 [assembly: AssemblyCopyright("版权所有(C)  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("5658790f-f896-4f5a-a67e-5a219d4a008d")]
+[assembly: Guid("0ab13a6e-13c9-489d-a8e6-d89697ea4977")]
 
 // 程序集的版本信息由下列四个值组成:
 //
