@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzOwinApi", "KlzOwinApi\Kl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfHostOwinApi", "SelfHostOwinApi\SelfHostOwinApi.csproj", "{AEF4FA91-1F68-4931-910C-D16F24B73C66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZamApi", "ZamApi\ZamApi.csproj", "{000EA1FF-F888-43FA-9736-8F687DF6665D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzApiNext", "KlzApiNext\KlzApiNext.csproj", "{000EA1FF-F888-43FA-9736-8F687DF6665D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NancyApi", "NancyApi\NancyApi.csproj", "{68DC7121-609E-4B2D-AE13-BAEEEAD9F36B}"
 EndProject

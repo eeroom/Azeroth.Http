@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace ZamApi
+namespace KlzApiNext
 {
     public class Startup : Microsoft.AspNetCore.Hosting.IStartup
     {

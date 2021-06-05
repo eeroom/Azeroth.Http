@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-namespace ZamApi.Controllers
+namespace KlzApiNext.Controllers
 {
     public class HomeController:ControllerBase
     {
