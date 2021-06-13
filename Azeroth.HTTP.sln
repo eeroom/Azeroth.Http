@@ -41,7 +41,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api和mvc(asp.net)", "api�
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api和mvc(aspnetcore)", "api和mvc(aspnetcore)", "{263089E2-A041-4A23-A776-118DC51C1B36}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api和mvc(console)", "api和mvc(console)", "{43FA8D23-FE8C-4C94-9DE3-BD40E0922384}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api和mvc(selfhost)", "api和mvc(selfhost)", "{43FA8D23-FE8C-4C94-9DE3-BD40E0922384}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "websocket", "websocket", "{8B264A6E-57F3-4251-AF1E-940B1F95D71B}"
 EndProject
