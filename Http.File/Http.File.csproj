@@ -62,13 +62,110 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bootstrap-table-1.11.1\bootstrap-table-locale-all.js" />
+    <Content Include="bootstrap-table-1.11.1\bootstrap-table-locale-all.min.js" />
+    <Content Include="bootstrap-table-1.11.1\bootstrap-table.css" />
+    <Content Include="bootstrap-table-1.11.1\bootstrap-table.js" />
+    <Content Include="bootstrap-table-1.11.1\bootstrap-table.min.css" />
+    <Content Include="bootstrap-table-1.11.1\bootstrap-table.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\accent-neutralise\bootstrap-table-accent-neutralise.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\accent-neutralise\bootstrap-table-accent-neutralise.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\angular\bootstrap-table-angular.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\angular\bootstrap-table-angular.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\auto-refresh\bootstrap-table-auto-refresh.css" />
+    <Content Include="bootstrap-table-1.11.1\extensions\auto-refresh\bootstrap-table-auto-refresh.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\auto-refresh\bootstrap-table-auto-refresh.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\click-edit-row\bootstrap-table-click-edit-row.css" />
+    <Content Include="bootstrap-table-1.11.1\extensions\click-edit-row\bootstrap-table-click-edit-row.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\click-edit-row\bootstrap-table-click-edit-row.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\cookie\bootstrap-table-cookie.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\cookie\bootstrap-table-cookie.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\copy-rows\bootstrap-table-copy-rows.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\copy-rows\bootstrap-table-copy-rows.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\editable\bootstrap-table-editable.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\editable\bootstrap-table-editable.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\export\bootstrap-table-export.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\export\bootstrap-table-export.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\filter-control\bootstrap-table-filter-control.css" />
+    <Content Include="bootstrap-table-1.11.1\extensions\filter-control\bootstrap-table-filter-control.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\filter-control\bootstrap-table-filter-control.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\filter\bootstrap-table-filter.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\filter\bootstrap-table-filter.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\flat-json\bootstrap-table-flat-json.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\flat-json\bootstrap-table-flat-json.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\group-by-v2\bootstrap-table-group-by.css" />
+    <Content Include="bootstrap-table-1.11.1\extensions\group-by-v2\bootstrap-table-group-by.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\group-by-v2\bootstrap-table-group-by.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\group-by\bootstrap-table-group-by.css" />
+    <Content Include="bootstrap-table-1.11.1\extensions\group-by\bootstrap-table-group-by.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\group-by\bootstrap-table-group-by.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\i18n-enhance\bootstrap-table-i18n-enhance.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\i18n-enhance\bootstrap-table-i18n-enhance.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\key-events\bootstrap-table-key-events.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\key-events\bootstrap-table-key-events.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\mobile\bootstrap-table-mobile.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\mobile\bootstrap-table-mobile.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\multi-column-toggle\bootstrap-table-multi-toggle.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\multi-column-toggle\bootstrap-table-multi-toggle.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\multiple-search\bootstrap-table-multiple-search.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\multiple-search\bootstrap-table-multiple-search.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\multiple-selection-row\bootstrap-table-multiple-selection-row.css" />
+    <Content Include="bootstrap-table-1.11.1\extensions\multiple-selection-row\bootstrap-table-multiple-selection-row.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\multiple-selection-row\bootstrap-table-multiple-selection-row.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\multiple-sort\bootstrap-table-multiple-sort.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\multiple-sort\bootstrap-table-multiple-sort.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\natural-sorting\bootstrap-table-natural-sorting.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\natural-sorting\bootstrap-table-natural-sorting.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\print\bootstrap-table-print.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\print\bootstrap-table-print.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\reorder-columns\bootstrap-table-reorder-columns.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\reorder-columns\bootstrap-table-reorder-columns.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\reorder-rows\bootstrap-table-reorder-rows.css" />
+    <Content Include="bootstrap-table-1.11.1\extensions\reorder-rows\bootstrap-table-reorder-rows.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\reorder-rows\bootstrap-table-reorder-rows.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\resizable\bootstrap-table-resizable.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\resizable\bootstrap-table-resizable.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\select2-filter\bootstrap-table-select2-filter.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\select2-filter\bootstrap-table-select2-filter.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\sticky-header\bootstrap-table-sticky-header.css" />
+    <Content Include="bootstrap-table-1.11.1\extensions\sticky-header\bootstrap-table-sticky-header.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\sticky-header\bootstrap-table-sticky-header.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\toolbar\bootstrap-table-toolbar.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\toolbar\bootstrap-table-toolbar.min.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\tree-column\bootstrap-table-tree-column.css" />
+    <Content Include="bootstrap-table-1.11.1\extensions\tree-column\bootstrap-table-tree-column.js" />
+    <Content Include="bootstrap-table-1.11.1\extensions\tree-column\bootstrap-table-tree-column.min.js" />
+    <Content Include="bootstrap-table-1.11.1\locale\bootstrap-table-zh-CN.js" />
+    <Content Include="bootstrap-table-1.11.1\locale\bootstrap-table-zh-CN.min.js" />
+    <Content Include="bootstrap-table-1.11.1\locale\bootstrap-table-zh-TW.js" />
+    <Content Include="bootstrap-table-1.11.1\locale\bootstrap-table-zh-TW.min.js" />
+    <Content Include="Bootstrap3.3.7\css\bootstrap-theme.css" />
+    <Content Include="Bootstrap3.3.7\css\bootstrap-theme.min.css" />
+    <Content Include="Bootstrap3.3.7\css\bootstrap.css" />
+    <Content Include="Bootstrap3.3.7\css\bootstrap.min.css" />
+    <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Bootstrap3.3.7\js\bootstrap.js" />
+    <Content Include="Bootstrap3.3.7\js\bootstrap.min.js" />
+    <Content Include="css\ie10-viewport-bug-workaround.css" />
+    <Content Include="css\layout-fluid.css" />
     <Content Include="Download03.ashx" />
+    <Content Include="Bootstrap3.3.7\config.json" />
+    <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="jQuey\jquery-1.11.3.intellisense.js" />
+    <Content Include="FileManager.aspx" />
     <Content Include="jQuey\jquery-1.11.3.js" />
     <Content Include="jQuey\jquery-1.11.3.min.js" />
     <None Include="jQuey\jquery-1.9.1.intellisense.js" />
     <Content Include="jQuey\jquery-1.9.1.js" />
     <Content Include="jQuey\jquery-1.9.1.min.js" />
+    <Content Include="js\html5shiv.min.js" />
+    <Content Include="js\ie-emulation-modes-warning.js" />
+    <Content Include="js\ie10-viewport-bug-workaround.js" />
+    <Content Include="js\ie8-responsive-file-warning.js" />
+    <Content Include="js\respond.min.js" />
     <Content Include="Readme.html" />
     <Content Include="spark-md5\spark-md5.js" />
     <Content Include="spark-md5\spark-md5.min.js" />
@@ -84,6 +181,13 @@
     </Compile>
     <Compile Include="Download03.ashx.cs">
       <DependentUpon>Download03.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="FileManager.aspx.cs">
+      <DependentUpon>FileManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FileManager.aspx.designer.cs">
+      <DependentUpon>FileManager.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Upload.ashx.cs">
