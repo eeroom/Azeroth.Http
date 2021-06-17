@@ -582,7 +582,7 @@
     <Content Include="jquery-easyui-1.5.2\themes\default\window.css" />
     <Content Include="jquery-easyui-1.5.2\themes\icon.css" />
     <Content Include="jquery-easyui-1.5.2\themes\mobile.css" />
-    <Content Include="抽屉.html" />
+    <Content Include="chouti.html" />
     <None Include="jQuey\jquery-1.11.3.intellisense.js" />
     <Content Include="jQuey\jquery-1.11.3.js" />
     <Content Include="jQuey\jquery-1.11.3.min.js" />
