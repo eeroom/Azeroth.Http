@@ -79,8 +79,7 @@
         }
 
         .panel-lst-filetask {
-            position: fixed;
-            width: 460px;
+            position: absolute;
             right: 20px;
             top: 70px;
             max-height: 600px;
@@ -121,9 +120,16 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+              </button>
                 <a class="navbar-brand" href="#">文件管理</a>
             </div>
-            <ul class="nav navbar-nav navbar-left">
+            <div id="navbar" class="navbar-collapse collapse">
+                 <ul class="nav navbar-nav navbar-left">
                 <li class="active"><a href="#">dashboard</a></li>
                 <li><a href="#">逆变器</a></li>
                 <li><a href="#">镇流器</a></li>
@@ -133,12 +139,14 @@
                 <li><a href="#">帮助</a></li>
                 <li><a href="#">eeroom</a></li>
             </ul>
+                </div>
+           
         </div>
     </nav>
 
     <div class="container">
         <div class="row">
-            <div class="col-md-20">
+            <div class="col-sm-18">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title" style="display:inline">文件列表</h3>
@@ -188,7 +196,9 @@
                 </div>
             </div>
         </div>
-        <div class="panel panel-default panel-lst-filetask">
+        <div class="row">
+            <div class="col-sm-6 hidden-xs panel-lst-filetask">
+                <div class="panel panel-default ">
             <!-- Default panel contents -->
             <div class="panel-heading">上传任务
                 <div class="pull-right">速度:5MB/秒;剩余大小:200MB</div>
@@ -234,6 +244,9 @@
 
             </ul>
         </div>
+            </div>
+        </div>
+        
 
     </div>
 
