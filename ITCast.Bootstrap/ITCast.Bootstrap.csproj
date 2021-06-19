@@ -147,7 +147,7 @@
     <Content Include="img\img10.jpg" />
     <Content Include="img\img11.jpg" />
     <Content Include="img\img12.jpg" />
-    <Content Include="Index.html" />
+    <Content Include="后台管理布局-fluid.html" />
     <Content Include="jquery-easyui-1.5.2\changelog.txt" />
     <Content Include="jquery-easyui-1.5.2\demo\accordion\actions.html" />
     <Content Include="jquery-easyui-1.5.2\demo\accordion\ajax.html" />
