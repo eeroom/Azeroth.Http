@@ -27,7 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfRestfulClient", "WcfRest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfTwoWayAuthentication", "WcfTwoWayAuthentication\WcfTwoWayAuthentication.csproj", "{4B58E8AD-5626-4024-9940-7EFC4F33D667}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRDemo", "SignalRDemo\SignalRDemo.csproj", "{8090842D-B9B0-46B8-BBB0-16E42A1B101C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRIIS", "SignalRIIS\SignalRIIS.csproj", "{8090842D-B9B0-46B8-BBB0-16E42A1B101C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Http.File", "Http.File\Http.File.csproj", "{020E50FA-2472-422A-8AAF-C4E5F8DCFC6E}"
 EndProject

@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace SignalRDemo
+namespace SignalRIIS
 {
-    public partial class Login : Page
+    public partial class Login : MyPage
     {
         protected override void OnLoad(EventArgs e)
         {

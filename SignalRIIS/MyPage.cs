@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace SignalRDemo
+namespace SignalRIIS
 {
-    public class Page:System.Web.UI.Page
+    public class MyPage:System.Web.UI.Page
     {
         
 

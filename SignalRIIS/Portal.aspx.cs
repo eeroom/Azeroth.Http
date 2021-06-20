@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace SignalRDemo
+namespace SignalRIIS
 {
-    public partial class Portal : Page
+    public partial class Portal : MyPage
     {
         public override void ProcessRequest(HttpContext context)
         {

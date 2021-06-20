@@ -7,9 +7,9 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace SignalRDemo {
+namespace SignalRIIS {
     
     
-    public partial class Login {
+    public partial class Portal {
     }
 }

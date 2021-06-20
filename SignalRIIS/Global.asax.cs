@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
 
-namespace SignalRDemo
+namespace SignalRIIS
 {
     public class Global : System.Web.HttpApplication
     {
