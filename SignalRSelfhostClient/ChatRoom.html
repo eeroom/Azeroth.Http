@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>聊天室</title>
+	<meta charset="utf-8" />
+    <script src="Scripts/jquery-1.6.4.js"></script>
+    <!--<script src="Scripts/jquery-1.6.4-vsdoc.js"></script>-->
+    <script src="Scripts/jquery.signalR-2.4.2.js"></script>
+    <!--加载hub客户端js代理 -->
+    <script src="http://localhost:8016/signalr/hubs"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $("input[type=button]").click(function () {
+
+                console.log(222);
+                var msg = $("input[type=text]").val();
+                $.ajax("http://localhost:8016/Home/Msg", {
+                    contentType: "application/json",
+                    data: JSON.stringify({ Msg: msg }),
+                    dataType: "json",
+                    processData: false,
+                    success: function (data, textStatus, jqXHR) {
+                        console.log("success:", data);
+                    },
+                    type: "POST"
+
+                });
+            });
+            $.connection.hub.url = "http://localhost:8016/signalr";
+            var lolHub = $.connection.lolHub;
+            lolHub.client.refresh = function (username, msg) {
+
+                $("ul").append("<li>" + username + ":" + msg + "</li>");
+            }
+
+            $.connection.hub.start();
+        });
+    </script>
+</head>
+<body>
+    <form action="#">
+        <input type="text" name="Msg" />
+        <input type="button" value="确定" />
+    </form>
+    <div>
+        会话列表
+        <ul></ul>
+    </div>
+</body>
+</html>
