@@ -91,7 +91,7 @@
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
-    <Content Include="Portal.aspx" />
+    <Content Include="ChatRoom.aspx" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery.signalR-1.1.4.js" />
     <Content Include="Web.config" />
@@ -111,12 +111,12 @@
     <Compile Include="MyPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Portal.aspx.cs">
-      <DependentUpon>Portal.aspx</DependentUpon>
+    <Compile Include="ChatRoom.aspx.cs">
+      <DependentUpon>ChatRoom.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Portal.aspx.designer.cs">
-      <DependentUpon>Portal.aspx</DependentUpon>
+    <Compile Include="ChatRoom.aspx.designer.cs">
+      <DependentUpon>ChatRoom.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

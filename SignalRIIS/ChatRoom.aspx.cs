@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace SignalRIIS
 {
-    public partial class Portal : MyPage
+    public partial class ChatRoom : MyPage
     {
         public override void ProcessRequest(HttpContext context)
         {

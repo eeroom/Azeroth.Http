@@ -10,6 +10,6 @@
 namespace SignalRIIS {
     
     
-    public partial class Portal {
+    public partial class ChatRoom {
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Portal.aspx.cs" Inherits="SignalRIIS.Portal" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChatRoom.aspx.cs" Inherits="SignalRIIS.ChatRoom" %>
 
 <!DOCTYPE html>
 
