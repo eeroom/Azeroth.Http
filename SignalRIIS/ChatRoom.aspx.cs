@@ -16,8 +16,8 @@ namespace SignalRIIS
                 return;
             string msg = this.Request["msg"];
             var hubcontext = Microsoft.AspNet.SignalR.GlobalHost.ConnectionManager.GetHubContext<LolHub>();
-            var all = hubcontext.Clients.All;
-            all.refresh(this.User.Identity.Name, msg);
+            hubcontext.Clients.All.refresh(this.User.Identity.Name, msg);
+            hubcontext.Clients.Client(LolHub.DictUserConnectionId[this.User.Identity.Name]).refresh("我自己", msg);
             this.Response.End();
         }
     }
