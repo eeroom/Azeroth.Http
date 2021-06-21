@@ -8,7 +8,8 @@
     <title></title>
 </head>
 <body>
-     <form method="post" action="?op=submit">
+     <form method="post" >
+         <input type="hidden" name="op"  value="submit" />
     用户名:<input type="text" name="UserName" />
         <input type="submit" value="登陆" />
     </form>

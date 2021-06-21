@@ -9,12 +9,6 @@ namespace SignalRIIS
 {
     public partial class ChatRoom : MyPage
     {
-        public override void ProcessRequest(HttpContext context)
-        {
-            if (context.Session["userInfo"] == null)
-                context.Response.Redirect("/Login.aspx");
-            base.ProcessRequest(context);
-        }
         protected override void OnLoad(EventArgs e)
         {
             string op = this.Request["op"];
@@ -23,7 +17,7 @@ namespace SignalRIIS
             string msg = this.Request["msg"];
             var hubcontext = Microsoft.AspNet.SignalR.GlobalHost.ConnectionManager.GetHubContext<LolHub>();
             var all = hubcontext.Clients.All;
-            all.refresh(this.Session["userInfo"] as string, msg);
+            all.refresh(this.User.Identity.Name, msg);
             this.Response.End();
         }
     }

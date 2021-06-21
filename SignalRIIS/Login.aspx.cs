@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace SignalRIIS
 {
-    public partial class Login : MyPage
+    public partial class Login : Page
     {
         protected override void OnLoad(EventArgs e)
         {
@@ -15,8 +15,7 @@ namespace SignalRIIS
             if (op != "submit")
                 return;
             string userName = this.Request["UserName"];
-            this.Session["userInfo"] = userName;
-            this.Response.Redirect("/Portal.aspx");
+            System.Web.Security.FormsAuthentication.RedirectFromLoginPage(userName, true);
         }
     }
 }
