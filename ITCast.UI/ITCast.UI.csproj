@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{CF37B140-F628-4CDA-B34C-98C478E88FF5}</ProjectGuid>
+    <ProjectGuid>{5876EE9C-5B58-43CE-9416-0E9D2EF21DDA}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ITCast.Bootstrap</RootNamespace>
-    <AssemblyName>ITCast.Bootstrap</AssemblyName>
+    <RootNamespace>ITCast.UI</RootNamespace>
+    <AssemblyName>ITCast.UI</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -142,12 +142,14 @@
     <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Bootstrap3.3.7\js\bootstrap.js" />
     <Content Include="Bootstrap3.3.7\js\bootstrap.min.js" />
+    <Content Include="bootstrap-抽屉.html" />
     <Content Include="css\ie10-viewport-bug-workaround.css" />
     <Content Include="css\layout-fluid.css" />
     <Content Include="img\img10.jpg" />
     <Content Include="img\img11.jpg" />
     <Content Include="img\img12.jpg" />
-    <Content Include="后台管理布局-fluid.html" />
+    <Content Include="vue-Index.html" />
+    <Content Include="react-Index.html" />
     <Content Include="jquery-easyui-1.5.2\changelog.txt" />
     <Content Include="jquery-easyui-1.5.2\demo\accordion\actions.html" />
     <Content Include="jquery-easyui-1.5.2\demo\accordion\ajax.html" />
@@ -582,7 +584,7 @@
     <Content Include="jquery-easyui-1.5.2\themes\default\window.css" />
     <Content Include="jquery-easyui-1.5.2\themes\icon.css" />
     <Content Include="jquery-easyui-1.5.2\themes\mobile.css" />
-    <Content Include="chouti.html" />
+    <Content Include="bootstrap-layout-fluid.html" />
     <None Include="jQuey\jquery-1.11.3.intellisense.js" />
     <Content Include="jQuey\jquery-1.11.3.js" />
     <Content Include="jQuey\jquery-1.11.3.min.js" />
@@ -594,6 +596,10 @@
     <Content Include="js\ie10-viewport-bug-workaround.js" />
     <Content Include="js\ie8-responsive-file-warning.js" />
     <Content Include="js\respond.min.js" />
+    <Content Include="react\browser.min.js" />
+    <Content Include="react\react-15.6.1\react.js" />
+    <Content Include="react\react-dom-15.6.1\react-dom.js" />
+    <Content Include="vue\vue2.5.22.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -649,9 +655,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>58539</DevelopmentServerPort>
+          <DevelopmentServerPort>49747</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:58539/</IISUrl>
+          <IISUrl>http://localhost:49747/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
