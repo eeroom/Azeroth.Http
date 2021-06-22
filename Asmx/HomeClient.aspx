@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomeClient.aspx.cs" Inherits="AsmxDemo.HomeClient" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomeClient.aspx.cs" Inherits="Asmx.HomeClient" %>
 
 <!DOCTYPE html>
 

@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace AsmxDemo {
+namespace Asmx {
     
     
     public partial class HomeClient {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AsmxDemo {
+namespace Asmx {
     public class Student {
         public int Age { get; set; }
 
