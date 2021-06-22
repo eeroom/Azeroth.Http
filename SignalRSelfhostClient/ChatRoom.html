@@ -10,23 +10,35 @@
     <!--加载hub客户端js代理 -->
     <script src="http://localhost:8016/signalr/hubs"></script>
     <script type="text/javascript">
+        $.fn.serializeObject = function () {
+            var arry = $(this).serializeArray();
+            var obj = {};
+            $.each(arry, function (index,el) {
+                if (!obj[el.name]) {
+                    obj[el.name] = el.value;
+                } else {
+                    obj[el.name] = [obj[el.name]];
+                    obj[el.name].push(el.value);
+                }
+            });
+            return obj;
+        };
+
         $(function () {
 
-            $("input[type=button]").click(function () {
-
-                console.log(222);
-                var msg = $("input[type=text]").val();
+            $("form").submit(function () {
+                var formdata= $(this).serializeObject();
                 $.ajax("http://localhost:8016/Home/Msg", {
+                    type: "POST",
                     contentType: "application/json",
-                    data: JSON.stringify({ Msg: msg }),
+                    data: JSON.stringify(formdata),
                     dataType: "json",
                     processData: false,
                     success: function (data, textStatus, jqXHR) {
                         console.log("success:", data);
                     },
-                    type: "POST"
-
                 });
+                return false;
             });
             $.connection.hub.url = "http://localhost:8016/signalr";
             var lolHub = $.connection.lolHub;
@@ -40,9 +52,9 @@
     </script>
 </head>
 <body>
-    <form action="#">
+    <form>
         <input type="text" name="Msg" />
-        <input type="button" value="确定" />
+        <input type="submit" value="确定" />
     </form>
     <div>
         会话列表
