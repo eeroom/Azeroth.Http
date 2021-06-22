@@ -100,6 +100,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="IAnonymousPageAttribute.cs" />
     <Compile Include="LolHub.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -108,7 +109,7 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MyPage.cs">
+    <Compile Include="CmdPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ChatRoom.aspx.cs">

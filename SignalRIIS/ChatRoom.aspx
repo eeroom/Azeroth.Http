@@ -12,14 +12,13 @@
     <script type="text/javascript">
         $(function () {
 
-            $("input[type=button]").click(function () {
-
-                console.log(222);
-                var msg = $("input[type=text]").val();
-                var action = $("form").prop("action")
-                $.post(action, { op: "msg", msg: msg }, function () {
-
+            $("form").submit(function () {
+                var formdata = $(this).serialize();
+                console.log("formdata", formdata);
+                $.post("", formdata, function (data) {
+                    console.log("发送成功：",data)
                 });
+                return false;//这里特别重要，否则浏览器会再发同步的表单提交
             });
 
             var lolHub = $.connection.lolHub;
@@ -33,12 +32,13 @@
     </script>
 </head>
 <body>
-    <form  action="#">
+    <form>
+        <input type="hidden"  name="cmd" value="SendMessage" />
         <div>
-            <label><%=this.Session["userInfo"] as string %></label>
+            <label><%=this.User.Identity.Name %></label>
         </div>
-    <input type="text" name="Msg" />
-        <input type="button" value="确定" />
+        <input type="text" name="Msg" />
+        <input type="submit" value="确定" />
     </form>
     <div>
         会话列表

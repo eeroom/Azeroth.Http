@@ -7,14 +7,10 @@ using System.Web.UI.WebControls;
 
 namespace SignalRIIS
 {
-    public partial class Login : Page
+    public partial class Login : CmdPage<Login>,IAnonymousPage
     {
-        protected override void OnLoad(EventArgs e)
-        {
-            string op = this.Request["op"];
-            if (op != "submit")
-                return;
-            string userName = this.Request["UserName"];
+        public void In(HttpContext context) {
+            string userName = context.Request["UserName"];
             System.Web.Security.FormsAuthentication.RedirectFromLoginPage(userName, true);
         }
     }
