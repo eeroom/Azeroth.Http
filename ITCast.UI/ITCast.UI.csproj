@@ -148,8 +148,8 @@
     <Content Include="img\img10.jpg" />
     <Content Include="img\img11.jpg" />
     <Content Include="img\img12.jpg" />
-    <Content Include="vue-Index.html" />
-    <Content Include="react-Index.html" />
+    <Content Include="index-vue.html" />
+    <Content Include="index-react.html" />
     <Content Include="jquery-easyui-1.5.2\changelog.txt" />
     <Content Include="jquery-easyui-1.5.2\demo\accordion\actions.html" />
     <Content Include="jquery-easyui-1.5.2\demo\accordion\ajax.html" />
