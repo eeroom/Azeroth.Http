@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="bootstrap-table.aspx.cs" Inherits="ITCast.UI.bootstrap_table" %>
+
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
@@ -9,7 +11,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>bootstrap-layout-fluid</title>
+    <title>bootstrap-table</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/Bootstrap3.3.7/css/bootstrap.css" rel="stylesheet" />
@@ -33,6 +35,9 @@
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/js/ie10-viewport-bug-workaround.js"></script>
+    <link href="bootstrap-table-1.11.1/bootstrap-table.css" rel="stylesheet" />
+    <script src="bootstrap-table-1.11.1/bootstrap-table.js"></script>
+    <script src="bootstrap-table-1.11.1/locale/bootstrap-table-zh-CN.js"></script>
     <style type="text/css">
         .nav-sidebar {
             margin-bottom: 0;
@@ -90,6 +95,23 @@
 
         });
 
+        $(function () {
+            //所有选项都定义在  jQuery.fn.bootstrapTable.defaults
+            $("#tbFilelst").bootstrapTable({
+                 pagination: true                   //是否分页
+                , sidePagination: "server"       //分页模式：client or server
+                , pageList: [10, 25, 50, 100]        //可供选择的每页的行数（*）
+                , clickToSelect: true                //是否启用点击选中行
+                , showToggle: true                   //是否显示详细视图和列表视图的切换按钮
+                ,cache: false                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+                , url: "cmd=GetFileEntities"                      //请求后台的URL（*）
+                , method: "POST"                      //请求方式（*）
+                , queryParams: function (parameters) {
+                    console.log(parameters);
+                    return parameters;
+                }
+            });
+        });
     </script>
 
 </head>
@@ -128,7 +150,7 @@
                     <li>
                         <a data-toggle="collapse" href="#collapseExample1">
                             <span>研究型大学</span>
-                            <span class="menu-xiangyou pull-right" style="display:none">
+                            <span class="menu-xiangyou pull-right" style="display: none">
                                 <span class="glyphicon glyphicon-chevron-right"></span>
                             </span>
                             <span class="menu-xiangxia pull-right" style="">
@@ -151,7 +173,7 @@
                             <span class="menu-xiangyou pull-right" style="">
                                 <span class="glyphicon glyphicon-chevron-right"></span>
                             </span>
-                            <span class="menu-xiangxia pull-right" style="display:none">
+                            <span class="menu-xiangxia pull-right" style="display: none">
                                 <span class="glyphicon glyphicon-chevron-down"></span>
                             </span>
                         </a>
@@ -168,13 +190,22 @@
                 </ul>
             </div>
             <div class="col-md-21 col-md-offset-3 main">
-                正文
+                <table id="tbFilelst">
+                    <thead>
+                        <tr>
+                            <th data-field="id">Item ID</th>
+                            <th data-field="name">Item Name</th>
+                            <th data-field="price">Item Price</th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
         </div>
     </div>
 
     <div class="col-md-offset-3 navbar-fixed-bottom">
-        <p class="text-center" style="margin:0 0"><small>版权所有&copy;丢了光影 2016-2020</small></p>
+        <p class="text-center" style="margin: 0 0"><small>版权所有&copy;丢了光影 2016-2020</small></p>
     </div>
 </body>
 </html>
+
