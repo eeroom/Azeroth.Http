@@ -100,7 +100,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="IAnonymousPageAttribute.cs" />
+    <Compile Include="IAnonymousPage.cs" />
     <Compile Include="LolHub.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
