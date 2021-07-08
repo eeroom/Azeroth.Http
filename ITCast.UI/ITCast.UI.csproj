@@ -611,6 +611,10 @@
     <Compile Include="bootstrap-table.aspx.designer.cs">
       <DependentUpon>bootstrap-table.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CmdPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IAnonymousPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

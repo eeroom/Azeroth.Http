@@ -98,20 +98,34 @@
         $(function () {
             //所有选项都定义在  jQuery.fn.bootstrapTable.defaults
             $("#tbFilelst").bootstrapTable({
-                 pagination: true                   //是否分页
-                , sidePagination: "server"       //分页模式：client or server
-                , pageList: [10, 25, 50, 100]        //可供选择的每页的行数（*）
-                , clickToSelect: true                //是否启用点击选中行
+                   striped: true                           //是否显示行间隔色,默认为false
+                , showRefresh: true                  //是否显示刷新按钮,默认为false
                 , showToggle: true                   //是否显示详细视图和列表视图的切换按钮
-                ,cache: false                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
-                , url: "cmd=GetFileEntities"                      //请求后台的URL（*）
+                , clickToSelect: true                //是否启用点击选中行
+                , showColumns:true      //允许选择要展示的列，默认为false
+                , cache: false                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+                , pagination: true                   //是否分页
+                , queryParamsType: '' //默认值为 'limit' ,传给服务端的参数为：offset,limit,sort。"",传给服务端的参数为:pageSize,pageNumber
+                , sidePagination: "server"       //分页模式：client or server
+                , sortName: "Id"                     //首次加载排序的字段，默认无值
+                , sortOrder: "desc"                  //首次加载的排序方式
+                , pageList: [10, 25, 50, 100]        //可供选择的每页的行数（*）
+                , url: " "                      //请求后台的URL（*），" "这样表示当前页面地址
                 , method: "POST"                      //请求方式（*）
+                , contentType: "application/x-www-form-urlencoded"
                 , queryParams: function (parameters) {
                     console.log(parameters);
+                    parameters["cmd"] = "GetFileEntities";
                     return parameters;
                 }
             });
+
+            var mm = jQuery.fn.bootstrapTable.defaults;
         });
+
+        function handlerColumnFormatter(value, row, index) {
+            return '<a class="btn btn-sm btn-primary" data-Id="' + row.Id + '">修改</a>';
+        }
     </script>
 
 </head>
@@ -125,6 +139,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    
                 </button>
                 <a class="navbar-brand" href="#">千针石林</a>
             </div>
@@ -193,9 +208,12 @@
                 <table id="tbFilelst">
                     <thead>
                         <tr>
-                            <th data-field="id">Item ID</th>
-                            <th data-field="name">Item Name</th>
-                            <th data-field="price">Item Price</th>
+                             <th data-checkbox="true" ></th>
+                              <th data-radio="true" ></th>
+                            <th data-field="Id" data-sortable="true">Id</th>
+                            <th data-field="Name" data-sortable="true">文件名称</th>
+                            <th data-field="LastModifyTime" data-sortable="true">最后修改时间</th>
+                            <th data-filed="" data-formatter="handlerColumnFormatter">操作</th>
                         </tr>
                     </thead>
                 </table>
