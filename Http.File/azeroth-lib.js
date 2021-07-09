@@ -1,4 +1,5 @@
-﻿//options:{maxTaskCount,url,formadataHandler, chunkSize,completeHandler,errorHandler,uploadingHandler}
+﻿/// <reference path="D:\Code\Azeroth.Http\Http.File\jQuey/jquery-1.11.3.js" />
+//options:{maxTaskCount,url,formadataHandler, chunkSize,completeHandler,errorHandler,uploadingHandler}
 //formadataHandler=(formdata,opt)=>void
 //completeHandler,errorHandler,uploadingHandler=(opt, resdata, options)=>void
 function klzUploader(options) {
@@ -73,3 +74,17 @@ function klzUploader(options) {
 
     };
 }
+
+$.fn.serializeObject = function () {
+    var arry = $(this).serializeArray();
+    var obj = {};
+    $.each(arry, function (index, el) {
+        if (!obj[el.name]) {
+            obj[el.name] = el.value;
+        } else {
+            obj[el.name] = [obj[el.name]];
+            obj[el.name].push(el.value);
+        }
+    });
+    return obj;
+};
