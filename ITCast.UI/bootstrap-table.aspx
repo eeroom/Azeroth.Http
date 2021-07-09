@@ -145,6 +145,10 @@
                 });
                 return false;
             });
+            $("#tbToolbar").on("click", ".btn-row-delete2", function () {
+                var data = btable.bootstrapTable("getSelection");
+                console.log("要删除的数据：" + JSON.stringify(data));
+            });
         });
 
         function handlerColumnFormatter(value, row, index) {
@@ -247,9 +251,9 @@
                             <div class="input-group">
                                 <div class="input-group-addon">检查结果</div>
                                 <select class="form-control" name="CkResult">
-                                    <option value="0">---</option>
-                                    <option value="1">一级</option>
-                                    <option value="2">二级</option>
+                                    <option value="-1">---</option>
+                                    <option value="0">一级</option>
+                                    <option value="1">二级</option>
                                 </select>
                             </div>
                         </div>

@@ -20,7 +20,7 @@ namespace ITCast.UI {
             if (!string.IsNullOrEmpty(name))
                 lst = lst.Where(x => x.Name.Contains(name)).ToList();
             var ckResult = int.Parse(context.Request["CkResult"]);
-            if (!string.IsNullOrEmpty(name))
+            if (ckResult>-1)
                 lst = lst.Where(x => x.CkResult==ckResult).ToList();
             var sortName = context.Request["sortName"];
             var parameterExp = System.Linq.Expressions.Expression.Parameter(typeof(UploadFileInfo), "mq");
