@@ -38,6 +38,7 @@
     <link href="bootstrap-table-1.11.1/bootstrap-table.css" rel="stylesheet" />
     <script src="bootstrap-table-1.11.1/bootstrap-table.js"></script>
     <script src="bootstrap-table-1.11.1/locale/bootstrap-table-zh-CN.js"></script>
+    <script src="azeroth-lib.js"></script>
     <style type="text/css">
         .nav-sidebar {
             margin-bottom: 0;
@@ -100,7 +101,7 @@
 
         $(function () {
             //所有选项都定义在  jQuery.fn.bootstrapTable.defaults
-            $("#tbFilelst").bootstrapTable({
+           var btable= $("#tbFilelst").bootstrapTable({
                 toolbar: "#tbToolbar"
                 , striped: true                           //是否显示行间隔色,默认为false
                 , showRefresh: true                  //是否显示刷新按钮,默认为false
@@ -118,7 +119,13 @@
                 , method: "POST"                      //请求方式（*）
                 , contentType: "application/x-www-form-urlencoded"
                 , queryParams: function (parameters) {
-                    console.log(parameters);
+                    var formdata = $("form").serializeObject();
+                    if (JSON.stringify(formdata) != JSON.stringify(this.myformdata || {})) {
+                        this.pageNumber = 1;
+                        parameters["pageNumber"] = 1;
+                        this.myformdata = formdata;
+                    }
+                    $.extend(parameters, formdata);
                     parameters["cmd"] = "GetFileEntities";
                     return parameters;
                 }
@@ -133,7 +140,10 @@
                 alert("要删除的数据，Id=" + $(this).data("id"));
             });
             $("form").submit(function () {
-
+                btable.bootstrapTable("refresh", {
+                    pageNumber: 1
+                });
+                return false;
             });
         });
 

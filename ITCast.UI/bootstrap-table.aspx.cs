@@ -12,8 +12,16 @@ namespace ITCast.UI {
             var lst = System.Linq.Enumerable.Range(0, 199).Select(x => new UploadFileInfo() {
                 Id = x,
                 Name = System.IO.Path.GetRandomFileName(),
-                LastModifyTime = DateTime.Now.AddHours(-1 * x)
+                LastModifyTime = DateTime.Now.AddHours(-1 * x),
+                Size=x+100,
+                 CkResult=x%2
             }).ToList();
+            var name = context.Request["Name"];
+            if (!string.IsNullOrEmpty(name))
+                lst = lst.Where(x => x.Name.Contains(name)).ToList();
+            var ckResult = int.Parse(context.Request["CkResult"]);
+            if (!string.IsNullOrEmpty(name))
+                lst = lst.Where(x => x.CkResult==ckResult).ToList();
             var sortName = context.Request["sortName"];
             var parameterExp = System.Linq.Expressions.Expression.Parameter(typeof(UploadFileInfo), "mq");
             var getpropValueExp = System.Linq.Expressions.Expression.PropertyOrField(parameterExp, sortName);
@@ -43,6 +51,9 @@ namespace ITCast.UI {
 
         public DateTime LastModifyTime { get; set; }
 
+        public int Size { get; set; }
+
+        public int CkResult { get; set; }
 
     }
 

@@ -58,6 +58,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="azeroth-lib.js" />
     <Content Include="bootstrap-table-1.11.1\bootstrap-table-locale-all.js" />
     <Content Include="bootstrap-table-1.11.1\bootstrap-table-locale-all.min.js" />
     <Content Include="bootstrap-table-1.11.1\bootstrap-table.css" />
