@@ -68,6 +68,9 @@
         .navbar-nav > .active > a {
             border-bottom: 2px solid #ff0000;
         }
+        .btn-row-delete{
+            margin-left:10px;
+        }
     </style>
     <script type="text/javascript">
         $(function () {
@@ -98,7 +101,8 @@
         $(function () {
             //所有选项都定义在  jQuery.fn.bootstrapTable.defaults
             $("#tbFilelst").bootstrapTable({
-                   striped: true                           //是否显示行间隔色,默认为false
+                toolbar: "#tbToolbar"
+                , striped: true                           //是否显示行间隔色,默认为false
                 , showRefresh: true                  //是否显示刷新按钮,默认为false
                 , showToggle: true                   //是否显示详细视图和列表视图的切换按钮
                 , clickToSelect: true                //是否启用点击选中行
@@ -121,10 +125,21 @@
             });
 
             var mm = jQuery.fn.bootstrapTable.defaults;
+
+            $("#tbFilelst").on("click", ".btn-row-edit", function () {
+                alert("要修改的数据，Id=" + $(this).data("id"));
+            });
+            $("#tbFilelst").on("click", ".btn-row-delete", function () {
+                alert("要删除的数据，Id=" + $(this).data("id"));
+            });
+            $("form").submit(function () {
+
+            });
         });
 
         function handlerColumnFormatter(value, row, index) {
-            return '<a class="btn btn-sm btn-primary" data-Id="' + row.Id + '">修改</a>';
+            return `<a class="btn btn-xs btn-default btn-row-edit" data-id="${row.Id}">修改</a>`
+                        + `<a class="btn btn-xs btn-default btn-row-delete" data-id="${row.Id}">删除</a>`;
         }
     </script>
 
@@ -205,15 +220,42 @@
                 </ul>
             </div>
             <div class="col-md-21 col-md-offset-3 main">
+                <div id="tbToolbar">
+                    <form class="form-inline">
+                        <div class="btn-group" role="group" aria-label="...">
+                             <button class="btn btn-default  btn-row-add" type="button">新增</button>
+                            <button class="btn btn-default  btn-row-delete2" type="button">删除</button>
+                        </div>
+                       
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon">名称</div>
+                                <input type="text" class="form-control" name="Name" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon">检查结果</div>
+                                <select class="form-control" name="CkResult">
+                                    <option value="0">---</option>
+                                    <option value="1">一级</option>
+                                    <option value="2">二级</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">查询</button>
+                    </form>
+                </div>
                 <table id="tbFilelst">
                     <thead>
                         <tr>
                              <th data-checkbox="true" ></th>
-                              <th data-radio="true" ></th>
-                            <th data-field="Id" data-sortable="true">Id</th>
-                            <th data-field="Name" data-sortable="true">文件名称</th>
-                            <th data-field="LastModifyTime" data-sortable="true">最后修改时间</th>
-                            <th data-filed="" data-formatter="handlerColumnFormatter">操作</th>
+                             <%-- <th data-radio="true" ></th>--%>
+                            <th data-field="Name" data-sortable="true">名称</th>
+                            <th data-field="Size" data-sortable="true">大小</th>
+                            <th data-field="CkResult" data-sortable="true">检查结果</th>
+                            <th data-field="LastModifyTime" data-sortable="true">修改时间</th>
+                            <th data-formatter="handlerColumnFormatter">操作</th>
                         </tr>
                     </thead>
                 </table>
