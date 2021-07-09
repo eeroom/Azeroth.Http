@@ -147,8 +147,8 @@
                 return false;
             });
             $("#tbToolbar").on("click", ".btn-row-delete2", function () {
-                var data = btable.bootstrapTable("getSelection");
-                console.log("要删除的数据：" + JSON.stringify(data));
+                var data = btable.bootstrapTable("getSelections");
+                alert("要删除的数据：" + JSON.stringify(data));
             });
         });
 
@@ -165,7 +165,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
