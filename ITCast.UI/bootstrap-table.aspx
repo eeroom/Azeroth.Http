@@ -120,6 +120,7 @@
                 , contentType: "application/x-www-form-urlencoded"
                 , queryParams: function (parameters) {
                     var formdata = $("form").serializeObject();
+                    //比对本次和上一次表单的值有没有修改过
                     if (JSON.stringify(formdata) != JSON.stringify(this.myformdata || {})) {
                         this.pageNumber = 1;
                         parameters["pageNumber"] = 1;
