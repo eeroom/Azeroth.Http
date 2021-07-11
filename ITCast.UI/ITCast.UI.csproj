@@ -163,7 +163,7 @@
     <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Bootstrap3.3.7\js\bootstrap.js" />
     <Content Include="Bootstrap3.3.7\js\bootstrap.min.js" />
-    <Content Include="bootstrap-抽屉.html" />
+    <Content Include="bootstrap-Drawer.html" />
     <Content Include="css\ie10-viewport-bug-workaround.css" />
     <Content Include="css\layout-fluid.css" />
     <Content Include="img\img10.jpg" />
