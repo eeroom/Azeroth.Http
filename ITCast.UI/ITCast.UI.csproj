@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="azeroth-lib.js" />
+    <Content Include="bootstrap-select.html" />
     <Content Include="bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker.css" />
     <Content Include="bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker.min.css" />
     <Content Include="bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker.standalone.css" />
@@ -77,6 +78,16 @@
     <Content Include="bootstrap-datepicker-1.9.0-dist\locales\bootstrap-datepicker.en-ZA.min.js" />
     <Content Include="bootstrap-datepicker-1.9.0-dist\locales\bootstrap-datepicker.zh-CN.min.js" />
     <Content Include="bootstrap-datepicker-1.9.0-dist\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <Content Include="bootstrap-select-1.12.2\css\bootstrap-select.css" />
+    <Content Include="bootstrap-select-1.12.2\css\bootstrap-select.min.css" />
+    <Content Include="bootstrap-select-1.12.2\js\bootstrap-select.js" />
+    <Content Include="bootstrap-select-1.12.2\js\bootstrap-select.min.js" />
+    <Content Include="bootstrap-select-1.12.2\js\i18n\defaults-en_US.js" />
+    <Content Include="bootstrap-select-1.12.2\js\i18n\defaults-en_US.min.js" />
+    <Content Include="bootstrap-select-1.12.2\js\i18n\defaults-zh_CN.js" />
+    <Content Include="bootstrap-select-1.12.2\js\i18n\defaults-zh_CN.min.js" />
+    <Content Include="bootstrap-select-1.12.2\js\i18n\defaults-zh_TW.js" />
+    <Content Include="bootstrap-select-1.12.2\js\i18n\defaults-zh_TW.min.js" />
     <Content Include="bootstrap-table-1.11.1\bootstrap-table-locale-all.js" />
     <Content Include="bootstrap-table-1.11.1\bootstrap-table-locale-all.min.js" />
     <Content Include="bootstrap-table-1.11.1\bootstrap-table.css" />
@@ -610,6 +621,8 @@
     <Content Include="bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker.standalone.css.map" />
     <Content Include="bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker3.css.map" />
     <Content Include="bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker3.standalone.css.map" />
+    <Content Include="bootstrap-select-1.12.2\css\bootstrap-select.css.map" />
+    <Content Include="bootstrap-select-1.12.2\js\bootstrap-select.js.map" />
     <None Include="jQuey\jquery-1.11.3.intellisense.js" />
     <Content Include="jQuey\jquery-1.11.3.js" />
     <Content Include="jQuey\jquery-1.11.3.min.js" />
