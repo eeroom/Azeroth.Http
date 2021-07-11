@@ -123,6 +123,21 @@
                 ,maxViewMode:2//年,这个往下一级是10年，世纪等
             });
         });
+
+        $(function () {
+
+            $("#monthpicker").datepicker({
+                format: 'yyyy-mm'
+                , language: "zh-CN"
+                , autoclose: true
+                //,clearBtn: true
+                //,todayBtn: true
+                , todayHighlight: true
+                , orientation: "bottom right"
+                , minViewMode: 1//天选择
+                , maxViewMode: 2//年,这个往下一级是10年，世纪等
+            });
+        });
     </script>
 
 </head>
@@ -194,8 +209,11 @@
             </div>
             <div class="col-md-21 col-md-offset-3 main">
 
-
+                日期选择
                 <input type="text" id="datetimepicker" class="form-control" style="width:205px">
+
+                月份选择
+                <input type="text" id="monthpicker" class="form-control" style="width:205px">
 
 
             </div>
