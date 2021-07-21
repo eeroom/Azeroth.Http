@@ -10,6 +10,6 @@
 namespace Http.File {
     
     
-    public partial class FileManager {
+    public partial class FileExplorer {
     }
 }

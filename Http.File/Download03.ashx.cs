@@ -42,7 +42,7 @@ namespace Http.File {
             var gmtDateString = new DateTime(2021,1,1).ToString("r");
             //etag使用文件相关的特征值，例如把文件最后修改时间进行md5
             context.Response.Headers.Add("Accept-Ranges", "bytes");
-            context.Response.Headers.Add("Content-Length", fileLength.ToString());
+            context.Response.Headers.Add("Content-Length", (end-start+1).ToString());
             context.Response.Headers.Add("Last-Modified", gmtDateString);
             var md5buffer= new System.Security.Cryptography.MD5CryptoServiceProvider().ComputeHash(System.Text.UTF8Encoding.UTF8.GetBytes(fileName));
             var etag= System.BitConverter.ToString(md5buffer).Replace("-",string.Empty).ToLower();

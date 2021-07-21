@@ -155,7 +155,7 @@
     <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="jQuey\jquery-1.11.3.intellisense.js" />
-    <Content Include="FileManager.aspx" />
+    <Content Include="FileExplorer.aspx" />
     <Content Include="jQuey\jquery-1.11.3.js" />
     <Content Include="jQuey\jquery-1.11.3.min.js" />
     <None Include="jQuey\jquery-1.9.1.intellisense.js" />
@@ -182,12 +182,12 @@
     <Compile Include="Download03.ashx.cs">
       <DependentUpon>Download03.ashx</DependentUpon>
     </Compile>
-    <Compile Include="FileManager.aspx.cs">
-      <DependentUpon>FileManager.aspx</DependentUpon>
+    <Compile Include="FileExplorer.aspx.cs">
+      <DependentUpon>FileExplorer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FileManager.aspx.designer.cs">
-      <DependentUpon>FileManager.aspx</DependentUpon>
+    <Compile Include="FileExplorer.aspx.designer.cs">
+      <DependentUpon>FileExplorer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Upload.ashx.cs">
