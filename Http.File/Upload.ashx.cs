@@ -19,7 +19,10 @@ namespace Http.File
             long FileSize = long.Parse(context.Request["FileSize"]);
             string fullName = context.Request["WebkitRelativePath"];
             fullName = String.IsNullOrWhiteSpace(fullName) ? context.Request.Files[0].FileName : fullName;
-            var rootFolder= context.Server.MapPath("../UploadFiles");
+            var rootFolder = context.Server.MapPath("");
+            rootFolder = System.IO.Directory.GetParent(rootFolder).Parent.FullName;
+            rootFolder = System.IO.Path.Combine(rootFolder, "Azeroth.File.UploadFiles");
+            
             var filePath = System.IO.Path.Combine(rootFolder, fullName);
             var fileFolder = System.IO.Path.GetDirectoryName(filePath);
             if (!System.IO.Directory.Exists(fileFolder))
