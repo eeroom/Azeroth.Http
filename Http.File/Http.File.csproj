@@ -166,7 +166,7 @@
     <Content Include="js\ie10-viewport-bug-workaround.js" />
     <Content Include="js\ie8-responsive-file-warning.js" />
     <Content Include="js\respond.min.js" />
-    <Content Include="Readme.html" />
+    <Content Include="kits.html" />
     <Content Include="spark-md5\spark-md5.js" />
     <Content Include="spark-md5\spark-md5.min.js" />
     <Content Include="azeroth-lib.js" />
