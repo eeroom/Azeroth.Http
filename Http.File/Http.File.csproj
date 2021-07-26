@@ -208,6 +208,9 @@
     <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CmdPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Download.ashx.cs">
       <DependentUpon>Download.ashx</DependentUpon>
     </Compile>
@@ -224,6 +227,7 @@
     <Compile Include="FileExplorer.aspx.designer.cs">
       <DependentUpon>FileExplorer.aspx</DependentUpon>
     </Compile>
+    <Compile Include="IAnonymousPage.cs" />
     <Compile Include="Migrations\202107261630150_hfinit.cs" />
     <Compile Include="Migrations\202107261630150_hfinit.Designer.cs">
       <DependentUpon>202107261630150_hfinit.cs</DependentUpon>
