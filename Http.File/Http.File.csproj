@@ -233,6 +233,7 @@
     <Content Include="spark-md5\LICENSE" />
     <Content Include="spark-md5\package.json" />
     <Content Include="spark-md5\README.md" />
+    <Content Include="sqlcompact4.0_dependencies.rar" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
