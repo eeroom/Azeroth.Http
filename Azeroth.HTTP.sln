@@ -43,7 +43,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api和mvc(selfhost)", "api�
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "websocket", "websocket", "{8B264A6E-57F3-4251-AF1E-940B1F95D71B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "esb和soa", "esb和soa", "{BFE5A452-753E-4070-BAF8-9BAD075B86E7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SOA和ESB", "SOA和ESB", "{BFE5A452-753E-4070-BAF8-9BAD075B86E7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpChannelServer", "TcpChannelServer\TcpChannelServer.csproj", "{8F6D84C1-D28A-4055-835A-1932BEA68B21}"
 EndProject
