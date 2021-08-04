@@ -13,8 +13,8 @@ namespace WebServiceClient
         protected override void OnLoad(EventArgs e)
         {
             var urlHome= System.Configuration.ConfigurationManager.AppSettings["urlHome"];
-            var clientProxy = (IHome)new AsmxClientProxy<IHome>(urlHome).GetTransparentProxy();
-            this.Message=clientProxy.HelloWorld(3);
+            var client = AsmxClient<IHome>.Create(urlHome);
+            this.Message= client.HelloWorld(3);
         }
     }
 }

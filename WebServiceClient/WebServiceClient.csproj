@@ -63,7 +63,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AsmxClientProxy.cs" />
+    <Compile Include="AsmxClient.cs" />
     <Compile Include="Home.asmx.cs">
       <DependentUpon>Home.asmx</DependentUpon>
       <SubType>Component</SubType>

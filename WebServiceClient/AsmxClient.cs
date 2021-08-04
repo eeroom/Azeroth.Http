@@ -5,27 +5,35 @@ using System.Web;
 
 namespace WebServiceClient
 {
-    public class AsmxClientProxy<T> : System.Runtime.Remoting.Proxies.RealProxy
+    public class AsmxClient<T> : System.Runtime.Remoting.Proxies.RealProxy
     {
-        public AsmxClient Client { get; private set; }
-        public AsmxClientProxy(string url) : base(typeof(T))
+        SoapHttpClientProtocolWithInterceptor soapHttpClient;
+
+        AsmxClient(string url) : base(typeof(T))
         {
-            this.Client = new AsmxClient();
-            this.Client.Url = url;
+            this.soapHttpClient = new SoapHttpClientProtocolWithInterceptor();
+            this.soapHttpClient.Url = url;
+            
+        }
+
+        public static T Create(string url)
+        {
+            var client = new AsmxClient<T>(url);
+            return (T)client.GetTransparentProxy();
         }
 
         public override System.Runtime.Remoting.Messaging.IMessage Invoke(System.Runtime.Remoting.Messaging.IMessage parameter)
         {
             var msg = parameter as System.Runtime.Remoting.Messaging.IMethodCallMessage;
-            var rt = this.Client.SendRequest(msg.MethodName, msg.Args);
+            var rt = this.soapHttpClient.SendRequest(msg.MethodName, msg.Args);
             var rtmsg = new System.Runtime.Remoting.Messaging.ReturnMessage(rt, null, 0, msg.LogicalCallContext, msg);
             return rtmsg;
         }
 
         [System.Web.Services.WebServiceBinding(Namespace = "http://tempuri.org/")]
-        public class AsmxClient : System.Web.Services.Protocols.SoapHttpClientProtocol
+        public class SoapHttpClientProtocolWithInterceptor : System.Web.Services.Protocols.SoapHttpClientProtocol
         {
-            static AsmxClient()
+            static SoapHttpClientProtocolWithInterceptor()
             {
                 var assm = System.AppDomain.CurrentDomain.GetAssemblies()
                     .Cast<System.Reflection.Assembly>()
@@ -39,7 +47,7 @@ namespace WebServiceClient
                     null,
                     new object[] { meta },
                     System.Globalization.CultureInfo.CurrentCulture);
-                AddToCache(typeof(AsmxClientProxy<T>.AsmxClient), sct);
+                AddToCache(typeof(AsmxClient<T>.SoapHttpClientProtocolWithInterceptor), sct);
             }
             public object SendRequest(string methodName, object[] parameters)
             {
