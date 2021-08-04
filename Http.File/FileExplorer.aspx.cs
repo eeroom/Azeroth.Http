@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Http.File {
-    public partial class FileExplorer : CmdPage<FileExplorer> {
+    public partial class FileExplorer : CmdPage<FileExplorer>,IAnonymousPage {
         
         public object Upload(HttpContext context) {
             if (context.Request.Files.Count < 1)
