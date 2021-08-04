@@ -78,7 +78,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\httpfile.sdf" />
     <Content Include="bootstrap-table-1.11.1\bootstrap-table-locale-all.js" />
     <Content Include="bootstrap-table-1.11.1\bootstrap-table-locale-all.min.js" />
     <Content Include="bootstrap-table-1.11.1\bootstrap-table.css" />
@@ -245,6 +244,9 @@
     <EmbeddedResource Include="Migrations\202107261630150_hfinit.resx">
       <DependentUpon>202107261630150_hfinit.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
