@@ -7,11 +7,11 @@ namespace WebServiceClient
 {
     public class AsmxClient<T> : System.Runtime.Remoting.Proxies.RealProxy
     {
-        SoapHttpClientProtocolWithInterceptor soapHttpClient;
+        SoapHttpClientProtocolInner soapHttpClient;
 
         AsmxClient(string url) : base(typeof(T))
         {
-            this.soapHttpClient = new SoapHttpClientProtocolWithInterceptor();
+            this.soapHttpClient = new SoapHttpClientProtocolInner();
             this.soapHttpClient.Url = url;
             
         }
@@ -24,6 +24,7 @@ namespace WebServiceClient
 
         public override System.Runtime.Remoting.Messaging.IMessage Invoke(System.Runtime.Remoting.Messaging.IMessage parameter)
         {
+            //可以在这里做拦截
             var msg = parameter as System.Runtime.Remoting.Messaging.IMethodCallMessage;
             var rt = this.soapHttpClient.SendRequest(msg.MethodName, msg.Args);
             var rtmsg = new System.Runtime.Remoting.Messaging.ReturnMessage(rt, null, 0, msg.LogicalCallContext, msg);
@@ -31,9 +32,9 @@ namespace WebServiceClient
         }
 
         [System.Web.Services.WebServiceBinding(Namespace = "http://tempuri.org/")]
-        public class SoapHttpClientProtocolWithInterceptor : System.Web.Services.Protocols.SoapHttpClientProtocol
+        public class SoapHttpClientProtocolInner : System.Web.Services.Protocols.SoapHttpClientProtocol
         {
-            static SoapHttpClientProtocolWithInterceptor()
+            static SoapHttpClientProtocolInner()
             {
                 var assm = System.AppDomain.CurrentDomain.GetAssemblies()
                     .Cast<System.Reflection.Assembly>()
@@ -47,7 +48,7 @@ namespace WebServiceClient
                     null,
                     new object[] { meta },
                     System.Globalization.CultureInfo.CurrentCulture);
-                AddToCache(typeof(AsmxClient<T>.SoapHttpClientProtocolWithInterceptor), sct);
+                AddToCache(typeof(AsmxClient<T>.SoapHttpClientProtocolInner), sct);
             }
             public object SendRequest(string methodName, object[] parameters)
             {
