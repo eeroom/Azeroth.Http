@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Asmx {
+namespace WebServiceClient {
     
     
     public partial class HomeClient {

@@ -7,8 +7,8 @@
     <ProjectGuid>{6144E1C9-8CF6-4994-8FE1-4E3D0A0E1491}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WcfRestful</RootNamespace>
-    <AssemblyName>WcfRestful</AssemblyName>
+    <RootNamespace>WcfRestfulCors</RootNamespace>
+    <AssemblyName>WcfRestfulCors</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

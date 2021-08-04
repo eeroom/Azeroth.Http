@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace WcfRestful
+namespace WcfRestfulCors
 {
     public class CrossDomainEnable:ICrossDomainEnable
     {

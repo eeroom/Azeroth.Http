@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Asmx
+namespace WebServiceClient
 {
     public class AsmxClientProxy<T> : System.Runtime.Remoting.Proxies.RealProxy
     {

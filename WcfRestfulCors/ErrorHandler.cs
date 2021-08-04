@@ -5,7 +5,7 @@ using System.ServiceModel.Channels;
 using System.Text;
 using System.Xml;
 
-namespace WcfRestful
+namespace WcfRestfulCors
 {
     public class ErrorHandler : System.ServiceModel.Dispatcher.IErrorHandler
     {
