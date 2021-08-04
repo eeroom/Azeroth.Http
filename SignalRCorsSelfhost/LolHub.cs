@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SignalRSelfhost {
+namespace SignalRCorsSelfhost
+{
     public class LolHub : Microsoft.AspNet.SignalR.Hub {
         /// <summary>
         /// 这里定义的方法，客户端js可用通过js的LolHub的代理对象直接调用Send，代理对象内部做了真正的调用处理，又回到远程对象调用

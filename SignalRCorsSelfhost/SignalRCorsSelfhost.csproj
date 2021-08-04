@@ -7,8 +7,8 @@
     <ProjectGuid>{D7D964FE-53AB-4D78-BF6B-7E9FF5E2E1CA}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SignalRSelfhost</RootNamespace>
-    <AssemblyName>SignalRSelfhost</AssemblyName>
+    <RootNamespace>SignalRCorsSelfhost</RootNamespace>
+    <AssemblyName>SignalRCorsSelfhost</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

@@ -6,7 +6,8 @@ using System;
 using System.Threading.Tasks;
 using System.Web.Cors;
 using System.Collections.Generic;
-namespace SignalRSelfhost {
+namespace SignalRCorsSelfhost
+{
 
     public class Startup {
         public void Configuration(Owin.IAppBuilder app) {
