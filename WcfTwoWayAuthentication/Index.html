@@ -17,9 +17,11 @@
 这样就达到互相验证身份，并且用对方的公钥加密数据后发送给对方，接受到数据用私钥解密。
 
 调试的时候需要附加到w3wp</p>
+    
     <p>寄宿iis的双向认证wcf，必须显式终结点，否则报错【无法激活请求的服务“https://localhost/WcfTwoWayAuthentication/Home.svc”】</p>
     <p>web站点、wcf、asmx等等，如果寄宿在IIS，则双向验证本身的逻辑都是IIS和请求端自动完成，服务端的业务代码不用参与认证的逻辑。客户端请求使用到的证书就行了。在浏览器上，会自动弹出证书选择列表</p>
     <p>WCH.pfx的密码为123456</p>
+    <p>webhttp的绑定，通过配置项helpEnabled="true"可以查看api的元数据，查看地址为：终结点/help，https://localhost/WcfTwoWayAuthentication/Home.svc/help</p>
     <p>双向认证的iis配置</p>
     <img  src="服务器和证书设置.png"/>
     
