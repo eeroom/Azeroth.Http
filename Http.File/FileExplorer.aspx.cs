@@ -5,10 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Http.File {
-    public partial class FileExplorer : CmdPage<FileExplorer>,IAnonymousPage {
-        
-        public object Upload(HttpContext context) {
+namespace Http.File
+{
+    public partial class FileExplorer : CmdPage<FileExplorer>, IAnonymousPage
+    {
+        Model.HFDbContext dbcontext = new Model.HFDbContext();
+        public object Upload(HttpContext context)
+        {
             if (context.Request.Files.Count < 1)
                 throw new ArgumentException("必须指定上传的文件内容");
             long Position = long.Parse(context.Request["Position"]);
@@ -18,25 +21,23 @@ namespace Http.File {
             var rootFolder = context.Server.MapPath("");
             rootFolder = System.IO.Directory.GetParent(rootFolder).Parent.FullName;
             rootFolder = System.IO.Path.Combine(rootFolder, "Azeroth.File.UploadFiles");
-
             var filePath = System.IO.Path.Combine(rootFolder, fullName);
             var fileFolder = System.IO.Path.GetDirectoryName(filePath);
             if (!System.IO.Directory.Exists(fileFolder))
                 System.IO.Directory.CreateDirectory(fileFolder);
-
-
-            using (var filestream = new System.IO.FileStream(filePath, System.IO.FileMode.OpenOrCreate)) {
+            using (var filestream = new System.IO.FileStream(filePath, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite, System.IO.FileShare.ReadWrite))
+            {
                 filestream.Position = Position;
                 context.Request.Files[0].InputStream.CopyTo(filestream);
-                filestream.Flush();
-                if (filestream.Length == FileSize)
-                    context.Response.Write("ok");
-                else if (filestream.Length < FileSize)
-                    context.Response.Write("ing");
-                else
-                    context.Response.Write("代码逻辑错误，服务端文件的大小超过浏览器端文件大小");
+                filestream.Flush(true);
             }
-            return null;
+            return new { msg = "ok" };
+        }
+
+        public List<Model.FileEntity> GetFileEntities(HttpContext context)
+        {
+            var lst = this.dbcontext.FileEntity.OrderByDescending(x => x.Id).ToList();
+            return lst;
         }
     }
 }

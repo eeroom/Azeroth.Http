@@ -24,5 +24,8 @@ namespace Http.File.Model {
 
         [Required]
         public UploadStep UploadStepValue { get; set; }
+
+        [Required]
+        public string ClientHashValue { get; set; }
     }
 }
