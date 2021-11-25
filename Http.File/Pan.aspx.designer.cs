@@ -10,6 +10,6 @@
 namespace Http.File {
     
     
-    public partial class FileExplorer {
+    public partial class Pan {
     }
 }

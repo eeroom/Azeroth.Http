@@ -13,14 +13,11 @@ namespace Http.File.Model {
 
         [Required]
         [MaxLength(255)]
-        public string Name { get; set; }
+        public string FullName { get; set; }
+
 
         [Required]
-        [MaxLength(255)]
-        public string Folder { get; set; }
-
-        [Required]
-        public int Size { get; set; }
+        public long Size { get; set; }
 
         [Required]
         public UploadStep UploadStepValue { get; set; }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FileExplorer.aspx.cs" Inherits="Http.File.FileExplorer" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Pan.aspx.cs" Inherits="Http.File.Pan" %>
 
 <!DOCTYPE html>
 
@@ -150,10 +150,6 @@
             });
 
             var mm = jQuery.fn.bootstrapTable.defaults;
-
-            $("#tbFilelst").on("click", ".btn-row-edit", function () {
-                alert("要修改的数据，Id=" + $(this).data("id"));
-            });
             $("#tbFilelst").on("click", ".btn-row-delete", function () {
                 alert("要删除的数据，Id=" + $(this).data("id"));
             });
@@ -169,6 +165,56 @@
             });
         });
 
+    </script>
+    <script type="text/javascript">
+        var uploader = new klzUploader({
+            maxTaskCount: 3,
+            url: "?cmd=Upload",
+            chunkSize: 40 * 1024,
+            completeHandler: function (opt, resdata, options) {
+                //$("#" + opt.fileWrapper.elUploadingId).empty();
+                $("#" + opt.fileWrapper.uploadJdSpanId).html("完成上传")
+                //刷新列表
+            },
+            uploadingHandler: function (opt, resdata, options) {
+                var jd = parseInt(100.0 * opt.position / opt.fileWrapper.file.size);
+                $("#" + opt.fileWrapper.uploadJdDivId).css("width", jd + "%")
+                $("#" + opt.fileWrapper.uploadJdSpanId).html(jd + "%")
+            },
+            errorHandler: function (opt, resdata, options) {
+                $("#" + opt.fileWrapper.uploadJdSpanId).html("发生错误")
+            }
+        });
+        $(function () {
+            $("input[name='myfile']").change(function (sender) {
+                $.each(this.files, function (index, file) {
+                    var elUploadingId = `elUploadingId-${file.webkitRelativePath || file.name}`;
+                    var uploadJdDivId = `uploadJdDivId-${file.webkitRelativePath || file.name}`;
+                    var uploadJdSpanId = `uploadJdSpanId-${file.webkitRelativePath || file.name}`;
+                    var elhtmlstr = `<li class="list-group-item" id="${elUploadingId}">
+                            <div class="row">
+                                <div class="col-md-18 ellipsis">
+                                    <a title="${file.name}">${file.name}</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="btn-group btn-group-xs">
+                                        <button type="button" class ="btn btn-default" data-filename="${file.webkitRelativePath || file.name}">暂停</button>
+                                        <button type="button" class ="btn btn-default" data-filename="${file.webkitRelativePath || file.name}">删除</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="progress">
+                                <div id="${uploadJdDivId}" class ="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 1%">
+                                    <span id="${uploadJdSpanId}">0%</span>
+                                </div>
+                            </div>
+                        </li>`
+                    var elfile = $(elhtmlstr);
+                    elfile.appendTo("#lstuploading");
+                    uploader.send({ file: file, elUploadingId, uploadJdDivId, uploadJdSpanId });
+                });
+            });
+        })
     </script>
 
 </head>
@@ -251,13 +297,11 @@
         <div class="row">
             <div class="col-sm-6 hidden-xs panel-lst-filetask">
                 <div class="panel panel-default ">
-                    <!-- Default panel contents -->
                     <div class="panel-heading">
                         正在上传
                 <div class="pull-right">速度:5MB/秒;剩余大小:200MB</div>
                     </div>
-                    <!-- List group -->
-                    <ul class="list-group">
+                    <ul class="list-group" id="lstuploading">
                         <li class="list-group-item">
                             <div class="row">
                                 <div class="col-md-18 ellipsis">

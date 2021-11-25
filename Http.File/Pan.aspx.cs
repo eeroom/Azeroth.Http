@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Http.File
 {
-    public partial class FileExplorer : CmdPage<FileExplorer>, IAnonymousPage
+    public partial class Pan : CmdPage<Pan>, IAnonymousPage
     {
         Model.HFDbContext dbcontext = new Model.HFDbContext();
         public object Upload(HttpContext context)
@@ -22,6 +22,20 @@ namespace Http.File
             rootFolder = System.IO.Directory.GetParent(rootFolder).Parent.FullName;
             rootFolder = System.IO.Path.Combine(rootFolder, "Azeroth.File.UploadFiles");
             var filePath = System.IO.Path.Combine(rootFolder, fullName);
+            if (Position == 0)
+            {
+                if (System.IO.File.Exists(filePath))
+                    throw new ArgumentException($"文件已经存在:{fullName}");
+                Model.FileEntity fe = new Model.FileEntity()
+                {
+                    ClientHashValue = "md5",
+                    FullName = fullName,
+                    Size = FileSize,
+                    UploadStepValue = Model.UploadStep.进行中
+                };
+                this.dbcontext.FileEntity.Add(fe);
+                this.dbcontext.SaveChanges();
+            }
             var fileFolder = System.IO.Path.GetDirectoryName(filePath);
             if (!System.IO.Directory.Exists(fileFolder))
                 System.IO.Directory.CreateDirectory(fileFolder);

@@ -171,7 +171,7 @@
     <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="jQuey\jquery-1.11.3.intellisense.js" />
-    <Content Include="FileExplorer.aspx" />
+    <Content Include="Pan.aspx" />
     <Content Include="jQuey\jquery-1.11.3.js" />
     <Content Include="jQuey\jquery-1.11.3.min.js" />
     <None Include="jQuey\jquery-1.9.1.intellisense.js" />
@@ -186,7 +186,9 @@
     <Content Include="spark-md5\spark-md5.js" />
     <Content Include="spark-md5\spark-md5.min.js" />
     <Content Include="azeroth-lib.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CmdPage.cs">
@@ -201,12 +203,12 @@
     <Compile Include="Download03.ashx.cs">
       <DependentUpon>Download03.ashx</DependentUpon>
     </Compile>
-    <Compile Include="FileExplorer.aspx.cs">
-      <DependentUpon>FileExplorer.aspx</DependentUpon>
+    <Compile Include="Pan.aspx.cs">
+      <DependentUpon>Pan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FileExplorer.aspx.designer.cs">
-      <DependentUpon>FileExplorer.aspx</DependentUpon>
+    <Compile Include="Pan.aspx.designer.cs">
+      <DependentUpon>Pan.aspx</DependentUpon>
     </Compile>
     <Compile Include="IAnonymousPage.cs" />
     <Compile Include="Migrations\202107261630150_hfinit.cs" />
