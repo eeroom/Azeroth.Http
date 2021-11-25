@@ -173,47 +173,75 @@
             chunkSize: 40 * 1024,
             completeHandler: function (opt, resdata, options) {
                 //$("#" + opt.fileWrapper.elUploadingId).empty();
-                $("#" + opt.fileWrapper.uploadJdSpanId).html("完成上传")
+                $(opt.fileWrapper.uploadingElement).find(".lstjd-span").html("完成")
                 //刷新列表
             },
             uploadingHandler: function (opt, resdata, options) {
-                var jd = parseInt(100.0 * opt.position / opt.fileWrapper.file.size);
-                $("#" + opt.fileWrapper.uploadJdDivId).css("width", jd + "%")
-                $("#" + opt.fileWrapper.uploadJdSpanId).html(jd + "%")
+                var jd = parseInt(100.0 * opt.fileWrapper.position / opt.fileWrapper.file.size);
+                $(opt.fileWrapper.uploadingElement).find(".lstjd-div").css("width", jd + "%")
+                $(opt.fileWrapper.uploadingElement).find(".lstjd-span").html(jd + "%")
+                if (!opt.fileWrapper.hasfileid) {
+                    $(opt.fileWrapper.uploadingElement).find(".lstjd-fuc-btn").data("fileid", resdata.Id)
+                    opt.fileWrapper.fileid = resdata.Id
+                    opt.fileWrapper.hasfileid = true;
+                }
             },
             errorHandler: function (opt, resdata, options) {
-                $("#" + opt.fileWrapper.uploadJdSpanId).html("发生错误")
+                $(opt.fileWrapper.uploadingElement).find(".lstjd-span").html("发生错误")
+            },
+            stopHandler: function (opt) {
+                console.log("stopHandler", opt.fileWrapper.stopflag);
             }
         });
+        let lstfilewrapper = [];
         $(function () {
             $("input[name='myfile']").change(function (sender) {
                 $.each(this.files, function (index, file) {
-                    var elUploadingId = `elUploadingId-${file.webkitRelativePath || file.name}`;
-                    var uploadJdDivId = `uploadJdDivId-${file.webkitRelativePath || file.name}`;
-                    var uploadJdSpanId = `uploadJdSpanId-${file.webkitRelativePath || file.name}`;
-                    var elhtmlstr = `<li class="list-group-item" id="${elUploadingId}">
+                    var htmlstr = `<li class="list-group-item">
                             <div class="row">
                                 <div class="col-md-18 ellipsis">
                                     <a title="${file.name}">${file.name}</a>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="btn-group btn-group-xs">
-                                        <button type="button" class ="btn btn-default" data-filename="${file.webkitRelativePath || file.name}">暂停</button>
-                                        <button type="button" class ="btn btn-default" data-filename="${file.webkitRelativePath || file.name}">删除</button>
+                                        <button type="button" class ="btn btn-default lstjd-fuc-btn lstjd-fuc-btn-stop" data-fileid="0" data-stopflag="stop" data-togtarget="lstjd-fuc-btn-cc">暂停</button>
+                                        <button type="button" class ="btn btn-default lstjd-fuc-btn lstjd-fuc-btn-cc" style="display:none" data-fileid="0" data-stopflag="cc" data-togtarget="lstjd-fuc-btn-stop">继续</button>
+                                        <button type="button" class ="btn btn-default lstjd-fuc-btn" data-fileid="0" data-stopflag="delete">删除</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="progress">
-                                <div id="${uploadJdDivId}" class ="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 1%">
-                                    <span id="${uploadJdSpanId}">0%</span>
+                                <div class ="progress-bar progress-bar-striped active lstjd-div" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 1%">
+                                    <span class ="lstjd-span">0%</span>
                                 </div>
                             </div>
                         </li>`
-                    var elfile = $(elhtmlstr);
-                    elfile.appendTo("#lstuploading");
-                    uploader.send({ file: file, elUploadingId, uploadJdDivId, uploadJdSpanId });
+                    var uploadingElement = $(htmlstr);
+                    uploadingElement.appendTo("#lstuploading");
+                    var fwrapper = { file: file, uploadingElement, hasfileid: false, fileid: -1};
+                    lstfilewrapper.push(fwrapper);
+                    uploader.send(fwrapper);
                 });
             });
+
+            $(document.body).on("click", ".lstjd-fuc-btn", function () {
+                var fileid = $(this).data("fileid");
+                if (!fileid)
+                    return;
+                var fw = lstfilewrapper.filter(x=>x.fileid == fileid)[0];
+                var stopflag = $(this).data("stopflag");
+                fw.stopflag = stopflag
+                if (stopflag == "cc") {
+                    fw.stopflag = ""
+                    uploader.send(fw);
+                }
+                var togtarget = $(this).data("togtarget")
+                if(!togtarget)
+                    return
+                $(this).hide()
+                $(this).parent().find("." + togtarget).show()
+                
+            })
         })
     </script>
 

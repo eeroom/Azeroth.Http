@@ -22,11 +22,12 @@ namespace Http.File
             rootFolder = System.IO.Directory.GetParent(rootFolder).Parent.FullName;
             rootFolder = System.IO.Path.Combine(rootFolder, "Azeroth.File.UploadFiles");
             var filePath = System.IO.Path.Combine(rootFolder, fullName);
+            Model.FileEntity fe = null;
             if (Position == 0)
             {
                 if (System.IO.File.Exists(filePath))
                     throw new ArgumentException($"文件已经存在:{fullName}");
-                Model.FileEntity fe = new Model.FileEntity()
+                fe = new Model.FileEntity()
                 {
                     ClientHashValue = "md5",
                     FullName = fullName,
@@ -45,7 +46,7 @@ namespace Http.File
                 context.Request.Files[0].InputStream.CopyTo(filestream);
                 filestream.Flush(true);
             }
-            return new { msg = "ok" };
+            return new { msg = "ok",fe?.Id };
         }
 
         public List<Model.FileEntity> GetFileEntities(HttpContext context)

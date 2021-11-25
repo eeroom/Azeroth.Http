@@ -9,11 +9,11 @@ function klzUploader(options) {
     var uploader = this;
 
     function uploadFileByChunk(opt) {
-        opt.position = opt.position || 0;
-        var buffer = opt.fileWrapper.file.slice(opt.position, opt.position + opt.chunkSize);
+        opt.fileWrapper.position = opt.fileWrapper.position || 0;
+        var buffer = opt.fileWrapper.file.slice(opt.fileWrapper.position, opt.fileWrapper.position + opt.chunkSize);
         var formdata = new FormData();
         formdata.append("FileEntity", buffer, opt.fileWrapper.file.name);
-        formdata.append("Position", opt.position);
+        formdata.append("Position", opt.fileWrapper.position);
         formdata.append("FileSize", opt.fileWrapper.file.size);
         formdata.append("WebkitRelativePath", opt.fileWrapper.file.webkitRelativePath||"");
         opt.formadataHandler && opt.formadataHandler(formdata, opt);
@@ -24,13 +24,17 @@ function klzUploader(options) {
             "processData": false,
             "contentType": false
         }).then(function (resdata) {
-            opt.position = opt.position + opt.chunkSize;
-            if (opt.position >= opt.fileWrapper.file.size) {
+            opt.fileWrapper.position = opt.fileWrapper.position + opt.chunkSize;
+            if (opt.fileWrapper.position >= opt.fileWrapper.file.size) {
                 opt.completeHandler(opt, resdata);
                 return;
             }
-            opt.uploadingHandler(opt, resdata);
-            uploadFileByChunk(opt);
+            if (!!opt.fileWrapper.stopflag) {
+                opt.stopHandler(opt,resdata)
+            } else {
+                opt.uploadingHandler(opt, resdata);
+                uploadFileByChunk(opt);
+            }
         }).fail(function (resdata) {
             opt.errorHandler(opt, resdata);
         });
@@ -50,7 +54,7 @@ function klzUploader(options) {
         runingTaskCount++;
         uploadFileByChunk({
             fileWrapper: fileWrapper,
-                url: options.url,
+            url: options.url,
             formadataHandler: options.formadataHandler,
             chunkSize: options.chunkSize,
             completeHandler: function (opt, resdata) {
@@ -69,6 +73,11 @@ function klzUploader(options) {
             },
             uploadingHandler: function (opt, resdata) {
                 options.uploadingHandler(opt, resdata, options);
+            },
+            stopHandler: function (opt, resdata) {
+                //上传中，暂停，删除
+                runingTaskCount--;
+                options.stopHandler && options.stopHandler(opt,resdata, options)
             }
         });
 
