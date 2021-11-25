@@ -203,6 +203,10 @@
     <Compile Include="Download03.ashx.cs">
       <DependentUpon>Download03.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111250849413_v20211125.cs" />
+    <Compile Include="Migrations\202111250849413_v20211125.Designer.cs">
+      <DependentUpon>202111250849413_v20211125.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pan.aspx.cs">
       <DependentUpon>Pan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -245,6 +249,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202107261630150_hfinit.resx">
       <DependentUpon>202107261630150_hfinit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111250849413_v20211125.resx">
+      <DependentUpon>202111250849413_v20211125.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
