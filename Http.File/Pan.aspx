@@ -171,7 +171,7 @@
         let lstuplodingfilewrapper = [];
         function removeUplodingItem(fileWrapper) {
             lstuplodingfilewrapper.splice(lstuplodingfilewrapper.findIndex(x=>x == fileWrapper), 1)
-            $(fileWrapper.uploadingElement).empty()
+            $(fileWrapper.uploadingElement).remove();
             if (lstuplodingfilewrapper.length < 1)
                 $(".panel-lst-filetask").hide();
         }
@@ -184,71 +184,76 @@
         var uploader = new klzUploader({
             maxTaskCount: 3,
             url: "?cmd=Upload",
-            chunkSize: 40 * 1024,
+            chunkSize: 10 * 1024,
             completeHandler: function (opt, resdata, options) {
                 //$("#" + opt.fileWrapper.elUploadingId).empty();
                 removeUplodingItem(opt.fileWrapper)
                 //刷新列表
             },
             uploadingHandler: function (opt, resdata, options) {
+                $(opt.fileWrapper.uploadingElement).find(".lstjd-msg").empty()
+                $(opt.fileWrapper.uploadingElement).find(".lstjd-info").hide()
                 var jd = parseInt(100.0 * opt.fileWrapper.position / opt.fileWrapper.file.size);
                 $(opt.fileWrapper.uploadingElement).find(".lstjd-div").css("width", jd + "%")
                 $(opt.fileWrapper.uploadingElement).find(".lstjd-span").html(jd + "%")
                 if (!opt.fileWrapper.hasfileid) {
-                    $(opt.fileWrapper.uploadingElement).find(".lstjd-fuc-btn").data("fileid", resdata.Id)
                     opt.fileWrapper.fileid = resdata.Id
                     opt.fileWrapper.hasfileid = true;
                 }
             },
             errorHandler: function (opt, resdata, options) {
-                removeUplodingItem(opt.fileWrapper)
+                $(opt.fileWrapper.uploadingElement).find(".lstjd-msg").html((resdata.responseJSON && resdata.responseJSON.msg)||"服务器发送错误")
+                $(opt.fileWrapper.uploadingElement).find(".lstjd-fuc-btn-stop").trigger("click");
             },
             statusHandler: function (opt) {
-                console.log("stopHandler", opt.fileWrapper.statusflag);
+                
             }
         });
      
         $(function () {
             $("input[name='myfile']").change(function (sender) {
                 $.each(this.files, function (index, file) {
+                    var fullname = file.webkitRelativePath || file.name
                     var htmlstr = `<li class="list-group-item">
                             <div class="row">
-                                <div class="col-md-18 ellipsis">
-                                    <a title="${file.name}">${file.name}</a>
+                                <div class="col-md-16 ellipsis">
+                                    <a title="${file.name}"><span class ="glyphicon glyphicon-exclamation-sign lstjd-info" style="color:red;display:none"></span> ${file.name}</a>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <div class="btn-group btn-group-xs">
-                                        <button type="button" class ="btn btn-default lstjd-fuc-btn lstjd-fuc-btn-stop" data-fileid="0" data-statusflag="stop" data-togtarget="lstjd-fuc-btn-cc">暂停</button>
-                                        <button type="button" class ="btn btn-default lstjd-fuc-btn lstjd-fuc-btn-cc" style="display:none" data-fileid="0" data-statusflag="" data-togtarget="lstjd-fuc-btn-stop">继续</button>
-                                        <button type="button" class ="btn btn-default lstjd-fuc-btn" data-fileid="0" data-statusflag="delete">删除</button>
+                                        <button type="button" class ="btn btn-default lstjd-fuc-btn lstjd-fuc-btn-stop" data-fullname="${fullname}" data-statusflag="stop" data-togtarget="lstjd-fuc-btn-cc"><span class ="glyphicon glyphicon-pause"></span>暂停</button>
+                                        <button type="button" class ="btn btn-default lstjd-fuc-btn lstjd-fuc-btn-cc" style="display:none" data-fullname="${fullname}" data-statusflag="" data-togtarget="lstjd-fuc-btn-stop"><span class ="glyphicon glyphicon-play"></span>继续</button>
+                                        <button type="button" class ="btn btn-default lstjd-fuc-btn" data-fullname="${fullname}" data-statusflag="delete"><span class ="glyphicon glyphicon-remove-sign"></span>删除</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="progress">
-                                <div class ="progress-bar progress-bar-striped active lstjd-div" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 1%">
+                                <div class ="progress-bar progress-bar-striped active lstjd-div" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 0">
                                     <span class ="lstjd-span">0%</span>
                                 </div>
                             </div>
+                            <div class ="lstjd-msg" style="color:red"></div>
                         </li>`
                     var uploadingElement = $(htmlstr);
                     uploadingElement.appendTo("#lstuploading");
-                    var fileWrapper = { file: file, uploadingElement, hasfileid: false, fileid: -1};
+                    var fileWrapper = { file: file, uploadingElement,hasfileid: false,fullname};
                     addUplodingItem(fileWrapper)
                     uploader.send(fileWrapper);
                 });
+                $(this).val("")
             });
 
             $(document.body).on("click", ".lstjd-fuc-btn", function () {
-                var fileid = $(this).data("fileid");
-                if (!fileid)
-                    return;
-                var fileWrapper = lstuplodingfilewrapper.filter(x=>x.fileid == fileid)[0];
-                fileWrapper.statusflag = $(this).data("statusflag")
-                if (fileWrapper.statusflag == "delete") {
-                    removeUplodingItem(fileWrapper);
-                }
+                var fullname = $(this).data("fullname");
+                var statusflag = $(this).data("statusflag")
+                var fileWrapper = lstuplodingfilewrapper.filter(x=>x.fullname == fullname)[0];
+                $(fileWrapper.uploadingElement).find(".lstjd-info").show()
+                fileWrapper.statusflag = statusflag
                 if (!fileWrapper.statusflag) {
                     uploader.send(fileWrapper);
+                }
+                if (fileWrapper.statusflag == "delete") {
+                    removeUplodingItem(fileWrapper);
                 }
                 var togtarget = $(this).data("togtarget")
                 if(!togtarget)

@@ -17,10 +17,21 @@ namespace Http.File {
                 return;
             }
             var method = meta.GetMethod(cmd, System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.IgnoreCase);
-            var rt = method.Invoke(this, new object[] { context });
             context.Response.ContentType = "application/json";
-            var rtjson = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(rt);
-            context.Response.Write(rtjson);
+            try
+            {
+                var rt = method.Invoke(this, new object[] { context });
+                var rtjson = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(rt);
+                context.Response.Write(rtjson);
+               
+            }
+            catch (Exception ex)
+            {
+                context.Response.Clear();
+                var rtjson = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(new {msg=ex.InnerException?.Message??ex.Message});
+                context.Response.Write(rtjson);
+                context.Response.StatusCode = 500;
+            }
             context.Response.End();
         }
 

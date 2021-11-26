@@ -77,6 +77,9 @@ function klzUploader(options) {
             statusHandler: function (opt, resdata) {
                 //上传中，暂停，删除
                 runingTaskCount--;
+                var tmp = lstFileWrapper.shift();
+                if (tmp)
+                    uploader.send(tmp);
                 options.statusHandler && options.statusHandler(opt, resdata, options)
             }
         });
