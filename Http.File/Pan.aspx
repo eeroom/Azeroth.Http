@@ -131,7 +131,7 @@
         
         $(function () {
             //所有选项都定义在  jQuery.fn.bootstrapTable.defaults
-            var btable = $("#tbFilelst").bootstrapTable({
+            window.btable = btable = $("#tbFilelst").bootstrapTable({
                 toolbar: "#tbToolbar"
                  , striped: true                           //是否显示行间隔色,默认为false
                  , showRefresh: true                  //是否显示刷新按钮,默认为false
@@ -161,6 +161,8 @@
                      return parameters;
                  }
                 , onDblClickRow: function (item, $element) {
+                    if (item.CC!="dir")
+                        return;
                     $("#filepath").val(item.Path)
                     btable.bootstrapTable("refresh", {
                         pageNumber: 1
@@ -209,6 +211,9 @@
                 //$("#" + opt.fileWrapper.elUploadingId).empty();
                 removeUplodingItem(opt.fileWrapper)
                 //刷新列表
+                window.btable.bootstrapTable("refresh", {
+                    pageNumber: 1
+                })
             },
             uploadingHandler: function (opt, resdata, options) {
                 $(opt.fileWrapper.uploadingElement).find(".lstjd-msg").empty()
