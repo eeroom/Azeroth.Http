@@ -229,10 +229,8 @@
                 if (!fileid)
                     return;
                 var fw = lstfilewrapper.filter(x=>x.fileid == fileid)[0];
-                var stopflag = $(this).data("stopflag");
-                fw.stopflag = stopflag
-                if (stopflag == "cc") {
-                    fw.stopflag = ""
+                fw.stopflag = $(this).data("stopflag")
+                if (!fw.stopflag) {
                     uploader.send(fw);
                 }
                 var togtarget = $(this).data("togtarget")
@@ -299,7 +297,7 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="input-group-addon">名称</div>
-                                        <input type="text" class="form-control" name="Name">
+                                        <input type="text" class="form-control" name="Name" />
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">查询</button>
@@ -330,7 +328,7 @@
                 <div class="pull-right">速度:5MB/秒;剩余大小:200MB</div>
                     </div>
                     <ul class="list-group" id="lstuploading">
-                        <li class="list-group-item">
+                        <%--<li class="list-group-item">
                             <div class="row">
                                 <div class="col-md-18 ellipsis">
                                     <a title="文件名特长的文件水水水水水水水水水水水水水水水水水水水哇哇哇哇哇.bin">文件名特长的文件水水水水水水水水水水水水水水水水水水水哇哇哇哇哇.bin</a>
@@ -347,26 +345,7 @@
                                     <span>45%</span>
                                 </div>
                             </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="row">
-                                <div class="col-md-18 ellipsis">
-                                    <a title="amp.exe">amp.exe</a>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="btn-group btn-group-xs">
-                                        <button type="button" class="btn btn-default">暂停</button>
-                                        <button type="button" class="btn btn-default">删除</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 16%">
-                                    <span>16%</span>
-                                </div>
-                            </div>
-                        </li>
-
+                        </li>--%>
                     </ul>
                 </div>
             </div>
