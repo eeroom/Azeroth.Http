@@ -49,10 +49,41 @@ namespace Http.File
             return new { msg = "ok",fe?.Id };
         }
 
-        public List<Model.FileEntity> GetFileEntities(HttpContext context)
+        public object GetFileEntities(HttpContext context)
         {
+            string path = context.Request["path"]??string.Empty;
             var lst = this.dbcontext.FileEntity.OrderByDescending(x => x.Id).ToList();
-            return lst;
+            var lstwrapper= lst.Select(x => Tuple.Create(x, System.IO.Path.GetDirectoryName(x.FullName))).ToList();
+            var lstdir= lstwrapper.Select(x => x.Item2).Distinct().ToList();
+            var lstdirAll= lstdir.Select(x => x.Split(new char[] { '\\' }, StringSplitOptions.RemoveEmptyEntries))
+                .Select(x => System.Linq.Enumerable.Range(1, x.Length).Select(a => string.Join("\\", x.Take(a))))
+                .SelectMany(x => x)
+                .Distinct()
+                .ToList();
+            var lstdirEntity= lstdirAll.Select(x => new Model.FileEntity()
+            {
+                FullName = x,
+                 Id=int.MaxValue
+            });
+            var lstdirEntityWrapper= lstdirEntity.Select(x => Tuple.Create(x, System.IO.Path.GetDirectoryName(x.FullName)))
+                .OrderBy(x=>x.Item2.Length)
+                .ToList();
+            lstdirEntityWrapper.AddRange(lstwrapper);
+            if(!string.IsNullOrEmpty(path))
+                lstdirEntityWrapper.Insert(0, Tuple.Create(new Model.FileEntity() { FullName = "..", Id = int.MaxValue }, path));
+            var lstRT = lstdirEntityWrapper.Where(x => x.Item2 == path).Select(x=>x.Item1).Select(x => new
+            {
+                FullName= System.IO.Path.GetFileName(x.FullName),
+                Path = x.Id == int.MaxValue ? (x.FullName==".."?System.IO.Path.GetDirectoryName(path):x.FullName) :string.Empty,
+                Size = x.Size == 0 ? string.Empty : Math.Round((1.0 * x.Size / 1024 / 1024), 2, MidpointRounding.ToEven).ToString() + "MB",
+                x.Id,
+                CC = x.Id == int.MaxValue ? "dir" : "file"
+            }).ToList();
+            var rt = new{
+                rows = lstRT,
+                total = lstRT.Count
+            };
+            return rt;
         }
     }
 }

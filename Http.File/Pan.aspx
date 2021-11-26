@@ -79,7 +79,6 @@
 
         .panel-lstfile {
             min-height: 600px;
-            max-height: 800px;
         }
 
         .panel-lst-filetask {
@@ -110,12 +109,26 @@
         .container .panel {
             margin-top: 10px;
         }
+        .span-margin{
+            margin-left:6px;
+        }
+        .bg-yellow{
+            color:#ffd800
+        }
+        .bg-red{
+            color:#ed0c0c
+        }
     </style>
     <script type="text/javascript">
         function handlerColumnFormatter(value, row, index) {
-            return `<a class="btn btn-xs btn-default btn-row-edit" data-id="${row.Id}">修改</a>`
-                        + `<a class="btn btn-xs btn-default btn-row-delete" data-id="${row.Id}">删除</a>`;
+            return `<a class="btn btn-xs btn-default btn-row-delete" data-id="${row.Id}"><span class ="glyphicon glyphicon-remove-sign"></span></a>`;
         }
+        function handlerNameFormatter(value, row, index) {
+            if (row.CC == "dir")
+                return `<span class ="glyphicon glyphicon-folder-open bg-yellow"></span><span class="span-margin">${row.FullName}</span>`
+            return `<span class ="glyphicon glyphicon-file bg-red"></span><span class="span-margin">${row.FullName}</span>`;
+        }
+        
         $(function () {
             //所有选项都定义在  jQuery.fn.bootstrapTable.defaults
             var btable = $("#tbFilelst").bootstrapTable({
@@ -123,10 +136,10 @@
                  , striped: true                           //是否显示行间隔色,默认为false
                  , showRefresh: true                  //是否显示刷新按钮,默认为false
                  , showToggle: true                   //是否显示详细视图和列表视图的切换按钮
-                 , clickToSelect: true                //是否启用点击选中行
+                 , clickToSelect: false                //是否启用点击选中行
                  , showColumns: true      //允许选择要展示的列，默认为false
                  , cache: false                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
-                 , pagination: true                   //是否分页
+                 , pagination: false                   //是否分页
                  , queryParamsType: '' //默认值为 'limit' ,传给服务端的参数为：offset,limit,sort。"",传给服务端的参数为:pageSize,pageNumber
                  , sidePagination: "server"       //分页模式：client or server
                  , sortName: "Id"                     //首次加载排序的字段，默认无值
@@ -147,6 +160,13 @@
                      parameters["cmd"] = "GetFileEntities";
                      return parameters;
                  }
+                , onDblClickRow: function (item, $element) {
+                    $("#filepath").val(item.Path)
+                    btable.bootstrapTable("refresh", {
+                        pageNumber: 1
+                    })
+                    return false;
+                }
             });
 
             var mm = jQuery.fn.bootstrapTable.defaults;
@@ -306,6 +326,7 @@
                     <div class="panel-body panel-lstfile">
                         <div id="tbToolbar">
                             <form class="form-inline">
+                                <input type="hidden" name="path" id="filepath" />
                                 <div class="btn-group" role="group" aria-label="...">
                                     <a class="btn btn-default  btn-input-file" href="#" role="button">上传文件
                             <input type="file" name="myfile" multiple="multiple" />
@@ -330,10 +351,8 @@
                                 <tr>
                                     <th data-checkbox="true"></th>
                                     <%-- <th data-radio="true" ></th>--%>
-                                    <th data-field="Name" data-sortable="true">名称</th>
+                                    <th data-field="FullName" data-sortable="true" data-formatter="handlerNameFormatter">名称</th>
                                     <th data-field="Size" data-sortable="true">大小</th>
-                                    <th data-field="CkResult" data-sortable="true">检查结果</th>
-                                    <th data-field="LastModifyTime" data-sortable="true">修改时间</th>
                                     <th data-formatter="handlerColumnFormatter">操作</th>
                                 </tr>
                             </thead>
@@ -376,7 +395,7 @@
 
     </div>
 
-    <div class="col-md-offset-3 navbar-fixed-bottom">
+    <div class="col-md-offset-3 ">
         <p class="text-center" style="margin: 0 0"><small>版权所有&copy;丢了光影 2016-2020</small></p>
     </div>
 </body>
