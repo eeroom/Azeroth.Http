@@ -190,7 +190,7 @@
                 $(opt.fileWrapper.uploadingElement).find(".lstjd-span").html("发生错误")
             },
             stopHandler: function (opt) {
-                console.log("stopHandler", opt.fileWrapper.stopflag);
+                console.log("stopHandler", opt.fileWrapper.statusflag);
             }
         });
         let lstfilewrapper = [];
@@ -204,9 +204,9 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="btn-group btn-group-xs">
-                                        <button type="button" class ="btn btn-default lstjd-fuc-btn lstjd-fuc-btn-stop" data-fileid="0" data-stopflag="stop" data-togtarget="lstjd-fuc-btn-cc">暂停</button>
-                                        <button type="button" class ="btn btn-default lstjd-fuc-btn lstjd-fuc-btn-cc" style="display:none" data-fileid="0" data-stopflag="cc" data-togtarget="lstjd-fuc-btn-stop">继续</button>
-                                        <button type="button" class ="btn btn-default lstjd-fuc-btn" data-fileid="0" data-stopflag="delete">删除</button>
+                                        <button type="button" class ="btn btn-default lstjd-fuc-btn lstjd-fuc-btn-stop" data-fileid="0" data-statusflag="stop" data-togtarget="lstjd-fuc-btn-cc">暂停</button>
+                                        <button type="button" class ="btn btn-default lstjd-fuc-btn lstjd-fuc-btn-cc" style="display:none" data-fileid="0" data-statusflag="" data-togtarget="lstjd-fuc-btn-stop">继续</button>
+                                        <button type="button" class ="btn btn-default lstjd-fuc-btn" data-fileid="0" data-statusflag="delete">删除</button>
                                     </div>
                                 </div>
                             </div>
@@ -229,8 +229,8 @@
                 if (!fileid)
                     return;
                 var fw = lstfilewrapper.filter(x=>x.fileid == fileid)[0];
-                fw.stopflag = $(this).data("stopflag")
-                if (!fw.stopflag) {
+                fw.statusflag = $(this).data("statusflag")
+                if (!fw.statusflag) {
                     uploader.send(fw);
                 }
                 var togtarget = $(this).data("togtarget")

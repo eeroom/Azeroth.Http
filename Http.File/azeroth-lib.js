@@ -29,8 +29,8 @@ function klzUploader(options) {
                 opt.completeHandler(opt, resdata);
                 return;
             }
-            if (!!opt.fileWrapper.stopflag) {
-                opt.stopHandler(opt,resdata)
+            if (!!opt.fileWrapper.statusflag) {
+                opt.statusHandler(opt, resdata)
             } else {
                 opt.uploadingHandler(opt, resdata);
                 uploadFileByChunk(opt);
@@ -74,10 +74,10 @@ function klzUploader(options) {
             uploadingHandler: function (opt, resdata) {
                 options.uploadingHandler(opt, resdata, options);
             },
-            stopHandler: function (opt, resdata) {
+            statusHandler: function (opt, resdata) {
                 //上传中，暂停，删除
                 runingTaskCount--;
-                options.stopHandler && options.stopHandler(opt,resdata, options)
+                options.statusHandler && options.statusHandler(opt, resdata, options)
             }
         });
 
