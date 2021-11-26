@@ -167,13 +167,27 @@
 
     </script>
     <script type="text/javascript">
+        //正在上传的列表数据
+        let lstuplodingfilewrapper = [];
+        function removeUplodingItem(fileWrapper) {
+            lstuplodingfilewrapper.splice(lstuplodingfilewrapper.findIndex(x=>x == fileWrapper), 1)
+            $(fileWrapper.uploadingElement).empty()
+            if (lstuplodingfilewrapper.length < 1)
+                $(".panel-lst-filetask").hide();
+        }
+
+        function addUplodingItem(fileWrapper) {
+            lstuplodingfilewrapper.push(fileWrapper);
+            $(".panel-lst-filetask").show();
+        }
+
         var uploader = new klzUploader({
             maxTaskCount: 3,
             url: "?cmd=Upload",
             chunkSize: 40 * 1024,
             completeHandler: function (opt, resdata, options) {
                 //$("#" + opt.fileWrapper.elUploadingId).empty();
-                $(opt.fileWrapper.uploadingElement).find(".lstjd-span").html("完成")
+                removeUplodingItem(opt.fileWrapper)
                 //刷新列表
             },
             uploadingHandler: function (opt, resdata, options) {
@@ -187,13 +201,13 @@
                 }
             },
             errorHandler: function (opt, resdata, options) {
-                $(opt.fileWrapper.uploadingElement).find(".lstjd-span").html("发生错误")
+                removeUplodingItem(opt.fileWrapper)
             },
-            stopHandler: function (opt) {
+            statusHandler: function (opt) {
                 console.log("stopHandler", opt.fileWrapper.statusflag);
             }
         });
-        let lstfilewrapper = [];
+     
         $(function () {
             $("input[name='myfile']").change(function (sender) {
                 $.each(this.files, function (index, file) {
@@ -218,9 +232,9 @@
                         </li>`
                     var uploadingElement = $(htmlstr);
                     uploadingElement.appendTo("#lstuploading");
-                    var fwrapper = { file: file, uploadingElement, hasfileid: false, fileid: -1};
-                    lstfilewrapper.push(fwrapper);
-                    uploader.send(fwrapper);
+                    var fileWrapper = { file: file, uploadingElement, hasfileid: false, fileid: -1};
+                    addUplodingItem(fileWrapper)
+                    uploader.send(fileWrapper);
                 });
             });
 
@@ -228,8 +242,11 @@
                 var fileid = $(this).data("fileid");
                 if (!fileid)
                     return;
-                var fw = lstfilewrapper.filter(x=>x.fileid == fileid)[0];
+                var fw = lstuplodingfilewrapper.filter(x=>x.fileid == fileid)[0];
                 fw.statusflag = $(this).data("statusflag")
+                if (fw.statusflag == "delete") {
+                    lstuplodingfilewrapper.splice(lstuplodingfilewrapper.findIndex(x=>x==fw),1)
+                }
                 if (!fw.statusflag) {
                     uploader.send(fw);
                 }
@@ -321,7 +338,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 hidden-xs panel-lst-filetask">
+            <div class="col-sm-6 hidden-xs panel-lst-filetask" style="display:none">
                 <div class="panel panel-default ">
                     <div class="panel-heading">
                         正在上传
