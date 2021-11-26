@@ -242,13 +242,13 @@
                 var fileid = $(this).data("fileid");
                 if (!fileid)
                     return;
-                var fw = lstuplodingfilewrapper.filter(x=>x.fileid == fileid)[0];
-                fw.statusflag = $(this).data("statusflag")
-                if (fw.statusflag == "delete") {
-                    lstuplodingfilewrapper.splice(lstuplodingfilewrapper.findIndex(x=>x==fw),1)
+                var fileWrapper = lstuplodingfilewrapper.filter(x=>x.fileid == fileid)[0];
+                fileWrapper.statusflag = $(this).data("statusflag")
+                if (fileWrapper.statusflag == "delete") {
+                    removeUplodingItem(fileWrapper);
                 }
-                if (!fw.statusflag) {
-                    uploader.send(fw);
+                if (!fileWrapper.statusflag) {
+                    uploader.send(fileWrapper);
                 }
                 var togtarget = $(this).data("togtarget")
                 if(!togtarget)
@@ -341,7 +341,7 @@
             <div class="col-sm-6 hidden-xs panel-lst-filetask" style="display:none">
                 <div class="panel panel-default ">
                     <div class="panel-heading">
-                        正在上传
+                        上传任务
                 <div class="pull-right">速度:5MB/秒;剩余大小:200MB</div>
                     </div>
                     <ul class="list-group" id="lstuploading">
