@@ -55,7 +55,7 @@ namespace Http.File
         public object GetFileEntities(HttpContext context)
         {
             string path = context.Request["path"]??string.Empty;
-            var lst = this.dbcontext.FileEntity.OrderByDescending(x => x.Id).ToList();
+            var lst = this.dbcontext.FileEntity.Where(x=>x.UploadStepValue== Model.UploadStep.完成).OrderByDescending(x => x.Id).ToList();
             var lstwrapper= lst.Select(x => Tuple.Create(x, System.IO.Path.GetDirectoryName(x.FullName))).ToList();
             var lstdir= lstwrapper.Select(x => x.Item2).Distinct().ToList();
             var lstdirAll= lstdir.Select(x => x.Split(new char[] { '\\' }, StringSplitOptions.RemoveEmptyEntries))
@@ -124,6 +124,18 @@ namespace Http.File
         class DeleteFileInput
         {
             public int[] lstId { get; set; }
+        }
+
+        public object Complete(HttpContext context)
+        {
+            var fileid = context.Request["fileid"];
+            var fe = new Model.FileEntity() { Id = int.Parse(fileid), UploadStepValue= Model.UploadStep.完成 };
+            this.dbcontext.Configuration.ValidateOnSaveEnabled = false;
+            var fewrapper= this.dbcontext.Entry(fe);
+            fewrapper.State = System.Data.Entity.EntityState.Unchanged;
+            fewrapper.Property(x => x.UploadStepValue).IsModified=true;
+            this.dbcontext.SaveChanges();
+            return new { msg = "ok" };
         }
     }
 }

@@ -243,10 +243,12 @@
             chunkSize: 10 * 1024,
             completeHandler: function (opt, resdata, options) {
                 //$("#" + opt.fileWrapper.elUploadingId).empty();
-                removeUplodingItem(opt.fileWrapper)
-                //刷新列表
-                window.btable.bootstrapTable("refresh", {
-                    pageNumber: 1
+                $.post("?cmd=Complete", { fileid: opt.fileWrapper.fileid || resdata.Id }, function () {
+                    removeUplodingItem(opt.fileWrapper)
+                    //刷新列表
+                    window.btable.bootstrapTable("refresh", {
+                        pageNumber: 1
+                    })
                 })
             },
             uploadingHandler: function (opt, resdata, options) {
