@@ -232,38 +232,71 @@
             },
             statusHandler: function (opt) {
                 
+            },
+            formadataHandler: function (formdata, opt) {
+                formdata.append("fileId", opt.fileWrapper.fileid)
             }
         });
-     
-        $(function () {
-            $("input[name='myfile']").change(function (sender) {
-                $.each(this.files, function (index, file) {
-                    var fullname = file.webkitRelativePath || file.name
-                    var htmlstr = `<li class="list-group-item">
+        
+        function createNewTaskHtml(file) {
+            //file是从file的input直接选文件添加上传任务，fileEnity是从api取得数据添加续传任务
+            var fullname = file.webkitRelativePath || file.name, filename = file.name
+            var jdvalue = 0
+            var tipclass = "hidden", ctclass = "hidden", stopclass = ""
+            var htmlstr = getTaskHtml(fullname, filename, jdvalue, tipclass, ctclass, stopclass)
+            var uploadingElement = $(htmlstr);
+            uploadingElement.appendTo("#lstuploading");
+            var fileWrapper = { file: file, uploadingElement, hasfileid: false, fullname,filename, position: 0, fileid: -1};
+            addUplodingItem(fileWrapper)
+            uploader.send(fileWrapper);
+        }
+
+        function createCCTaskHtml(fileEntity) {
+            //file是从file的input直接选文件添加上传任务，fileEnity是从api取得数据添加续传任务
+            var fullname = fileEntity.FullName,filename = fileEntity.Name
+            var jdvalue = parseInt(100.0 * fileEntity.Position / fileEntity.Size)
+            var tipclass = "",ctclass="",stopclass="hidden"
+            var htmlstr = getTaskHtml(fullname, filename, jdvalue, tipclass, ctclass, stopclass)
+            var uploadingElement = $(htmlstr);
+            uploadingElement.appendTo("#lstuploading");
+            var fileWrapper = { file: null, uploadingElement, hasfileid: true, fullname, filename, position: fileEntity.Position, fileid: fileEntity.Id, size: fileEntity.Size};
+            addUplodingItem(fileWrapper)
+        }
+
+        function getTaskHtml(fullname, filename, jdvalue, tipclass, ctclass, stopclass) {
+            var htmlstr = `<li class="list-group-item">
                             <div class="row">
                                 <div class="col-md-16 ellipsis">
-                                    <a title="${file.name}"><span class ="glyphicon glyphicon-exclamation-sign lstjd-info" style="color:red;display:none"></span> ${file.name}</a>
+                                    <a title="${filename}"><span class ="glyphicon glyphicon-exclamation-sign lstjd-info ${tipclass}" style="color:red"></span> ${filename}</a>
                                 </div>
                                 <div class="col-md-8">
-                                    <div class="btn-group btn-group-xs">
-                                        <button type="button" class ="btn btn-default lstjd-fuc-btn lstjd-fuc-btn-stop" data-fullname="${fullname}" data-statusflag="stop" data-togtarget="lstjd-fuc-btn-cc"><span class ="glyphicon glyphicon-pause"></span>暂停</button>
-                                        <button type="button" class ="btn btn-default lstjd-fuc-btn lstjd-fuc-btn-cc" style="display:none" data-fullname="${fullname}" data-statusflag="" data-togtarget="lstjd-fuc-btn-stop"><span class ="glyphicon glyphicon-play"></span>继续</button>
-                                        <button type="button" class ="btn btn-default lstjd-fuc-btn" data-fullname="${fullname}" data-statusflag="delete"><span class ="glyphicon glyphicon-remove-sign"></span>删除</button>
+                                    <div class ="btn-group btn-group-xs">
+                                        <button type="button" class ="btn btn-default btn-input-file ${ctclass}"><span class ="glyphicon glyphicon-step-forward"></span>续传
+                                            <input class ="lstjd-fuc-file-ct" type="file" name="ctmyfile" data-fullname="${fullname}" data-togtarget="lstjd-fuc-btn-stop" /></button>
+                                        <button type="button" class ="btn btn-default lstjd-fuc-btn lstjd-fuc-btn-stop ${stopclass}" data-fullname="${fullname}" data-statusflag="stop"
+                                             data-togtarget="lstjd-fuc-btn-cc"><span class ="glyphicon glyphicon-pause"></span>暂停</button>
+                                        <button type="button" class ="btn btn-default lstjd-fuc-btn lstjd-fuc-btn-cc hidden" data-fullname="${fullname}"
+                                                data-statusflag="" data-togtarget="lstjd-fuc-btn-stop"><span class ="glyphicon glyphicon-play"></span>继续</button>
+                                        <button type="button" class ="btn btn-default lstjd-fuc-btn" data-fullname="${fullname}" data-statusflag="delete">
+                                        <span class ="glyphicon glyphicon-remove-sign"></span>删除</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="progress">
-                                <div class ="progress-bar progress-bar-striped active lstjd-div" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 0">
-                                    <span class ="lstjd-span">0%</span>
+                                <div class ="progress-bar progress-bar-striped active lstjd-div" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
+                                style="width: ${jdvalue}%">
+                                    <span class ="lstjd-span">${jdvalue}%</span>
                                 </div>
                             </div>
                             <div class ="lstjd-msg" style="color:red"></div>
                         </li>`
-                    var uploadingElement = $(htmlstr);
-                    uploadingElement.appendTo("#lstuploading");
-                    var fileWrapper = { file: file, uploadingElement,hasfileid: false,fullname};
-                    addUplodingItem(fileWrapper)
-                    uploader.send(fileWrapper);
+            return htmlstr;
+        }
+
+        $(function () {
+            $("input[name='myfile']").change(function (sender) {
+                $.each(this.files, function (index, file) {
+                    createNewTaskHtml(file)
                 });
                 $(this).val("")
             });
@@ -271,7 +304,7 @@
             $(document.body).on("click", ".lstjd-fuc-btn", function () {
                 var fullname = $(this).data("fullname");
                 var statusflag = $(this).data("statusflag")
-                var fileWrapper = lstuplodingfilewrapper.filter(x=>x.fullname == fullname)[0];
+                var fileWrapper = lstuplodingfilewrapper.find(x=>x.fullname == fullname);
                 $(fileWrapper.uploadingElement).find(".lstjd-info").show()
                 fileWrapper.statusflag = statusflag
                 if (!fileWrapper.statusflag) {
@@ -283,9 +316,29 @@
                 var togtarget = $(this).data("togtarget")
                 if(!togtarget)
                     return
-                $(this).hide()
-                $(this).parent().find("." + togtarget).show()
+                $(this).addClass("hidden")
+                $(this).parent().find("." + togtarget).removeClass("hidden")
                 
+            })
+            $(document.body).on("change", ".lstjd-fuc-file-ct", function () {
+                var file = this.files[0];
+                var fullname = $(this).data("fullname")
+                var fileWrapper = lstuplodingfilewrapper.find(x=>x.fullname == fullname);
+                if (file.name != fileWrapper.fullname || file.size != fileWrapper.size) {
+                    alert("请选择同一个文件进行续传");
+                    return;
+                }
+                var togtarget = $(this).data("togtarget")
+                $(this).parent().addClass("hidden")
+                $(this).parents(".btn-group-xs").find("." + togtarget).removeClass("hidden")
+                fileWrapper.file = file;
+                uploader.send(fileWrapper)
+                $(this).val("")
+            })
+            $.post("?cmd=GetUploadingFileEntities", {}, function (data) {
+                $.each(data, function (ind,fileEntity) {
+                    createCCTaskHtml(fileEntity)
+                })
             })
         })
     </script>

@@ -16,6 +16,7 @@ namespace Http.File
                 throw new ArgumentException("必须指定上传的文件内容");
             long Position = long.Parse(context.Request["Position"]);
             long FileSize = long.Parse(context.Request["FileSize"]);
+            string fileId = context.Request["fileId"];
             string fullName = context.Request["WebkitRelativePath"];
             fullName = String.IsNullOrWhiteSpace(fullName) ? context.Request.Files[0].FileName : fullName;
             var rootFolder = context.Server.MapPath("");
@@ -35,7 +36,6 @@ namespace Http.File
                     UploadStepValue = Model.UploadStep.进行中
                 };
                 this.dbcontext.FileEntity.Add(fe);
-                this.dbcontext.SaveChanges();
             }
             var fileFolder = System.IO.Path.GetDirectoryName(filePath);
             if (!System.IO.Directory.Exists(fileFolder))
@@ -45,6 +45,9 @@ namespace Http.File
                 filestream.Position = Position;
                 context.Request.Files[0].InputStream.CopyTo(filestream);
                 filestream.Flush(true);
+                if (!string.IsNullOrEmpty(fileId))
+                    context.Cache[fileId] = filestream.Position - 1;
+                this.dbcontext.SaveChanges();
             }
             return new { msg = "ok",fe?.Id };
         }
@@ -84,6 +87,21 @@ namespace Http.File
                 total = lstRT.Count
             };
             return rt;
+        }
+
+        public object GetUploadingFileEntities(HttpContext context)
+        {
+            
+            var lst = this.dbcontext.FileEntity.Where(x=>x.UploadStepValue== Model.UploadStep.进行中).OrderByDescending(x => x.Id).ToList();
+            var lstRt= lst.Select(x => new
+            {
+                x.FullName,
+                Name=System.IO.Path.GetFileName(x.FullName),
+                x.Id,
+                x.Size,
+                Position = long.Parse((context.Cache[x.Id.ToString()]?.ToString() ?? "1"))
+            }).ToList();
+            return lstRt;
         }
     }
 }
