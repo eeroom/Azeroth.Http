@@ -188,6 +188,10 @@
                             pageNumber: 1
                         })
                     }
+                    else if (item.CC = "file") {
+                        var html = `<iframe style="width:0;height:0" src="Pan.aspx?cmd=Download&fileids=${item.Id}"></iframe>`
+                        $(html).appendTo(window.document.body);
+                    }
                     return false;
                 }
             });
@@ -409,7 +413,6 @@
 
         </div>
     </nav>
-
     <div class="container">
         <div class="row">
             <div class="col-sm-18">
