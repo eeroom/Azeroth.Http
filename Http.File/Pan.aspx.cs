@@ -103,5 +103,27 @@ namespace Http.File
             }).ToList();
             return lstRt;
         }
+
+        public object Delete(HttpContext context)
+        {
+            DeleteFileInput deleteInput;
+            using (var streamReader=new System.IO.StreamReader(context.Request.InputStream))
+            {
+                deleteInput= (DeleteFileInput)new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize(streamReader.ReadToEnd(), typeof(DeleteFileInput));
+
+            }
+            var lstdd= deleteInput.lstId.Select(x => new Model.FileEntity() { Id = x }).ToList();
+            lstdd.ForEach(x => {
+                this.dbcontext.Entry(x).State = System.Data.Entity.EntityState.Deleted;
+            });
+            this.dbcontext.SaveChanges();
+            return new { msg = "ok" };
+            
+        }
+
+        class DeleteFileInput
+        {
+            public int[] lstId { get; set; }
+        }
     }
 }

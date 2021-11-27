@@ -109,14 +109,17 @@
         .container .panel {
             margin-top: 10px;
         }
-        .span-margin{
-            margin-left:6px;
+
+        .span-margin {
+            margin-left: 6px;
         }
-        .bg-yellow{
-            color:#ffd800
+
+        .bg-yellow {
+            color: #ffd800;
         }
-        .bg-red{
-            color:#ed0c0c
+
+        .bg-red {
+            color: #ed0c0c;
         }
     </style>
     <script type="text/javascript">
@@ -128,7 +131,7 @@
                 return `<span class ="glyphicon glyphicon-folder-open bg-yellow"></span><span class="span-margin">${row.FullName}</span>`
             return `<span class ="glyphicon glyphicon-file bg-red"></span><span class="span-margin">${row.FullName}</span>`;
         }
-        
+
         $(function () {
             //所有选项都定义在  jQuery.fn.bootstrapTable.defaults
             window.btable = btable = $("#tbFilelst").bootstrapTable({
@@ -161,7 +164,7 @@
                      return parameters;
                  }
                 , onDblClickRow: function (item, $element) {
-                    if (item.CC!="dir")
+                    if (item.CC != "dir")
                         return;
                     $("#filepath").val(item.Path)
                     btable.bootstrapTable("refresh", {
@@ -173,19 +176,50 @@
 
             var mm = jQuery.fn.bootstrapTable.defaults;
             $("#tbFilelst").on("click", ".btn-row-delete", function () {
-                alert("要删除的数据，Id=" + $(this).data("id"));
-            });
+                var id = $(this).data("id");
+                if (id == "2147483647") {
+                    alert("不能直接删除文件夹");
+                    return
+                }
+
+                var lstId = [id];
+                $.ajax({
+                    url: "?cmd=Delete",
+                    type: "post",
+                    contentType: "application/json",
+                    data: JSON.stringify({ lstId}),
+                            processData: false,
+                            success: function () {
+                        btable.bootstrapTable("refresh", { pageNumber: 1 })
+                    }
+                    })
+                    });
             $("form").submit(function () {
                 btable.bootstrapTable("refresh", {
-                    pageNumber: 1
-                });
+                        pageNumber: 1
+                    });
                 return false;
             });
             $("#tbToolbar").on("click", ".btn-row-delete2", function () {
                 var data = btable.bootstrapTable("getSelections");
-                alert("要删除的数据：" + JSON.stringify(data));
-            });
-        });
+                var lstId = data.map(x=>x.Id)
+                if (lstId.find(x=>x == "2147483647")) {
+                    alert("不能直接删除文件夹");
+                    return
+                }
+
+                $.ajax({
+                    url: "?cmd=Delete",
+                    type: "post",
+                    contentType: "application/json",
+                    data: JSON.stringify({ lstId}),
+                            processData: false,
+                            success: function () {
+                        btable.bootstrapTable("refresh", { pageNumber: 1 })
+                    }
+                    })
+                    });
+                    });
 
     </script>
     <script type="text/javascript">
@@ -227,17 +261,17 @@
                 }
             },
             errorHandler: function (opt, resdata, options) {
-                $(opt.fileWrapper.uploadingElement).find(".lstjd-msg").html((resdata.responseJSON && resdata.responseJSON.msg)||"服务器发送错误")
+                $(opt.fileWrapper.uploadingElement).find(".lstjd-msg").html((resdata.responseJSON && resdata.responseJSON.msg) || "服务器发送错误")
                 $(opt.fileWrapper.uploadingElement).find(".lstjd-fuc-btn-stop").trigger("click");
             },
             statusHandler: function (opt) {
-                
+
             },
             formadataHandler: function (formdata, opt) {
                 formdata.append("fileId", opt.fileWrapper.fileid)
             }
         });
-        
+
         function createNewTaskHtml(file) {
             //file是从file的input直接选文件添加上传任务，fileEnity是从api取得数据添加续传任务
             var fullname = file.webkitRelativePath || file.name, filename = file.name
@@ -246,28 +280,29 @@
             var htmlstr = getTaskHtml(fullname, filename, jdvalue, tipclass, ctclass, stopclass)
             var uploadingElement = $(htmlstr);
             uploadingElement.appendTo("#lstuploading");
-            var fileWrapper = { file: file, uploadingElement, hasfileid: false, fullname,filename, position: 0, fileid: -1};
+            var fileWrapper = { file: file, uploadingElement, hasfileid: false, fullname, filename, position: 0, fileid: -1};
             addUplodingItem(fileWrapper)
             uploader.send(fileWrapper);
-        }
+            }
 
         function createCCTaskHtml(fileEntity) {
             //file是从file的input直接选文件添加上传任务，fileEnity是从api取得数据添加续传任务
-            var fullname = fileEntity.FullName,filename = fileEntity.Name
+            var fullname = fileEntity.FullName, filename = fileEntity.Name
             var jdvalue = parseInt(100.0 * fileEntity.Position / fileEntity.Size)
-            var tipclass = "",ctclass="",stopclass="hidden"
+            var tipclass = "", ctclass="", stopclass="hidden"
             var htmlstr = getTaskHtml(fullname, filename, jdvalue, tipclass, ctclass, stopclass)
             var uploadingElement = $(htmlstr);
             uploadingElement.appendTo("#lstuploading");
             var fileWrapper = { file: null, uploadingElement, hasfileid: true, fullname, filename, position: fileEntity.Position, fileid: fileEntity.Id, size: fileEntity.Size};
             addUplodingItem(fileWrapper)
-        }
+            }
 
         function getTaskHtml(fullname, filename, jdvalue, tipclass, ctclass, stopclass) {
             var htmlstr = `<li class="list-group-item">
                             <div class="row">
                                 <div class="col-md-16 ellipsis">
-                                    <a title="${filename}"><span class ="glyphicon glyphicon-exclamation-sign lstjd-info ${tipclass}" style="color:red"></span> ${filename}</a>
+                                    <a title="${filename}"><span class ="glyphicon glyphicon-exclamation-sign lstjd-info ${tipclass}" style="color:red"></span> ${filename
+            }</a>
                                 </div>
                                 <div class="col-md-8">
                                     <div class ="btn-group btn-group-xs">
@@ -314,11 +349,11 @@
                     removeUplodingItem(fileWrapper);
                 }
                 var togtarget = $(this).data("togtarget")
-                if(!togtarget)
+                if (!togtarget)
                     return
                 $(this).addClass("hidden")
                 $(this).parent().find("." + togtarget).removeClass("hidden")
-                
+
             })
             $(document.body).on("change", ".lstjd-fuc-file-ct", function () {
                 var file = this.files[0];
@@ -336,7 +371,7 @@
                 $(this).val("")
             })
             $.post("?cmd=GetUploadingFileEntities", {}, function (data) {
-                $.each(data, function (ind,fileEntity) {
+                $.each(data, function (ind, fileEntity) {
                     createCCTaskHtml(fileEntity)
                 })
             })
@@ -420,7 +455,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 hidden-xs panel-lst-filetask" style="display:none">
+            <div class="col-sm-6 hidden-xs panel-lst-filetask" style="display: none">
                 <div class="panel panel-default ">
                     <div class="panel-heading">
                         上传任务
