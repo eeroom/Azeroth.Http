@@ -79,14 +79,14 @@ namespace Http.File
                 .ToList();
             lstdirEntityWrapper.AddRange(lstwrapper);
             if(!string.IsNullOrEmpty(path))
-                lstdirEntityWrapper.Insert(0, Tuple.Create(new Model.FileEntity() { FullName = "..", Id = int.MaxValue }, path));
+                lstdirEntityWrapper.Insert(0, Tuple.Create(new Model.FileEntity() { FullName = "..", Id = int.MinValue }, path));
             var lstRT = lstdirEntityWrapper.Where(x => x.Item2 == path).Select(x=>x.Item1).Select(x => new
             {
                 FullName= System.IO.Path.GetFileName(x.FullName),
                 Path = x.Id == int.MaxValue ? (x.FullName==".."?System.IO.Path.GetDirectoryName(path):x.FullName) :string.Empty,
                 Size = x.Size == 0 ? string.Empty : Math.Round((1.0 * x.Size / 1024 / 1024), 2, MidpointRounding.ToEven).ToString() + "MB",
                 x.Id,
-                CC = x.Id == int.MaxValue ? "dir" : "file"
+                CC = x.Id == int.MaxValue ? "dir" : (x.Id==int.MinValue? "parent" : "file")
             }).ToList();
             var rt = new{
                 rows = lstRT,
@@ -116,16 +116,31 @@ namespace Http.File
             using (var streamReader=new System.IO.StreamReader(context.Request.InputStream))
             {
                 deleteInput= (DeleteFileInput)new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize(streamReader.ReadToEnd(), typeof(DeleteFileInput));
-
             }
-            var lstdd= this.dbcontext.FileEntity.Where(x=>deleteInput.lstId.Contains(x.Id)).ToList();
             var rootFolder = this.GetRootFolder(context);
-            lstdd.ForEach(x =>
+            //删除文件夹
+            var lstdddir= deleteInput.lstfe.Where(x => x.cc == "dir").Select(x => x.path).Distinct().ToList();
+            lstdddir.ForEach(x =>
             {
-                this.dbcontext.FileEntity.Remove(x);
-                var fullpath = System.IO.Path.Combine(rootFolder, x.FullName);
-                System.IO.File.Delete(fullpath);
+                var fullpath = System.IO.Path.Combine(rootFolder, x);
+                if(System.IO.Directory.Exists(fullpath))
+                    System.IO.Directory.Delete(fullpath, true);//删磁盘目录
             });
+            //删除文件
+            var lstId = deleteInput.lstfe.Where(x => x.cc == "file").Select(x=>x.id);
+            var lstddfile = this.dbcontext.FileEntity.Where(x => lstId.Contains(x.Id)).ToList();
+            lstddfile.ForEach(x =>
+            {
+
+                var fullpath = System.IO.Path.Combine(rootFolder, x.FullName);
+                if(System.IO.File.Exists(fullpath))
+                    System.IO.File.Delete(fullpath);//删磁盘文件
+            });
+            var lstddfile2= lstdddir.Select(x => x.Replace("\\","/") + "/")
+                .Select(x => this.dbcontext.FileEntity.Where(a => a.FullName.StartsWith(x)).ToList())
+                .SelectMany(x => x).ToList();
+            this.dbcontext.FileEntity.RemoveRange(lstddfile);//删数据库记录
+            this.dbcontext.FileEntity.RemoveRange(lstddfile2);
             this.dbcontext.SaveChanges();
             return new { msg = "ok" };
             
@@ -133,7 +148,16 @@ namespace Http.File
 
         class DeleteFileInput
         {
-            public int[] lstId { get; set; }
+            public List<Fe> lstfe { get; set; }
+        }
+
+        class Fe
+        {
+            public int id { get; set; }
+
+            public string path { get; set; }
+
+            public string cc { get; set; }
         }
 
         public object Complete(HttpContext context)

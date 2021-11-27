@@ -31,7 +31,7 @@
     <link href="bootstrap-table-1.11.1/bootstrap-table.css" rel="stylesheet" />
     <script src="bootstrap-table-1.11.1/bootstrap-table.js"></script>
     <script src="bootstrap-table-1.11.1/locale/bootstrap-table-zh-CN.js"></script>
-    <script src="azeroth-lib.js"></script>
+    <script src="azeroth-lib.js?v=11"></script>
     <style type="text/css">
         .nav-sidebar {
             margin-bottom: 0;
@@ -124,28 +124,33 @@
     </style>
     <script type="text/javascript">
         function handlerColumnFormatter(value, row, index) {
-            return `<a class="btn btn-xs btn-default btn-row-delete" data-id="${row.Id}"><span class ="glyphicon glyphicon-remove-sign"></span></a>`;
+            if (row.CC == "parent")
+                return "";
+            return `<a class="btn btn-xs btn-default btn-row-delete" data-id="${row.Id}" data-path="${row.Path}" data-cc="${row.CC}"><span class ="glyphicon glyphicon-remove-sign"></span></a>`;
         }
         function handlerNameFormatter(value, row, index) {
-            if (row.CC == "dir")
-                return `<span class ="glyphicon glyphicon-folder-open bg-yellow"></span><span class="span-margin">${row.FullName}</span>`
-            return `<span class ="glyphicon glyphicon-file bg-red"></span><span class="span-margin">${row.FullName}</span>`;
+            if (row.CC == "file")
+                return `<span class ="glyphicon glyphicon-file bg-red"></span><span class="span-margin">${row.FullName}</span>`;
+            return `<span class ="glyphicon glyphicon-folder-open bg-yellow"></span><span class="span-margin">${row.FullName}</span>`
         }
 
-        function deleteFile(lstId) {
-            return new Promise((x, y) => {
-                $.ajax({
-                    url: "?cmd=Delete",
-                    type: "post",
-                    contentType: "application/json",
-                    data: JSON.stringify({ lstId }),
-                    processData: false,
-                    success: data=>x(data)
-                })
-            });
+        function deleteFile(lstfe) {
+           return $.ajax({
+                url: "?cmd=Delete",
+                method: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({ lstfe }),
+                processData: false
+            })
         }
 
         $(function () {
+            $.ajaxSetup({
+                error: function (jqXHR, textStatus, errorMsg) {
+                    var msg= (jqXHR.responseJSON && jqXHR.responseJSON.msg) || "服务器发生错误";
+                    alert(msg);
+                }
+            })
             //所有选项都定义在  jQuery.fn.bootstrapTable.defaults
             window.btable = btable = $("#tbFilelst").bootstrapTable({
                 toolbar: "#tbToolbar"
@@ -177,12 +182,12 @@
                      return parameters;
                  }
                 , onDblClickRow: function (item, $element) {
-                    if (item.CC != "dir")
-                        return;
-                    $("#filepath").val(item.Path)
-                    btable.bootstrapTable("refresh", {
-                        pageNumber: 1
-                    })
+                    if (item.CC == "dir" || item.CC == "parent") {
+                        $("#filepath").val(item.Path)
+                        btable.bootstrapTable("refresh", {
+                            pageNumber: 1
+                        })
+                    }
                     return false;
                 }
             });
@@ -190,12 +195,10 @@
             var mm = jQuery.fn.bootstrapTable.defaults;
             $("#tbFilelst").on("click", ".btn-row-delete", function () {
                 var id = $(this).data("id");
-                if (id == "2147483647") {
-                    alert("不能直接删除文件夹");
-                    return
-                }
-                var lstId = [id];
-                deleteFile(lstId).then(x=>btable.bootstrapTable("refresh", { pageNumber: 1 }));
+                var path = $(this).data("path");
+                var cc = $(this).data("cc");
+                var lstfe = [{ id, path, cc}];
+                deleteFile(lstfe).then(x=>btable.bootstrapTable("refresh", { pageNumber: 1 }));
             });
             $("form").submit(function () {
                 btable.bootstrapTable("refresh", {
@@ -205,12 +208,12 @@
             });
             $("#tbToolbar").on("click", ".btn-row-delete2", function () {
                 var data = btable.bootstrapTable("getSelections");
-                var lstId = data.map(x=>x.Id)
-                if (lstId.find(x=>x == "2147483647")) {
-                    alert("不能直接删除文件夹");
-                    return
+                if (data.find(x=>x.CC == "parent")) {
+                    alert("不允许删除上级目录");
+                    return;
                 }
-                deleteFile(lstId).then(x=>btable.bootstrapTable("refresh", { pageNumber: 1 }))
+                var lstfe = data.map(x=>({ id: x.Id, "path": x.Path, "cc": x.CC }))
+                deleteFile(lstfe).then(x=>btable.bootstrapTable("refresh", { pageNumber: 1 }))
             });
         });
 

@@ -22,21 +22,23 @@ function klzUploader(options) {
             "url": opt.url,
             "data": formdata,
             "processData": false,
-            "contentType": false
-        }).then(function (resdata) {
-            opt.fileWrapper.position = opt.fileWrapper.position + opt.chunkSize;
-            if (opt.fileWrapper.position >= opt.fileWrapper.file.size) {
-                opt.completeHandler(opt, resdata);
-                return;
+            "contentType": false,
+            success: function (resdata) {
+                opt.fileWrapper.position = opt.fileWrapper.position + opt.chunkSize;
+                if (opt.fileWrapper.position >= opt.fileWrapper.file.size) {
+                    opt.completeHandler(opt, resdata);
+                    return;
+                }
+                if (!!opt.fileWrapper.statusflag) {
+                    opt.statusHandler(opt, resdata)
+                } else {
+                    opt.uploadingHandler(opt, resdata);
+                    uploadFileByChunk(opt);
+                }
+            },
+            error: function (resdata) {
+                opt.errorHandler(opt, resdata);
             }
-            if (!!opt.fileWrapper.statusflag) {
-                opt.statusHandler(opt, resdata)
-            } else {
-                opt.uploadingHandler(opt, resdata);
-                uploadFileByChunk(opt);
-            }
-        }).fail(function (resdata) {
-            opt.errorHandler(opt, resdata);
         });
     }
 
