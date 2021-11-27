@@ -132,6 +132,19 @@
             return `<span class ="glyphicon glyphicon-file bg-red"></span><span class="span-margin">${row.FullName}</span>`;
         }
 
+        function deleteFile(lstId) {
+            return new Promise((x, y) => {
+                $.ajax({
+                    url: "?cmd=Delete",
+                    type: "post",
+                    contentType: "application/json",
+                    data: JSON.stringify({ lstId }),
+                    processData: false,
+                    success: data=>x(data)
+                })
+            });
+        }
+
         $(function () {
             //所有选项都定义在  jQuery.fn.bootstrapTable.defaults
             window.btable = btable = $("#tbFilelst").bootstrapTable({
@@ -181,23 +194,13 @@
                     alert("不能直接删除文件夹");
                     return
                 }
-
                 var lstId = [id];
-                $.ajax({
-                    url: "?cmd=Delete",
-                    type: "post",
-                    contentType: "application/json",
-                    data: JSON.stringify({ lstId}),
-                            processData: false,
-                            success: function () {
-                        btable.bootstrapTable("refresh", { pageNumber: 1 })
-                    }
-                    })
-                    });
+                deleteFile(lstId).then(x=>btable.bootstrapTable("refresh", { pageNumber: 1 }));
+            });
             $("form").submit(function () {
                 btable.bootstrapTable("refresh", {
-                        pageNumber: 1
-                    });
+                    pageNumber: 1
+                });
                 return false;
             });
             $("#tbToolbar").on("click", ".btn-row-delete2", function () {
@@ -207,19 +210,9 @@
                     alert("不能直接删除文件夹");
                     return
                 }
-
-                $.ajax({
-                    url: "?cmd=Delete",
-                    type: "post",
-                    contentType: "application/json",
-                    data: JSON.stringify({ lstId}),
-                            processData: false,
-                            success: function () {
-                        btable.bootstrapTable("refresh", { pageNumber: 1 })
-                    }
-                    })
-                    });
-                    });
+                deleteFile(lstId).then(x=>btable.bootstrapTable("refresh", { pageNumber: 1 }))
+            });
+        });
 
     </script>
     <script type="text/javascript">
@@ -240,7 +233,7 @@
         var uploader = new klzUploader({
             maxTaskCount: 3,
             url: "?cmd=Upload",
-            chunkSize: 10 * 1024,
+            chunkSize: 40 * 1024,
             completeHandler: function (opt, resdata, options) {
                 //$("#" + opt.fileWrapper.elUploadingId).empty();
                 $.post("?cmd=Complete", { fileid: opt.fileWrapper.fileid || resdata.Id }, function () {
@@ -282,7 +275,7 @@
             var htmlstr = getTaskHtml(fullname, filename, jdvalue, tipclass, ctclass, stopclass)
             var uploadingElement = $(htmlstr);
             uploadingElement.appendTo("#lstuploading");
-            var fileWrapper = { file: file, uploadingElement, hasfileid: false, fullname, filename, position: 0, fileid: -1};
+            var fileWrapper = { file: file, uploadingElement, hasfileid: false, fullname, filename, position: 0, fileid: null};
             addUplodingItem(fileWrapper)
             uploader.send(fileWrapper);
             }
@@ -348,7 +341,11 @@
                     uploader.send(fileWrapper);
                 }
                 if (fileWrapper.statusflag == "delete") {
-                    removeUplodingItem(fileWrapper);
+                    if (!!fileWrapper.fileid) {
+                        deleteFile([fileWrapper.fileid]).then(x=>removeUplodingItem(fileWrapper));
+                    } else {
+                        removeUplodingItem(fileWrapper);
+                    }
                 }
                 var togtarget = $(this).data("togtarget")
                 if (!togtarget)

@@ -10,6 +10,14 @@ namespace Http.File
     public partial class Pan : CmdPage<Pan>, IAnonymousPage
     {
         Model.HFDbContext dbcontext = new Model.HFDbContext();
+
+        string GetRootFolder(HttpContext context)
+        {
+            var rootFolder = context.Server.MapPath("");
+            var rootFolder2 = System.IO.Directory.GetParent(rootFolder).Parent.FullName;
+            var rootFolder3 = System.IO.Path.Combine(rootFolder2, "Azeroth.File.UploadFiles");
+            return rootFolder3;
+        }
         public object Upload(HttpContext context)
         {
             if (context.Request.Files.Count < 1)
@@ -19,9 +27,7 @@ namespace Http.File
             string fileId = context.Request["fileId"];
             string fullName = context.Request["WebkitRelativePath"];
             fullName = String.IsNullOrWhiteSpace(fullName) ? context.Request.Files[0].FileName : fullName;
-            var rootFolder = context.Server.MapPath("");
-            rootFolder = System.IO.Directory.GetParent(rootFolder).Parent.FullName;
-            rootFolder = System.IO.Path.Combine(rootFolder, "Azeroth.File.UploadFiles");
+            var rootFolder = this.GetRootFolder(context);
             var filePath = System.IO.Path.Combine(rootFolder, fullName);
             Model.FileEntity fe = null;
             if (Position == 0)
@@ -55,7 +61,7 @@ namespace Http.File
         public object GetFileEntities(HttpContext context)
         {
             string path = context.Request["path"]??string.Empty;
-            var lst = this.dbcontext.FileEntity.Where(x=>x.UploadStepValue== Model.UploadStep.完成).OrderByDescending(x => x.Id).ToList();
+            var lst = this.dbcontext.FileEntity.AsNoTracking().Where(x=>x.UploadStepValue== Model.UploadStep.完成).OrderByDescending(x => x.Id).ToList();
             var lstwrapper= lst.Select(x => Tuple.Create(x, System.IO.Path.GetDirectoryName(x.FullName))).ToList();
             var lstdir= lstwrapper.Select(x => x.Item2).Distinct().ToList();
             var lstdirAll= lstdir.Select(x => x.Split(new char[] { '\\' }, StringSplitOptions.RemoveEmptyEntries))
@@ -92,7 +98,7 @@ namespace Http.File
         public object GetUploadingFileEntities(HttpContext context)
         {
             
-            var lst = this.dbcontext.FileEntity.Where(x=>x.UploadStepValue== Model.UploadStep.进行中).OrderByDescending(x => x.Id).ToList();
+            var lst = this.dbcontext.FileEntity.AsNoTracking().Where(x=>x.UploadStepValue== Model.UploadStep.进行中).OrderByDescending(x => x.Id).ToList();
             var lstRt= lst.Select(x => new
             {
                 x.FullName,
@@ -112,9 +118,13 @@ namespace Http.File
                 deleteInput= (DeleteFileInput)new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize(streamReader.ReadToEnd(), typeof(DeleteFileInput));
 
             }
-            var lstdd= deleteInput.lstId.Select(x => new Model.FileEntity() { Id = x }).ToList();
-            lstdd.ForEach(x => {
-                this.dbcontext.Entry(x).State = System.Data.Entity.EntityState.Deleted;
+            var lstdd= this.dbcontext.FileEntity.Where(x=>deleteInput.lstId.Contains(x.Id)).ToList();
+            var rootFolder = this.GetRootFolder(context);
+            lstdd.ForEach(x =>
+            {
+                this.dbcontext.FileEntity.Remove(x);
+                var fullpath = System.IO.Path.Combine(rootFolder, x.FullName);
+                System.IO.File.Delete(fullpath);
             });
             this.dbcontext.SaveChanges();
             return new { msg = "ok" };
