@@ -24,5 +24,11 @@ namespace Http.File.Model {
 
         [Required]
         public string ClientHashValue { get; set; }
+
+        [NotMapped]
+        public string CC { get; set; }
+
+        [NotMapped]
+        public string Path { get; set; }
     }
 }

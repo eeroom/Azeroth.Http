@@ -30,18 +30,19 @@ namespace Http.File
             var rootFolder = this.GetRootFolder(context);
             var filePath = System.IO.Path.Combine(rootFolder, fullName);
             Model.FileEntity fe = null;
-            if (Position == 0)
+            if (Position == 0 && string.IsNullOrEmpty(fileId))
             {
                 if (System.IO.File.Exists(filePath))
                     throw new ArgumentException($"文件已经存在:{fullName}");
                 fe = new Model.FileEntity()
                 {
                     ClientHashValue = "md5",
-                    FullName = fullName,
+                    FullName = fullName.Replace("/", "\\"),
                     Size = FileSize,
                     UploadStepValue = Model.UploadStep.进行中
                 };
                 this.dbcontext.FileEntity.Add(fe);
+                this.dbcontext.SaveChanges();
             }
             var fileFolder = System.IO.Path.GetDirectoryName(filePath);
             if (!System.IO.Directory.Exists(fileFolder))
@@ -53,42 +54,45 @@ namespace Http.File
                 filestream.Flush(true);
                 if (!string.IsNullOrEmpty(fileId))
                     context.Cache[fileId] = filestream.Position - 1;
-                this.dbcontext.SaveChanges();
             }
-            return new { msg = "ok",fe?.Id };
+            return new { msg = "ok", fe?.Id };
         }
 
         public object GetFileEntities(HttpContext context)
         {
-            string path = context.Request["path"]??string.Empty;
-            var lst = this.dbcontext.FileEntity.AsNoTracking().Where(x=>x.UploadStepValue== Model.UploadStep.完成).OrderByDescending(x => x.Id).ToList();
-            var lstwrapper= lst.Select(x => Tuple.Create(x, System.IO.Path.GetDirectoryName(x.FullName))).ToList();
-            var lstdir= lstwrapper.Select(x => x.Item2).Distinct().ToList();
-            var lstdirAll= lstdir.Select(x => x.Split(new char[] { '\\' }, StringSplitOptions.RemoveEmptyEntries))
+            string path = context.Request["path"] ?? string.Empty;
+            var lst = this.dbcontext.FileEntity.AsNoTracking().Where(x => x.UploadStepValue == Model.UploadStep.完成).OrderByDescending(x => x.Id).ToList();
+            var lstwrapper = lst.Select(x => Tuple.Create(x, System.IO.Path.GetDirectoryName(x.FullName))).ToList();
+            lstwrapper.ForEach(x => x.Item1.CC = "file");
+            var lstdir = lstwrapper.Select(x => x.Item2).Distinct().ToList();
+            var lstdirAll = lstdir.Select(x => x.Split(new char[] { '\\' }, StringSplitOptions.RemoveEmptyEntries))
                 .Select(x => System.Linq.Enumerable.Range(1, x.Length).Select(a => string.Join("\\", x.Take(a))))
                 .SelectMany(x => x)
                 .Distinct()
                 .ToList();
-            var lstdirEntity= lstdirAll.Select(x => new Model.FileEntity()
+            var lstdirEntity = lstdirAll.Select(x => new Model.FileEntity()
             {
                 FullName = x,
-                 Id=int.MaxValue
-            });
-            var lstdirEntityWrapper= lstdirEntity.Select(x => Tuple.Create(x, System.IO.Path.GetDirectoryName(x.FullName)))
-                .OrderBy(x=>x.Item2.Length)
+                CC = "dir",
+                Path = x
+            }).ToList();
+            var lstdirEntityWrapper = lstdirEntity.Select(x => Tuple.Create(x, System.IO.Path.GetDirectoryName(x.FullName)))
+                .OrderBy(x => x.Item2.Length)
                 .ToList();
             lstdirEntityWrapper.AddRange(lstwrapper);
-            if(!string.IsNullOrEmpty(path))
-                lstdirEntityWrapper.Insert(0, Tuple.Create(new Model.FileEntity() { FullName = "..", Id = int.MinValue }, path));
-            var lstRT = lstdirEntityWrapper.Where(x => x.Item2 == path).Select(x=>x.Item1).Select(x => new
+            if (!string.IsNullOrEmpty(path))
+                lstdirEntityWrapper.Insert(0, Tuple.Create(new Model.FileEntity() { FullName = "..", CC = "parent", Path = System.IO.Path.GetDirectoryName(path) }, path));
+            var lstRT = lstdirEntityWrapper.Where(x => x.Item2 == path).Select(x => x.Item1)
+                .Select(x => new
+                {
+                    x.Id,
+                    x.Path,
+                    x.Size,
+                    FullName = System.IO.Path.GetFileName(x.FullName),
+                    x.CC
+                }).ToList();
+            var rt = new
             {
-                FullName= System.IO.Path.GetFileName(x.FullName),
-                Path = x.Id == int.MaxValue ? (x.FullName==".."?System.IO.Path.GetDirectoryName(path):x.FullName) :string.Empty,
-                Size = x.Size == 0 ? string.Empty : Math.Round((1.0 * x.Size / 1024 / 1024), 2, MidpointRounding.ToEven).ToString() + "MB",
-                x.Id,
-                CC = x.Id == int.MaxValue ? "dir" : (x.Id==int.MinValue? "parent" : "file")
-            }).ToList();
-            var rt = new{
                 rows = lstRT,
                 total = lstRT.Count
             };
@@ -97,12 +101,12 @@ namespace Http.File
 
         public object GetUploadingFileEntities(HttpContext context)
         {
-            
-            var lst = this.dbcontext.FileEntity.AsNoTracking().Where(x=>x.UploadStepValue== Model.UploadStep.进行中).OrderByDescending(x => x.Id).ToList();
-            var lstRt= lst.Select(x => new
+
+            var lst = this.dbcontext.FileEntity.AsNoTracking().Where(x => x.UploadStepValue == Model.UploadStep.进行中).OrderByDescending(x => x.Id).ToList();
+            var lstRt = lst.Select(x => new
             {
                 x.FullName,
-                Name=System.IO.Path.GetFileName(x.FullName),
+                Name = System.IO.Path.GetFileName(x.FullName),
                 x.Id,
                 x.Size,
                 Position = long.Parse((context.Cache[x.Id.ToString()]?.ToString() ?? "1"))
@@ -113,30 +117,30 @@ namespace Http.File
         public object Delete(HttpContext context)
         {
             List<Fe> lstfe;
-            using (var streamReader=new System.IO.StreamReader(context.Request.InputStream))
+            using (var streamReader = new System.IO.StreamReader(context.Request.InputStream))
             {
                 lstfe = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<List<Fe>>(streamReader.ReadToEnd());
             }
             var rootFolder = this.GetRootFolder(context);
             //删除文件夹
-            var lstdddir= lstfe.Where(x => x.cc == "dir").Select(x => x.path).Distinct().ToList();
+            var lstdddir = lstfe.Where(x => x.cc == "dir").Select(x => x.path).Distinct().ToList();
             lstdddir.ForEach(x =>
             {
                 var fullpath = System.IO.Path.Combine(rootFolder, x);
-                if(System.IO.Directory.Exists(fullpath))
+                if (System.IO.Directory.Exists(fullpath))
                     System.IO.Directory.Delete(fullpath, true);//删磁盘目录
             });
             //删除文件
-            var lstId = lstfe.Where(x => x.cc == "file").Select(x=>x.id);
+            var lstId = lstfe.Where(x => x.cc == "file").Select(x => x.id);
             var lstddfile = this.dbcontext.FileEntity.Where(x => lstId.Contains(x.Id)).ToList();
             lstddfile.ForEach(x =>
             {
 
                 var fullpath = System.IO.Path.Combine(rootFolder, x.FullName);
-                if(System.IO.File.Exists(fullpath))
+                if (System.IO.File.Exists(fullpath))
                     System.IO.File.Delete(fullpath);//删磁盘文件
             });
-            var lstddfile2= lstdddir.Select(x => x.Replace("\\","/") + "/")
+            var lstddfile2 = lstdddir.Select(x => x + "/")
                 .Select(x => this.dbcontext.FileEntity.Where(a => a.FullName.StartsWith(x)).ToList())
                 .SelectMany(x => x).ToList();
             this.dbcontext.FileEntity.RemoveRange(lstddfile);//删数据库记录
@@ -157,11 +161,11 @@ namespace Http.File
         public object Complete(HttpContext context)
         {
             var fileid = context.Request["fileid"];
-            var fe = new Model.FileEntity() { Id = int.Parse(fileid), UploadStepValue= Model.UploadStep.完成 };
+            var fe = new Model.FileEntity() { Id = int.Parse(fileid), UploadStepValue = Model.UploadStep.完成 };
             this.dbcontext.Configuration.ValidateOnSaveEnabled = false;
-            var fewrapper= this.dbcontext.Entry(fe);
+            var fewrapper = this.dbcontext.Entry(fe);
             fewrapper.State = System.Data.Entity.EntityState.Unchanged;
-            fewrapper.Property(x => x.UploadStepValue).IsModified=true;
+            fewrapper.Property(x => x.UploadStepValue).IsModified = true;
             this.dbcontext.SaveChanges();
             return new { msg = "ok" };
         }
@@ -175,33 +179,37 @@ namespace Http.File
             if (lstfe.Count == 1 && lstfe[0].cc == "file")
                 this.DownloadFile(context, lstfe[0]);
             else
-                this.DownloadZip(context,lstfe);
+                this.DownloadZip(context, lstfe);
         }
 
-        private void DownloadZip(HttpContext context,List<Fe> lstfe)
+        private void DownloadZip(HttpContext context, List<Fe> lstfe)
         {
             //找出所有文件记录，2种可能情况，
             //1，按文件id,
-            var lstfileId= lstfe.Where(x => x.cc == "file").Select(x => x.id).Distinct().ToList();
-            var lstFileEntity1 = this.dbcontext.FileEntity.Where(x=>x.UploadStepValue== Model.UploadStep.完成).Where(x => lstfileId.Contains(x.Id)).ToList();
+            var lstfileId = lstfe.Where(x => x.cc == "file").Select(x => x.id).Distinct().ToList();
+            var lstFileEntity1 = this.dbcontext.FileEntity.Where(x => x.UploadStepValue == Model.UploadStep.完成).Where(x => lstfileId.Contains(x.Id)).ToList();
             //2，按父目录
             var lstdir = lstfe.Where(x => x.cc == "dir").Select(x => x.path).Distinct().ToList();
-            var lstdir2= lstdir.Select(x => x.Replace("\\", "/") + "/").ToList();
-            var lstFileEntity2= lstdir2.Select(x => this.dbcontext.FileEntity.Where(a=>a.UploadStepValue== Model.UploadStep.完成).Where(a => a.FullName.StartsWith(x)).ToList())
+            var lstdir2 = lstdir.Select(x => x + "\\").ToList();
+            var lstFileEntity2 = lstdir2.Select(x => this.dbcontext.FileEntity.Where(a => a.UploadStepValue == Model.UploadStep.完成).Where(a => a.FullName.StartsWith(x)).ToList())
                 .SelectMany(x => x)
                 .ToList();
             lstFileEntity1.AddRange(lstFileEntity2);
             var lstFileEntity = lstFileEntity1.GroupBy(x => x.Id).Select(gp => gp.First()).ToList();
             context.Response.ContentType = "application/octet-stream";
-            context.Response.AddHeader("Content-Disposition", "attachment;filename*=utf-8'zh_cn'" + context.Server.UrlEncode(System.IO.Path.GetFileName(lstFileEntity[0].FullName) + "-bundle.zip"));
+            string rpath = context.Request["rpath"] ?? string.Empty;
+            string bundleName = rpath == string.Empty ? "root" : System.IO.Path.GetFileName(rpath);
+            context.Response.AddHeader("Content-Disposition", "attachment;filename*=utf-8'zh_cn'" + context.Server.UrlEncode(bundleName + "-bundle.zip"));
             ICSharpCode.SharpZipLib.Zip.ZipOutputStream zipStream =
                 new ICSharpCode.SharpZipLib.Zip.ZipOutputStream(context.Response.OutputStream);
             zipStream.SetLevel(6);
             string rootPath = this.GetRootFolder(context);
+        
+            string basepath = System.IO.Path.Combine(rootPath, rpath);
             var filePaths = lstFileEntity.Select(x => System.IO.Path.Combine(rootPath, x.FullName)).ToList();
             foreach (var filePath in filePaths)
             {
-                string entryName = filePath.Replace(rootPath, string.Empty).TrimStart('\\');
+                string entryName = filePath.Replace(basepath, string.Empty).TrimStart('\\');
                 zipStream.PutNextEntry(new ICSharpCode.SharpZipLib.Zip.ZipEntry(entryName));
                 using (var fs = System.IO.File.Open(filePath, System.IO.FileMode.Open))
                 {
@@ -218,9 +226,9 @@ namespace Http.File
             zipStream.Finish();
         }
 
-        private void DownloadFile(HttpContext context,Fe fe)
+        private void DownloadFile(HttpContext context, Fe fe)
         {
-            var fileEntity =this.dbcontext.FileEntity.Where(x=>x.UploadStepValue== Model.UploadStep.完成).Where(x=>x.Id==fe.id).FirstOrDefault();
+            var fileEntity = this.dbcontext.FileEntity.Where(x => x.UploadStepValue == Model.UploadStep.完成).Where(x => x.Id == fe.id).FirstOrDefault();
             if (fileEntity == null)
                 throw new ArgumentException("指定的文件数据库记录不存在,文件id:" + fe.id);
             context.Response.ContentType = "application/octet-stream";

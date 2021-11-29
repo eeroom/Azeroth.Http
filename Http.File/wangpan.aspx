@@ -147,7 +147,8 @@
 
         function downloadfile(lstfe) {
             var tmp= encodeURI(JSON.stringify(lstfe));
-            var html = `<iframe style="width:0;height:0" src="?cmd=Download&lstfe=${tmp}"></iframe>`
+            var rpath = $("#rpath").val();
+            var html = `<iframe style="width:0;height:0" src="?cmd=Download&rpath=${rpath}&lstfe=${tmp}"></iframe>`
             $(html).appendTo(window.document.body);
         }
 
@@ -190,7 +191,7 @@
                  }
                 , onDblClickRow: function (item, $element) {
                     if (item.CC == "dir" || item.CC == "parent") {
-                        $("#filepath").val(item.Path)
+                        $("#rpath").val(item.Path)
                         btable.bootstrapTable("refresh", {
                             pageNumber: 1
                         })
@@ -301,7 +302,7 @@
             var htmlstr = getTaskHtml(fullname, filename, jdvalue, tipclass, ctclass, stopclass)
             var uploadingElement = $(htmlstr);
             uploadingElement.appendTo("#lstuploading");
-            var fileWrapper = { file: file, uploadingElement, hasfileid: false, fullname, filename, position: 0, fileid: null};
+            var fileWrapper = { file: file, uploadingElement, hasfileid: false, fullname, filename, position: 0};
             addUplodingItem(fileWrapper)
             uploader.send(fileWrapper);
             }
@@ -443,7 +444,7 @@
                     <div class="panel-body panel-lstfile">
                         <div id="tbToolbar">
                             <form class="form-inline">
-                                <input type="hidden" name="path" id="filepath" />
+                                <input type="hidden" name="path" id="rpath" />
                                 <div class="btn-group" role="group" aria-label="...">
                                     <a class="btn btn-default  btn-input-file" href="#" role="button">上传文件
                             <input type="file" name="myfile" multiple="multiple" />
