@@ -165,7 +165,6 @@
     <Content Include="bootstrap-table-1.11.1\locale\bootstrap-table-zh-CN.min.js" />
     <Content Include="bootstrap-table-1.11.1\locale\bootstrap-table-zh-TW.js" />
     <Content Include="bootstrap-table-1.11.1\locale\bootstrap-table-zh-TW.min.js" />
-    <Content Include="bootstrap-table.aspx" />
     <Content Include="bootstrap-datepicker.html" />
     <Content Include="bootstrap-table.html" />
     <Content Include="Bootstrap3.3.7\css\bootstrap-theme.css" />
@@ -643,13 +642,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bootstrap-table.aspx.cs">
-      <DependentUpon>bootstrap-table.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="bootstrap-table.aspx.designer.cs">
-      <DependentUpon>bootstrap-table.aspx</DependentUpon>
-    </Compile>
     <Compile Include="CmdPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
