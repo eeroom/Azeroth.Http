@@ -112,14 +112,14 @@ namespace Http.File
 
         public object Delete(HttpContext context)
         {
-            DeleteFileInput deleteInput;
+            List<Fe> lstfe;
             using (var streamReader=new System.IO.StreamReader(context.Request.InputStream))
             {
-                deleteInput= (DeleteFileInput)new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize(streamReader.ReadToEnd(), typeof(DeleteFileInput));
+                lstfe = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<List<Fe>>(streamReader.ReadToEnd());
             }
             var rootFolder = this.GetRootFolder(context);
             //删除文件夹
-            var lstdddir= deleteInput.lstfe.Where(x => x.cc == "dir").Select(x => x.path).Distinct().ToList();
+            var lstdddir= lstfe.Where(x => x.cc == "dir").Select(x => x.path).Distinct().ToList();
             lstdddir.ForEach(x =>
             {
                 var fullpath = System.IO.Path.Combine(rootFolder, x);
@@ -127,7 +127,7 @@ namespace Http.File
                     System.IO.Directory.Delete(fullpath, true);//删磁盘目录
             });
             //删除文件
-            var lstId = deleteInput.lstfe.Where(x => x.cc == "file").Select(x=>x.id);
+            var lstId = lstfe.Where(x => x.cc == "file").Select(x=>x.id);
             var lstddfile = this.dbcontext.FileEntity.Where(x => lstId.Contains(x.Id)).ToList();
             lstddfile.ForEach(x =>
             {
@@ -143,12 +143,6 @@ namespace Http.File
             this.dbcontext.FileEntity.RemoveRange(lstddfile2);
             this.dbcontext.SaveChanges();
             return new { msg = "ok" };
-            
-        }
-
-        class DeleteFileInput
-        {
-            public List<Fe> lstfe { get; set; }
         }
 
         class Fe

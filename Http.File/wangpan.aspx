@@ -140,7 +140,7 @@
                 url: "?cmd=Delete",
                 method: "POST",
                 contentType: "application/json",
-                data: JSON.stringify({ lstfe }),
+                data: JSON.stringify(lstfe),
                 processData: false
             })
         }
@@ -368,7 +368,7 @@
                 }
                 if (fileWrapper.statusflag == "delete") {
                     if (!!fileWrapper.fileid) {
-                        deleteFile([fileWrapper.fileid]).then(x=>removeUplodingItem(fileWrapper));
+                        deleteFile([{ id: fileWrapper.fileid ,cc:"file"}]).then(x=>removeUplodingItem(fileWrapper));
                     } else {
                         removeUplodingItem(fileWrapper);
                     }
