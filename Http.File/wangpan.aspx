@@ -189,7 +189,7 @@
                         })
                     }
                     else if (item.CC = "file") {
-                        var html = `<iframe style="width:0;height:0" src="Pan.aspx?cmd=Download&fileids=${item.Id}"></iframe>`
+                        var html = `<iframe style="width:0;height:0" src="?cmd=Download&fileids=${item.Id}"></iframe>`
                         $(html).appendTo(window.document.body);
                     }
                     return false;

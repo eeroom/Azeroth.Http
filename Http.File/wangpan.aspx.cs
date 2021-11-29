@@ -227,7 +227,7 @@ namespace Http.File
                 var md5buffer = new System.Security.Cryptography.MD5CryptoServiceProvider().ComputeHash(System.Text.UTF8Encoding.UTF8.GetBytes(fileEntity.FullName));
                 var etag = System.BitConverter.ToString(md5buffer).Replace("-", string.Empty).ToLower();
                 context.Response.Headers.Add("ETag", etag);
-                int bufferSize = 8 * 1024;
+                int bufferSize = 1 * 1024/2;
                 var rootFolder = this.GetRootFolder(context);
                 using (var fs=new System.IO.FileStream(System.IO.Path.Combine(rootFolder,fileEntity.FullName), System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.ReadWrite))
                 {
@@ -259,7 +259,7 @@ namespace Http.File
                     zipStream.PutNextEntry(new ICSharpCode.SharpZipLib.Zip.ZipEntry(entryName));
                     using (var fs = System.IO.File.Open(filePath, System.IO.FileMode.Open))
                     {
-                        var bufferSize = 8 * 1024;
+                        var bufferSize = 1 * 1024 / 2;
                         var buffer = new byte[bufferSize];
                         int length = -1;
                         while ((length = fs.Read(buffer, 0, bufferSize)) > 0)
