@@ -87,7 +87,7 @@ namespace Http.File
                 {
                     x.Id,
                     x.Path,
-                    x.Size,
+                    Size=x.CC=="file"? this.GetSizeDisplay(x.Size):string.Empty,
                     FullName = System.IO.Path.GetFileName(x.FullName),
                     x.CC
                 }).ToList();
@@ -286,6 +286,19 @@ namespace Http.File
             //firefox,ie,经典edge支持关闭浏览器，重新打开后，在中断位置继续下载
             //高版本chrome不支持关闭浏览器后在中断位置继续下载。
             //但如果下载过程发生错误，比如网络中断，可以恢复在中断位置继续下载下载（chrome不关闭）；
+        }
+
+        static List<string> lstSizeDisplay = new List<string>() { "B", "KB", "MB", "GB" };
+        private string GetSizeDisplay(long size)
+        {
+            var tmp = size;
+            var ld = 0;
+            while (tmp > 1024 && ld <= 2)
+            {
+                tmp = tmp / 1024;
+                ld++;
+            }
+            return tmp +" "+ lstSizeDisplay[ld];
         }
     }
 }
