@@ -13,7 +13,8 @@
         </li>
         <li><a href="Download.ashx">浏览器下载：中文的文件名同时兼容ie,firefox,chrome，不乱码</a></li>
         <li><a href="Download02.ashx">浏览器下载：边打包边下载，无进度</a></li>
-        <li><a href="Download03.ashx">浏览器下载：支持下载进度，断点续传</a>
+        <li>
+            <a href="Download03.ashx">浏览器下载：支持下载进度，断点续传</a>
         </li>
         <li>
             <div>
@@ -22,6 +23,16 @@
                 <input type="file" name="chunkUploadDir" value="选择文件夹" placeholder="选择文件夹" webkitdirectory />
                 <ul id="lstUploadFile"></ul>
             </div>
+        </li>
+        <li>
+            <p>动态创建表达式树</p>
+            <p>var sortName = context.Request["sortName"];</p>
+            <p> var parameterExp = System.Linq.Expressions.Expression.Parameter(typeof(Model.FileEntity), "mq");</p>
+            <p>  var getpropValueExp = System.Linq.Expressions.Expression.PropertyOrField(parameterExp, sortName);</p>
+            <p>  var getpropObjectValueExp = System.Linq.Expressions.Expression.Convert(getpropValueExp, typeof(object));</p>
+            <p> var lex = System.Linq.Expressions.Expression.Lambda&lt;Func&lt;Model.FileEntity, object&gt;&gt;(getpropObjectValueExp, parameterExp);</p>
+            <p>lstQuery = lstQuery.OrderBy(lex);</p>
+
         </li>
     </ol>
     <script src="jQuey/jquery-1.11.3.js"></script>
@@ -45,7 +56,7 @@
                     opt.fileWrapper.eljd.html("发生错误");
                 }
             });
-            
+
             function uploadHandler(files) {
                 $.each(files, function (index, file) {
                     var elfile = $("<li></li>");
@@ -55,7 +66,7 @@
                     $("<span></span>").html("%").appendTo(elfile);
                     elfile.appendTo("#lstUploadFile");
                     uploader.send({ file: file, eljd: eljd });
-                    });
+                });
             }
             $("input[name='chunkUpload']").change(function (sender) {
                 uploadHandler(this.files);
