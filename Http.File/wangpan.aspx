@@ -290,7 +290,7 @@
 
             },
             formadataHandler: function (formdata, opt) {
-                formdata.append("fileId", opt.fileWrapper.fileid)
+                formdata.append("fileId", opt.fileWrapper.fileid||"")
             }
         });
 

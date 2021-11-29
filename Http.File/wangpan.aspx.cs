@@ -140,7 +140,7 @@ namespace Http.File
                 if (System.IO.File.Exists(fullpath))
                     System.IO.File.Delete(fullpath);//删磁盘文件
             });
-            var lstddfile2 = lstdddir.Select(x => x + "/")
+            var lstddfile2 = lstdddir.Select(x => x + "\\")
                 .Select(x => this.dbcontext.FileEntity.Where(a => a.FullName.StartsWith(x)).ToList())
                 .SelectMany(x => x).ToList();
             this.dbcontext.FileEntity.RemoveRange(lstddfile);//删数据库记录
