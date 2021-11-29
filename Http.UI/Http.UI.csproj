@@ -58,6 +58,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="azeroth-lib.js" />
     <Content Include="bootstrap-select.html" />
     <Content Include="bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker.css" />
     <Content Include="bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker.min.css" />
