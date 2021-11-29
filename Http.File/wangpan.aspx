@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Pan.aspx.cs" Inherits="Http.File.Pan" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wangpan.aspx.cs" Inherits="Http.File.wangpan" %>
 
 <!DOCTYPE html>
 

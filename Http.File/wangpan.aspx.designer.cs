@@ -10,6 +10,6 @@
 namespace Http.File {
     
     
-    public partial class Pan {
+    public partial class wangpan {
     }
 }

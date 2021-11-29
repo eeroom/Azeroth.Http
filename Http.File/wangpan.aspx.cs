@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Http.File
 {
-    public partial class Pan : CmdPage<Pan>, IAnonymousPage
+    public partial class wangpan : CmdPage<wangpan>, IAnonymousPage
     {
         Model.HFDbContext dbcontext = new Model.HFDbContext();
 

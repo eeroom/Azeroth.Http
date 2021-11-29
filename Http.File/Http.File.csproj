@@ -171,7 +171,7 @@
     <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="jQuey\jquery-1.11.3.intellisense.js" />
-    <Content Include="Pan.aspx" />
+    <Content Include="wangpan.aspx" />
     <Content Include="jQuey\jquery-1.11.3.js" />
     <Content Include="jQuey\jquery-1.11.3.min.js" />
     <None Include="jQuey\jquery-1.9.1.intellisense.js" />
@@ -207,12 +207,12 @@
     <Compile Include="Migrations\202111250849413_v20211125.Designer.cs">
       <DependentUpon>202111250849413_v20211125.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pan.aspx.cs">
-      <DependentUpon>Pan.aspx</DependentUpon>
+    <Compile Include="wangpan.aspx.cs">
+      <DependentUpon>wangpan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pan.aspx.designer.cs">
-      <DependentUpon>Pan.aspx</DependentUpon>
+    <Compile Include="wangpan.aspx.designer.cs">
+      <DependentUpon>wangpan.aspx</DependentUpon>
     </Compile>
     <Compile Include="IAnonymousPage.cs" />
     <Compile Include="Migrations\202107261630150_hfinit.cs" />
