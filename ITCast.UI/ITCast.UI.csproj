@@ -58,7 +58,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="azeroth-lib.js" />
     <Content Include="bootstrap-select.html" />
     <Content Include="bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker.css" />
     <Content Include="bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker.min.css" />
@@ -642,10 +641,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CmdPage.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="IAnonymousPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
