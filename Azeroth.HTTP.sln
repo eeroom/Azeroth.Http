@@ -59,7 +59,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRCorsSelfhost", "Sign
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRCorsSelfhostClient", "SignalRCorsSelfhostClient\SignalRCorsSelfhostClient.csproj", "{3C6A7CFF-EA7C-42EF-9980-8C5DEBC1FE03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITCast.UI", "ITCast.UI\ITCast.UI.csproj", "{5876EE9C-5B58-43CE-9416-0E9D2EF21DDA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Http.UI", "ITCast.UI\Http.UI.csproj", "{5876EE9C-5B58-43CE-9416-0E9D2EF21DDA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "remoting", "remoting", "{20764DBA-40AC-48AB-A0C8-146B112C9867}"
 EndProject
