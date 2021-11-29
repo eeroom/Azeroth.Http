@@ -152,6 +152,22 @@
             $(html).appendTo(window.document.body);
         }
 
+        function refreshPathBreadcrumb(selectedpath) {
+            var lstpath = selectedpath&&selectedpath.split("\\")||[];
+            lstpath.unshift("root");
+            var lstpathFull = [];
+            $.each(lstpath, (index, el) => {
+                if (index == 0)
+                    lstpathFull.push("");
+                else if (index == 1)
+                    lstpathFull.push(el);
+                else
+                    lstpathFull.push(lstpathFull[lstpathFull.length - 1] + "\\" + el);
+            });
+            var lsthtml = $.map(lstpath, (el, index) =>index == lstpath.length - 1 ? `<li class="active">${el}</li>` : `<li><a href="#" class="btn-path-change" data-cpath="${lstpathFull[index]}" >${el}</a></li>`)
+            $(".breadcrumb").html(lsthtml.join(""));
+        }
+
         $(function () {
             $.ajaxSetup({
                 error: function (jqXHR, textStatus, errorMsg) {
@@ -192,6 +208,7 @@
                 , onDblClickRow: function (item, $element) {
                     if (item.CC == "dir" || item.CC == "parent") {
                         $("#rpath").val(item.Path)
+                        refreshPathBreadcrumb(item.Path)
                         btable.bootstrapTable("refresh", {
                             pageNumber: 1
                         })
@@ -239,6 +256,15 @@
                 var lstfe = data.map(x=>({ id: x.Id, "path": x.Path, "cc": x.CC }))
                 downloadfile(lstfe);
             });
+            $(".breadcrumb").on("click", ".btn-path-change", function () {
+                var cpath = $(this).data("cpath");
+                $("#rpath").val(cpath)
+                refreshPathBreadcrumb(cpath)
+                btable.bootstrapTable("refresh", {
+                    pageNumber: 1
+                })
+
+            })
         });
 
     </script>
@@ -465,6 +491,9 @@
                                 <button type="submit" class="btn btn-primary">查询</button>
                             </form>
                         </div>
+                        <ol class="breadcrumb">
+                            <li class="active">root</li>
+                        </ol>
                         <table id="tbFilelst">
                             <thead>
                                 <tr>
