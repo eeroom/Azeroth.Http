@@ -24,11 +24,11 @@ namespace Http.File
             try
             {
                 var rt = method.Invoke(this, new object[] { context });
-                if (rt == null)
-                    return;
-                var rtjson = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(rt);
-                context.Response.Write(rtjson);
-
+                if (rt != null)
+                {
+                    var rtjson = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(rt);
+                    context.Response.Write(rtjson);
+                }
             }
             catch (Exception ex)
             {
@@ -36,6 +36,7 @@ namespace Http.File
                 var rtjson = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(new { msg = ex.InnerException?.Message ?? ex.Message });
                 context.Response.Write(rtjson);
                 context.Response.StatusCode = 500;
+                context.Response.End();
             }
             context.Response.End();
         }

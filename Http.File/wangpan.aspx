@@ -126,7 +126,8 @@
         function handlerColumnFormatter(value, row, index) {
             if (row.CC == "parent")
                 return "";
-            return `<a class="btn btn-xs btn-default btn-row-delete" data-id="${row.Id}" data-path="${row.Path}" data-cc="${row.CC}"><span class ="glyphicon glyphicon-remove-sign"></span></a>`;
+            return `<a class="btn btn-xs btn-default btn-row-delete" data-id="${row.Id}" data-path="${row.Path}" data-cc="${row.CC}"><span class ="glyphicon glyphicon-remove-sign"></span></a>
+                <a class ="btn btn-xs btn-default btn-row-download" data-id="${row.Id}" data-path="${row.Path}" data-cc="${row.CC}"><span class ="glyphicon glyphicon-download-alt"></span></a>`;
         }
         function handlerNameFormatter(value, row, index) {
             if (row.CC == "file")
@@ -142,6 +143,12 @@
                 data: JSON.stringify({ lstfe }),
                 processData: false
             })
+        }
+
+        function downloadfile(lstfe) {
+            var tmp= encodeURI(JSON.stringify(lstfe));
+            var html = `<iframe style="width:0;height:0" src="?cmd=Download&lstfe=${tmp}"></iframe>`
+            $(html).appendTo(window.document.body);
         }
 
         $(function () {
@@ -188,10 +195,6 @@
                             pageNumber: 1
                         })
                     }
-                    else if (item.CC = "file") {
-                        var html = `<iframe style="width:0;height:0" src="?cmd=Download&fileids=${item.Id}"></iframe>`
-                        $(html).appendTo(window.document.body);
-                    }
                     return false;
                 }
             });
@@ -218,6 +221,22 @@
                 }
                 var lstfe = data.map(x=>({ id: x.Id, "path": x.Path, "cc": x.CC }))
                 deleteFile(lstfe).then(x=>btable.bootstrapTable("refresh", { pageNumber: 1 }))
+            });
+            $("#tbFilelst").on("click", ".btn-row-download", function () {
+                var id = $(this).data("id");
+                var path = $(this).data("path");
+                var cc = $(this).data("cc");
+                var lstfe = [{ id, path, cc}];
+                downloadfile(lstfe);
+            });
+            $("#tbToolbar").on("click", ".btn-row-download2", function () {
+                var data = btable.bootstrapTable("getSelections");
+                if (data.find(x=>x.CC == "parent")) {
+                    alert("不允许下载上级目录");
+                    return;
+                }
+                var lstfe = data.map(x=>({ id: x.Id, "path": x.Path, "cc": x.CC }))
+                downloadfile(lstfe);
             });
         });
 
@@ -433,6 +452,7 @@
                             <input type="file" name="myfile" multiple="multiple" webkitdirectory />
                                     </a>
                                     <button class="btn btn-default  btn-row-delete2" type="button">删除</button>
+                                    <button class="btn btn-default  btn-row-download2" type="button">下载</button>
                                 </div>
 
                                 <div class="form-group">
