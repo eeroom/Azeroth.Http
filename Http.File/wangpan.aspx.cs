@@ -61,7 +61,10 @@ namespace Http.File
         public object GetFileEntities(HttpContext context)
         {
             string path = context.Request["path"] ?? string.Empty;
-            var lst = this.dbcontext.FileEntity.AsNoTracking().Where(x => x.UploadStepValue == Model.UploadStep.完成).OrderByDescending(x => x.Id).ToList();
+            var lstQuery = this.dbcontext.FileEntity.AsNoTracking().Where(x => x.UploadStepValue == Model.UploadStep.完成);
+            if (!string.IsNullOrEmpty(path))
+                lstQuery.Where(x => x.FullName.StartsWith(path));
+            var lst = lstQuery.OrderByDescending(x => x.Id).ToList();
             var lstwrapper = lst.Select(x => Tuple.Create(x, System.IO.Path.GetDirectoryName(x.FullName))).ToList();
             lstwrapper.ForEach(x => x.Item1.CC = "file");
             var lstdir = lstwrapper.Select(x => x.Item2).Distinct().ToList();
