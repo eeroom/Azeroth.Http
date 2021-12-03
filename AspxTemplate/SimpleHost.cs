@@ -7,11 +7,12 @@ namespace AspxTemplate
 {
     public class SimpleHost : MarshalByRefObject
     {
-        public void ProcessRequest(string fileName, System.IO.Stream stream)
+        public void ProcessRequest(string page,string query, System.IO.Stream stream)
         {
             var wt = new System.IO.StreamWriter(stream);
-            TemplateRequest swr = new TemplateRequest(fileName, "", wt);
+            TemplateRequest swr = new TemplateRequest(page, query, wt);
             System.Web.HttpRuntime.ProcessRequest(swr);
+            wt.Flush();
         }
     }
 }
