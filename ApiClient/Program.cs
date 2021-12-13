@@ -8,6 +8,9 @@ namespace ApiClient {
         static void Main(string[] args) {
             var urlHome = System.Configuration.ConfigurationManager.AppSettings["urlHome"];
             var client = AsmxClient<IHome>.Create(urlHome);
+
+
+
             Console.WriteLine(client);
             Console.ReadLine();
         }
