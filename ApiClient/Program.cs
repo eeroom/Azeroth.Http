@@ -12,7 +12,7 @@ namespace ApiClient {
 
             var urlaccount = "http://localhost:7719";
             var aclient = HttpChannelFactory<IAccount>.CreateChannel(urlaccount);
-            var rt2= aclient.Login(new LoginDTO() { Name = "张三", Pwd = "123456" });
+            ApiData<bool> rt2= aclient.Login(new LoginDTO() { Name = "张三", Pwd = "123456" });
 
             Console.WriteLine(rt);
             Console.ReadLine();

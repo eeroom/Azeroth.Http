@@ -48,7 +48,7 @@ namespace ApiClient
         /// </summary>
         FormData,
         /// <summary>
-        /// 纯文本形式，对应text/plain
+        /// 对应text/plain
         /// </summary>
         Text
     }

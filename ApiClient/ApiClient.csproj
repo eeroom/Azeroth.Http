@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAccount.cs" />
+    <Compile Include="InvokedException.cs" />
     <Compile Include="RequestMapping.cs" />
     <Compile Include="SoapChannelFactory.cs" />
     <Compile Include="HttpChannelFactory.cs" />

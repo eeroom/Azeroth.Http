@@ -7,7 +7,7 @@ namespace ApiClient
 {
     public interface IAccount
     {
-        ApiResult<bool> Login(LoginDTO parameter);
+        ApiData<bool> Login(LoginDTO parameter);
     }
 
     public class LoginDTO
@@ -17,7 +17,7 @@ namespace ApiClient
         public string Pwd { get; set; }
     }
 
-    public class ApiResult<T>
+    public class ApiData<T>
     {
         public int code { get; set; }
 
