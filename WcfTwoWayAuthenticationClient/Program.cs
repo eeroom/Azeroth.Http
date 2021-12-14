@@ -14,7 +14,7 @@ namespace WcfTwoWayAuthenticationClient
             System.Net.ServicePointManager.ServerCertificateValidationCallback = (x, y, z, a) => true;
             using (var factory = new System.ServiceModel.Web.WebChannelFactory<IHome>("wch"))
             {
-                var client = factory.CreateChannel();
+               var client = factory.CreateChannel();
 
                var rt = client.DoWork();
             }

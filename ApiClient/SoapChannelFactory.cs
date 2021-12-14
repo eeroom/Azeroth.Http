@@ -5,19 +5,19 @@ using System.Text;
 
 namespace ApiClient
 {
-    public class SoapClient<T> : System.Runtime.Remoting.Proxies.RealProxy
+    public class SoapChannelFactory<T> : System.Runtime.Remoting.Proxies.RealProxy
     {
         SoapHttpClientProtocol<T> SoapHttpClientProtocol { set; get; }
-        SoapClient(string url) : base(typeof(T))
+        SoapChannelFactory(string url) : base(typeof(T))
         {
             this.SoapHttpClientProtocol = new SoapHttpClientProtocol<T>();
             this.SoapHttpClientProtocol.Url = url;
 
         }
 
-        public static T Create(string url)
+        public static T CreateChannel(string url)
         {
-            return (T)new SoapClient<T>(url).GetTransparentProxy();
+            return (T)new SoapChannelFactory<T>(url).GetTransparentProxy();
         }
 
         public override System.Runtime.Remoting.Messaging.IMessage Invoke(System.Runtime.Remoting.Messaging.IMessage parameter)
