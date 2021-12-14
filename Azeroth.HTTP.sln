@@ -41,7 +41,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api和mvc(aspnetcore)", "ap
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api和mvc(selfhost)", "api和mvc(selfhost)", "{43FA8D23-FE8C-4C94-9DE3-BD40E0922384}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SignalR", "SignalR", "{8B264A6E-57F3-4251-AF1E-940B1F95D71B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "signalr", "signalr", "{8B264A6E-57F3-4251-AF1E-940B1F95D71B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "soa和esb", "soa和esb", "{BFE5A452-753E-4070-BAF8-9BAD075B86E7}"
 EndProject
