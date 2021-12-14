@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzApiNext", "KlzApiNext\Kl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NancyApi", "NancyApi\NancyApi.csproj", "{68DC7121-609E-4B2D-AE13-BAEEEAD9F36B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServiceClient", "WebServiceClient\WebServiceClient.csproj", "{ABC3C937-487A-43E1-B808-3074452E9121}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeWebService", "HomeWebService\HomeWebService.csproj", "{ABC3C937-487A-43E1-B808-3074452E9121}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspxTemplate", "AspxTemplate\AspxTemplate.csproj", "{72F24378-AAB8-4357-987B-DE51722726D2}"
 EndProject

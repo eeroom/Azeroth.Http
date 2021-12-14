@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebServiceClient</RootNamespace>
-    <AssemblyName>WebServiceClient</AssemblyName>
+    <RootNamespace>HomeWebService</RootNamespace>
+    <AssemblyName>HomeWebService</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -61,101 +61,33 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Home.asmx" />
-    <Content Include="HomeClient.aspx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Service References\AzTbc\Home.disco" />
-    <None Include="Service References\AzTbc\configuration91.svcinfo" />
-    <None Include="Service References\AzTbc\configuration.svcinfo" />
-    <None Include="Service References\AzTbc\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\AzWlk\Home.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AsmxClient.cs" />
     <Compile Include="Home.asmx.cs">
       <DependentUpon>Home.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="HomeClient.aspx.cs">
-      <DependentUpon>HomeClient.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="HomeClient.aspx.designer.cs">
-      <DependentUpon>HomeClient.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="IHome.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Service References\AzTbc\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="SoapHttpClientProtocolIntercept.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Student.cs" />
     <Compile Include="WcfClientBase`.cs" />
-    <Compile Include="Web References\AzWlk\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\AzTbc\Home.wsdl" />
-    <Content Include="Service References\AzTbc\WebServiceClient.AzTbc.ArrayOfAnyType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\AzTbc\WebServiceClient.AzTbc.Student.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Web References\AzWlk\Home.wsdl" />
-    <Content Include="Web References\AzWlk\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
-    <Content Include="Web References\AzWlk\Student.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\AzTbc\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferences Include="Web References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:49755/Home.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\AzWlk\</RelPath>
-      <UpdateFromURL>http://localhost:49755/Home.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>WebServiceClient_AzWlk_Home</CachedSettingsPropName>
-    </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

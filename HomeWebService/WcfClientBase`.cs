@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Web;
 
-namespace WebServiceClient
+namespace HomeWebService
 {
     public class WcfClientBase<T>: System.ServiceModel.ClientBase<T> where T :class
     {
