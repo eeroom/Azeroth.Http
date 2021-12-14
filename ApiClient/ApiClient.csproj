@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AsmxClient.cs" />
+    <Compile Include="SoapClient.cs" />
     <Compile Include="HttpClient.cs" />
     <Compile Include="IHome.cs" />
     <Compile Include="Program.cs" />

@@ -5,29 +5,26 @@ using System.Text;
 
 namespace ApiClient
 {
-    public class AsmxClient : System.Runtime.Remoting.Proxies.RealProxy
+    public class SoapClient<T> : System.Runtime.Remoting.Proxies.RealProxy
     {
-        Func<string, object[], object[]> SoapHttpClientInvoke { set; get; }
-        System.Web.Services.Protocols.SoapHttpClientProtocol SoapHttpClient { set; get; }
-        AsmxClient(Type meta) : base(meta)
+        SoapHttpClientProtocol<T> SoapHttpClientProtocol { set; get; }
+        SoapClient(string url) : base(typeof(T))
         {
+            this.SoapHttpClientProtocol = new SoapHttpClientProtocol<T>();
+            this.SoapHttpClientProtocol.Url = url;
+
         }
 
-        public static T Create<T>(string url)
+        public static T Create(string url)
         {
-            var soapClient = new SoapHttpClientProtocol<T>();
-            soapClient.Url = url;
-            var client = new AsmxClient(typeof(T));
-            client.SoapHttpClient = soapClient;
-            client.SoapHttpClientInvoke = soapClient.GetInvoke();
-            return (T)client.GetTransparentProxy();
+            return (T)new SoapClient<T>(url).GetTransparentProxy();
         }
 
         public override System.Runtime.Remoting.Messaging.IMessage Invoke(System.Runtime.Remoting.Messaging.IMessage parameter)
         {
             //可以在这里做拦截
             var msg = parameter as System.Runtime.Remoting.Messaging.IMethodCallMessage;
-            var rt = this.SoapHttpClientInvoke(msg.MethodName, msg.Args)[0];
+            var rt = this.SoapHttpClientProtocol.GetInvoke().Invoke(msg.MethodName, msg.Args)[0];
             var rtmsg = new System.Runtime.Remoting.Messaging.ReturnMessage(rt, null, 0, msg.LogicalCallContext, msg);
             return rtmsg;
         }
@@ -53,7 +50,6 @@ namespace ApiClient
                 System.Globalization.CultureInfo.CurrentCulture);
             AddToCache(typeof(SoapHttpClientProtocol<T>), sct);
         }
-
 
         internal Func<string, object[], object[]> GetInvoke()
         {
