@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace SignalRIIS {
+namespace DingDing {
     
     
     public partial class Login {

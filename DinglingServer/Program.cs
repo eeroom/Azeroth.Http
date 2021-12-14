@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SignalRCorsSelfhost
+namespace DinglingServer
 {
     class Program {
         static void Main(string[] args) {

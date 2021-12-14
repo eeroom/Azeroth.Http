@@ -27,7 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfRestfulCorsClient", "Wcf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfTwoWayAuthentication", "WcfTwoWayAuthentication\WcfTwoWayAuthentication.csproj", "{4B58E8AD-5626-4024-9940-7EFC4F33D667}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRIIS", "SignalRIIS\SignalRIIS.csproj", "{8090842D-B9B0-46B8-BBB0-16E42A1B101C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DingDing", "DingDing\DingDing.csproj", "{8090842D-B9B0-46B8-BBB0-16E42A1B101C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Http.File", "Http.File\Http.File.csproj", "{020E50FA-2472-422A-8AAF-C4E5F8DCFC6E}"
 EndProject
@@ -55,9 +55,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpChannelClient", "HttpCh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiClient", "ApiClient\ApiClient.csproj", "{2F5ED2F3-1478-448A-B52F-11D2F7C05041}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRCorsSelfhost", "SignalRCorsSelfhost\SignalRCorsSelfhost.csproj", "{D7D964FE-53AB-4D78-BF6B-7E9FF5E2E1CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DinglingServer", "DinglingServer\DinglingServer.csproj", "{D7D964FE-53AB-4D78-BF6B-7E9FF5E2E1CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRCorsSelfhostClient", "SignalRCorsSelfhostClient\SignalRCorsSelfhostClient.csproj", "{3C6A7CFF-EA7C-42EF-9980-8C5DEBC1FE03}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DinglingClient", "DinglingClient\DinglingClient.csproj", "{3C6A7CFF-EA7C-42EF-9980-8C5DEBC1FE03}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "remoting", "remoting", "{20764DBA-40AC-48AB-A0C8-146B112C9867}"
 EndProject

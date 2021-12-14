@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过下列特性集
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("SignalRCorsSelfhostClient")]
+[assembly: AssemblyTitle("DingDing")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SignalRCorsSelfhostClient")]
-[assembly: AssemblyCopyright("版权所有(C)  2021")]
+[assembly: AssemblyProduct("DingDing")]
+[assembly: AssemblyCopyright("版权所有(C)  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("3c6a7cff-ea7c-42ef-9980-8c5debc1fe03")]
+[assembly: Guid("8090842d-b9b0-46b8-bbb0-16e42a1b101c")]
 
 // 程序集的版本信息由下列四个值组成:
 //

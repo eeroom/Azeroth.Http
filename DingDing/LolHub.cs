@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace SignalRIIS
+namespace DingDing
 {
     public class LolHub : Microsoft.AspNet.SignalR.Hub
     {

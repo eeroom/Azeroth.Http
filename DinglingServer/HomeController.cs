@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace SignalRCorsSelfhost
+namespace DinglingServer
 {
     public class HomeController : ApiController {
         [HttpGet]
