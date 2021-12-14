@@ -8,11 +8,9 @@ namespace ApiClient
     public class AsmxClient : System.Runtime.Remoting.Proxies.RealProxy
     {
         Func<string, object[], object[]> SoapHttpClientInvoke { set; get; }
-
+        System.Web.Services.Protocols.SoapHttpClientProtocol SoapHttpClient { set; get; }
         AsmxClient(Type meta) : base(meta)
         {
-       
-
         }
 
         public static T Create<T>(string url)
@@ -20,6 +18,7 @@ namespace ApiClient
             var soapClient = new SoapHttpClientProtocol<T>();
             soapClient.Url = url;
             var client = new AsmxClient(typeof(T));
+            client.SoapHttpClient = soapClient;
             client.SoapHttpClientInvoke = soapClient.GetInvoke();
             return (T)client.GetTransparentProxy();
         }
