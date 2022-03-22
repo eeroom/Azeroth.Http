@@ -11,27 +11,27 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzOwinApi", "KlzOwinApi\Kl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfHostOwinApi", "SelfHostOwinApi\SelfHostOwinApi.csproj", "{AEF4FA91-1F68-4931-910C-D16F24B73C66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzApiNext", "KlzApiNext\KlzApiNext.csproj", "{000EA1FF-F888-43FA-9736-8F687DF6665D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzNextApi", "KlzNextApi\KlzNextApi.csproj", "{000EA1FF-F888-43FA-9736-8F687DF6665D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NancyApi", "NancyApi\NancyApi.csproj", "{68DC7121-609E-4B2D-AE13-BAEEEAD9F36B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeWebService", "HomeWebService\HomeWebService.csproj", "{ABC3C937-487A-43E1-B808-3074452E9121}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asmx", "Asmx\Asmx.csproj", "{ABC3C937-487A-43E1-B808-3074452E9121}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspxTemplate", "AspxTemplate\AspxTemplate.csproj", "{72F24378-AAB8-4357-987B-DE51722726D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateEngine", "TemplateEngine\TemplateEngine.csproj", "{72F24378-AAB8-4357-987B-DE51722726D2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfHostWebform", "SelfHostWebform\SelfHostWebform.csproj", "{75FBC2A0-F2BF-4A7B-9ACA-4884A8463E0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfRestfulCors", "WcfRestfulCors\WcfRestfulCors.csproj", "{6144E1C9-8CF6-4994-8FE1-4E3D0A0E1491}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestfulCorsWcf", "RestfulCorsWcf\RestfulCorsWcf.csproj", "{6144E1C9-8CF6-4994-8FE1-4E3D0A0E1491}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfRestfulCorsClient", "WcfRestfulCorsClient\WcfRestfulCorsClient.csproj", "{80084A09-1469-4BDB-A426-9A61B868F030}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestfulCorsWcfClient", "RestfulCorsWcfClient\RestfulCorsWcfClient.csproj", "{80084A09-1469-4BDB-A426-9A61B868F030}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfTwoWayAuthentication", "WcfTwoWayAuthentication\WcfTwoWayAuthentication.csproj", "{4B58E8AD-5626-4024-9940-7EFC4F33D667}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwoWayAuthenticationWcf", "TwoWayAuthenticationWcf\TwoWayAuthenticationWcf.csproj", "{4B58E8AD-5626-4024-9940-7EFC4F33D667}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DingDing", "DingDing\DingDing.csproj", "{8090842D-B9B0-46B8-BBB0-16E42A1B101C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzSignalR", "KlzSignalR\KlzSignalR.csproj", "{8090842D-B9B0-46B8-BBB0-16E42A1B101C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Http.File", "Http.File\Http.File.csproj", "{020E50FA-2472-422A-8AAF-C4E5F8DCFC6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfTwoWayAuthenticationClient", "WcfTwoWayAuthenticationClient\WcfTwoWayAuthenticationClient.csproj", "{5E51F407-EAFF-492D-BC08-59C0626FFEFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwoWayAuthenticationWcfClient", "TwoWayAuthenticationWcfClient\TwoWayAuthenticationWcfClient.csproj", "{5E51F407-EAFF-492D-BC08-59C0626FFEFB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "webform", "webform", "{EE6537A9-62F7-4ABE-B14A-1B70E57D6C41}"
 EndProject
@@ -53,11 +53,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpChannelServer", "HttpCh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpChannelClient", "HttpChannelClient\HttpChannelClient.csproj", "{AB3CA89A-9984-440A-AC65-3478BD20B292}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiClient", "ApiClient\ApiClient.csproj", "{2F5ED2F3-1478-448A-B52F-11D2F7C05041}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzClient", "KlzClient\KlzClient.csproj", "{2F5ED2F3-1478-448A-B52F-11D2F7C05041}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DinglingServer", "DinglingServer\DinglingServer.csproj", "{D7D964FE-53AB-4D78-BF6B-7E9FF5E2E1CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfHostSignalR", "SelfHostSignalR\SelfHostSignalR.csproj", "{D7D964FE-53AB-4D78-BF6B-7E9FF5E2E1CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DinglingClient", "DinglingClient\DinglingClient.csproj", "{3C6A7CFF-EA7C-42EF-9980-8C5DEBC1FE03}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzSignalRClient", "KlzSignalRClient\KlzSignalRClient.csproj", "{3C6A7CFF-EA7C-42EF-9980-8C5DEBC1FE03}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "remoting", "remoting", "{20764DBA-40AC-48AB-A0C8-146B112C9867}"
 EndProject
