@@ -61,6 +61,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzSignalRClient", "KlzSign
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "remoting", "remoting", "{20764DBA-40AC-48AB-A0C8-146B112C9867}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsServerHostWcf", "WindowsServerHostWcf\WindowsServerHostWcf.csproj", "{6948F8F2-BFDF-45DE-BB12-362FFDBA6BFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -155,6 +157,10 @@ Global
 		{3C6A7CFF-EA7C-42EF-9980-8C5DEBC1FE03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C6A7CFF-EA7C-42EF-9980-8C5DEBC1FE03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C6A7CFF-EA7C-42EF-9980-8C5DEBC1FE03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6948F8F2-BFDF-45DE-BB12-362FFDBA6BFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6948F8F2-BFDF-45DE-BB12-362FFDBA6BFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6948F8F2-BFDF-45DE-BB12-362FFDBA6BFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6948F8F2-BFDF-45DE-BB12-362FFDBA6BFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -182,6 +188,7 @@ Global
 		{D7D964FE-53AB-4D78-BF6B-7E9FF5E2E1CA} = {8B264A6E-57F3-4251-AF1E-940B1F95D71B}
 		{3C6A7CFF-EA7C-42EF-9980-8C5DEBC1FE03} = {8B264A6E-57F3-4251-AF1E-940B1F95D71B}
 		{20764DBA-40AC-48AB-A0C8-146B112C9867} = {BFE5A452-753E-4070-BAF8-9BAD075B86E7}
+		{6948F8F2-BFDF-45DE-BB12-362FFDBA6BFB} = {BFE5A452-753E-4070-BAF8-9BAD075B86E7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BFE22A8D-06E4-4170-966B-C6BF1874140E}
