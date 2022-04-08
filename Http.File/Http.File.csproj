@@ -20,6 +20,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <SilverlightApplicationList>{22E9E578-62FE-4CF0-83C7-6F27FA2B67A8}|..\YunpanLatop\YunpanLatop.csproj|ClientBin|False</SilverlightApplicationList>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -162,6 +163,7 @@
     <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Bootstrap3.3.7\js\bootstrap.js" />
     <Content Include="Bootstrap3.3.7\js\bootstrap.min.js" />
+    <Content Include="ClientBin\YunpanLatop.xap" />
     <Content Include="css\ie10-viewport-bug-workaround.css" />
     <Content Include="css\layout-fluid.css" />
     <Content Include="Download03.ashx" />
@@ -170,6 +172,9 @@
     <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Silverlight.js" />
+    <Content Include="YunpanLatopTestPage.aspx" />
+    <Content Include="YunpanLatopTestPage.html" />
     <None Include="jQuey\jquery-1.11.3.intellisense.js" />
     <Content Include="wangpan.aspx" />
     <Content Include="jQuey\jquery-1.11.3.js" />
