@@ -65,7 +65,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsServerHostWcf", "Win
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "silverlight", "silverlight", "{3757D38A-4E05-4FD8-8763-BCB4042C56F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YunpanLatop", "YunpanLatop\YunpanLatop.csproj", "{22E9E578-62FE-4CF0-83C7-6F27FA2B67A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpFileClient", "HttpFileClient\HttpFileClient.csproj", "{22E9E578-62FE-4CF0-83C7-6F27FA2B67A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
