@@ -5,7 +5,7 @@ using System.Web;
 
 namespace HttpFile
 {
-    public class CmdPage<T> : System.Web.UI.Page
+    public class AjaxPage<T> : System.Web.UI.Page
     {
         static Type meta = typeof(T);
         public override void ProcessRequest(HttpContext context)

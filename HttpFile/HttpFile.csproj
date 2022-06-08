@@ -173,10 +173,10 @@
     <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Silverlight.js" />
-    <Content Include="YunpanLatopTestPage.aspx" />
-    <Content Include="YunpanLatopTestPage.html" />
+    <Content Include="SilverlightTestPage.aspx" />
+    <Content Include="SilverlightTestPage.html" />
     <None Include="jQuey\jquery-1.11.3.intellisense.js" />
-    <Content Include="wangpan.aspx" />
+    <Content Include="Explorer.aspx" />
     <Content Include="jQuey\jquery-1.11.3.js" />
     <Content Include="jQuey\jquery-1.11.3.min.js" />
     <None Include="jQuey\jquery-1.9.1.intellisense.js" />
@@ -187,7 +187,7 @@
     <Content Include="js\ie10-viewport-bug-workaround.js" />
     <Content Include="js\ie8-responsive-file-warning.js" />
     <Content Include="js\respond.min.js" />
-    <Content Include="kits.html" />
+    <Content Include="README.html" />
     <Content Include="spark-md5\spark-md5.js" />
     <Content Include="spark-md5\spark-md5.min.js" />
     <Content Include="azeroth-lib.js" />
@@ -196,7 +196,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CmdPage.cs">
+    <Compile Include="AjaxPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Download.ashx.cs">
@@ -212,12 +212,12 @@
     <Compile Include="Migrations\202111250849413_v20211125.Designer.cs">
       <DependentUpon>202111250849413_v20211125.cs</DependentUpon>
     </Compile>
-    <Compile Include="wangpan.aspx.cs">
-      <DependentUpon>wangpan.aspx</DependentUpon>
+    <Compile Include="Explorer.aspx.cs">
+      <DependentUpon>Explorer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="wangpan.aspx.designer.cs">
-      <DependentUpon>wangpan.aspx</DependentUpon>
+    <Compile Include="Explorer.aspx.designer.cs">
+      <DependentUpon>Explorer.aspx</DependentUpon>
     </Compile>
     <Compile Include="IAnonymousPage.cs" />
     <Compile Include="Migrations\202107261630150_hfinit.cs" />
@@ -243,7 +243,7 @@
     <Content Include="spark-md5\LICENSE" />
     <Content Include="spark-md5\package.json" />
     <Content Include="spark-md5\README.md" />
-    <Content Include="dependencies\sqlcompact4.0.rar" />
+    <Content Include="lib\sqlservercompact4.0_nativelib.rar" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

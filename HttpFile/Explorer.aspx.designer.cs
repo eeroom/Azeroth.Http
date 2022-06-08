@@ -10,6 +10,6 @@
 namespace HttpFile {
     
     
-    public partial class wangpan {
+    public partial class Explorer {
     }
 }
