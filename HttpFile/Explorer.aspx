@@ -31,7 +31,7 @@
     <link href="bootstrap-table-1.11.1/bootstrap-table.css" rel="stylesheet" />
     <script src="bootstrap-table-1.11.1/bootstrap-table.js"></script>
     <script src="bootstrap-table-1.11.1/locale/bootstrap-table-zh-CN.js"></script>
-    <script src="azeroth-lib.js?v=11"></script>
+    <script src="azeroth-tools.js?v=11"></script>
     <style type="text/css">
         .nav-sidebar {
             margin-bottom: 0;

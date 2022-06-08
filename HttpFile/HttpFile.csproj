@@ -190,7 +190,7 @@
     <Content Include="README.html" />
     <Content Include="spark-md5\spark-md5.js" />
     <Content Include="spark-md5\spark-md5.min.js" />
-    <Content Include="azeroth-lib.js" />
+    <Content Include="azeroth-tools.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
