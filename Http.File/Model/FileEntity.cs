@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-namespace Http.File.Model {
+namespace HttpFile.Model {
     [Table("FileEntity")]
     public class FileEntity {
         [Key]

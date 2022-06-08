@@ -1,4 +1,4 @@
-namespace Http.File.Migrations
+namespace HttpFile.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

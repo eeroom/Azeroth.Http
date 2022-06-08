@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
-namespace Http.File.Model {
+namespace HttpFile.Model {
     public class HFDbContext:DbContext {
         static HFDbContext() {
             Database.SetInitializer<HFDbContext>(null);

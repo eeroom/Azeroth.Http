@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Http.File {
+namespace HttpFile {
     
     
     public partial class wangpan {

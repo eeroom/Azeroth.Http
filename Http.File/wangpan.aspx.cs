@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Http.File
+namespace HttpFile
 {
     public partial class wangpan : CmdPage<wangpan>, IAnonymousPage
     {

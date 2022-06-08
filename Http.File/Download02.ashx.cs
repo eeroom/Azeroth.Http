@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Http.File
+namespace HttpFile
 {
     /// <summary>
     /// Download02 的摘要说明
@@ -17,7 +17,7 @@ namespace Http.File
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "application/octet-stream";
-            context.Response.AddHeader("Content-Disposition", "attachment;filename=Http.File.zip");
+            context.Response.AddHeader("Content-Disposition", "attachment;filename=HttpFile.zip");
             
             ICSharpCode.SharpZipLib.Zip.ZipOutputStream zipStream = 
                 new ICSharpCode.SharpZipLib.Zip.ZipOutputStream(context.Response.OutputStream);

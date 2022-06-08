@@ -1,1 +1,1 @@
-﻿<%@ WebHandler Language="C#" CodeBehind="Download02.ashx.cs" Class="Http.File.Download02" %>
+﻿<%@ WebHandler Language="C#" CodeBehind="Download02.ashx.cs" Class="HttpFile.Download02" %>
