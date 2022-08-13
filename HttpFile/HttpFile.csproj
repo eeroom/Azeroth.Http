@@ -171,9 +171,16 @@
     <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="flashplayer\index.html" />
+    <Content Include="flashplayer\jwplayer.js" />
+    <Content Include="flashplayer\player.swf" />
+    <Content Include="flashplayer\preview.jpg" />
+    <Content Include="flashplayer\swfobject.js" />
+    <Content Include="flashplayer\yt.swf" />
     <Content Include="silverlight\HttpFileClient.xap" />
     <Content Include="silverlight\HttpFileClientTestPage.html" />
     <Content Include="silverlight\Silverlight.js" />
+    <Content Include="flashplayer\video.mp4" />
     <None Include="jQuey\jquery-1.11.3.intellisense.js" />
     <Content Include="Explorer.aspx" />
     <Content Include="jQuey\jquery-1.11.3.js" />
