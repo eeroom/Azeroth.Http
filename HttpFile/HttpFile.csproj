@@ -175,6 +175,12 @@
     <Content Include="flashplayer\jwplayer.js" />
     <Content Include="flashplayer\player.swf" />
     <Content Include="flashplayer\preview.jpg" />
+    <Content Include="flashplayer\swfobject-2.2\expressInstall.swf" />
+    <Content Include="flashplayer\swfobject-2.2\index.html" />
+    <Content Include="flashplayer\swfobject-2.2\index_dynamic.html" />
+    <Content Include="flashplayer\swfobject-2.2\player.swf" />
+    <Content Include="flashplayer\swfobject-2.2\swfobject.js" />
+    <Content Include="flashplayer\swfobject-2.2\test.swf" />
     <Content Include="flashplayer\swfobject.js" />
     <Content Include="flashplayer\yt.swf" />
     <Content Include="silverlight\HttpFileClient.xap" />

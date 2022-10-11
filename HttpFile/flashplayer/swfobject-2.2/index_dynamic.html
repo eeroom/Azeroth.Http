@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <title>SWFObject 2 dynamic publishing example page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <script type="text/javascript" src="swfobject.js"></script>
+</head>
+<body>
+    <p id="container1">Please install the Flash Plugin</p>
+    <!--<script type="text/javascript">
+        var flashvars = { file: "/flashplayer/video.mp4", autostart: "true" };
+        var params = { allowfullscreen: "true", allowscriptaccess: "always" };
+        var attributes = { id: "player1", name: "player1" };
+        var lll = swfobject.embedSWF("player.swf", "container1", "480", "270", "9.0.115", "false", flashvars, params, attributes);
+        var mmm = lll;
+    </script>-->
+    <button onclick="changeViedo()">切换</button>
+    <script>
+        function changeViedo() {
+            var flashvars = { file: "/flashplayer/video3.mp4", autostart: "true" };
+            var params = { allowfullscreen: "true", allowscriptaccess: "always" };
+            var attributes = { id: "player1", name: "player1" };
+            swfobject.embedSWF("player.swf", "container1", "800", "600", "9.0.115", "false", flashvars, params, attributes);
+        }
+    </script>
+</body>
+</html>
