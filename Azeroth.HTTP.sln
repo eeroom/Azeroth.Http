@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzNextApi", "KlzNextApi\Kl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NancyApi", "NancyApi\NancyApi.csproj", "{68DC7121-609E-4B2D-AE13-BAEEEAD9F36B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoapService", "SoapService\SoapService.csproj", "{ABC3C937-487A-43E1-B808-3074452E9121}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSWebService", "MSWebService\MSWebService.csproj", "{ABC3C937-487A-43E1-B808-3074452E9121}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateEngine", "TemplateEngine\TemplateEngine.csproj", "{72F24378-AAB8-4357-987B-DE51722726D2}"
 EndProject
