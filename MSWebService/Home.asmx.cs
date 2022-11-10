@@ -53,11 +53,11 @@ namespace MSWebService
 
         [WebMethod]
         [System.Web.Services.Protocols.SoapHeader("HeaderToken")]
-        public Student Seek(Student st,int age)
+        public string Seek(Student st,int age)
         {
             this.Context.Request.InputStream.Position = 0;
             var xml= new System.IO.StreamReader(this.Context.Request.InputStream).ReadToEnd();
-            return new Student() { Age = st.Age + 1, Name = this.HeaderToken.Jwt + age };
+            return xml;
         }
     }
 }
