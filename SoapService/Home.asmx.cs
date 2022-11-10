@@ -44,5 +44,20 @@ namespace SoapService
             lst.Add("hello");
             return lst.ToArray();
         }
+
+        /// <summary>
+        /// 这个属性名称作为System.Web.Services.Protocols.SoapHeaderAttribute（属性名），
+        /// 框架会自动解析soap请求体中的头部 xml内容 反序列化 赋值给这个属性
+        /// </summary>
+        public TokenWraper HeaderToken { get; set; }
+
+        [WebMethod]
+        [System.Web.Services.Protocols.SoapHeader("HeaderToken")]
+        public Student Seek(Student st,int age)
+        {
+            this.Context.Request.InputStream.Position = 0;
+            var xml= new System.IO.StreamReader(this.Context.Request.InputStream).ReadToEnd();
+            return new Student() { Age = st.Age + 1, Name = this.HeaderToken.Jwt + age };
+        }
     }
 }
