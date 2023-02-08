@@ -182,14 +182,15 @@
     <Content Include="flashplayer\swfobject-2.2\swfobject.js" />
     <Content Include="flashplayer\swfobject-2.2\test.swf" />
     <Content Include="flashplayer\swfobject.js" />
-    <Content Include="flashplayer\wmv\silverlight.js" />
-    <Content Include="flashplayer\wmv\wmvplayer.html" />
-    <Content Include="flashplayer\wmv\wmvplayer.js" />
+    <Content Include="flashplayer\wmvplayer\silverlight.js" />
+    <Content Include="flashplayer\wmvplayer\wmvplayer.html" />
+    <Content Include="flashplayer\wmvplayer\wmvplayer.js" />
     <Content Include="flashplayer\yt.swf" />
     <Content Include="silverlight\HttpFileClient.xap" />
     <Content Include="silverlight\HttpFileClientTestPage.html" />
     <Content Include="silverlight\Silverlight.js" />
     <Content Include="flashplayer\video.mp4" />
+    <Content Include="flashplayer\wmvplayer\pathjson.json" />
     <None Include="jQuey\jquery-1.11.3.intellisense.js" />
     <Content Include="Explorer.aspx" />
     <Content Include="jQuey\jquery-1.11.3.js" />
@@ -278,7 +279,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="flashplayer\wmv\wmvplayer.xaml">
+    <Content Include="flashplayer\wmvplayer\wmvplayer.xaml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

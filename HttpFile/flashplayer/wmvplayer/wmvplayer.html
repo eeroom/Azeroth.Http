@@ -1,0 +1,78 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>wmv</title>
+</head>
+<body>
+    <div id="title"></div>
+    <div id="mediaplayer"></div>
+    <ul id="tt"></ul>
+    <script src="../jwplayer.js"></script>
+    <script src="silverlight.js"></script>
+    <script src="wmvplayer.js"></script>
+    <script src="../../jQuey/jquery-1.9.1.js"></script>
+    <link rel="stylesheet" href="../../jquery-easyui-1.5.2/themes/icon.css">
+    <link rel="stylesheet" href="../../jquery-easyui-1.5.2/themes/color.css">
+    <link rel="stylesheet" href="../../jquery-easyui-1.5.2/themes/default/tree.css">
+    <script src="../../jquery-easyui-1.5.2/plugins/jquery.parser.js"></script>
+    <script src="../../jquery-easyui-1.5.2/plugins/jquery.draggable.js"></script>
+    <script src="../../jquery-easyui-1.5.2/plugins/jquery.droppable.js"></script>
+    <script src="../../jquery-easyui-1.5.2/plugins/jquery.tree.js"></script>
+    <style type="text/css">
+        #title{
+            padding-left:8px;
+            font-size:medium;
+        }
+        #mediaplayer{
+            width:1296px;
+            margin-top:20px;
+            margin-left:10px;
+            border:1px #808080 solid;
+        }
+        #tt{
+            position:absolute;
+            top:50px;
+            right:20px;
+            width:480px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+
+            var refreshdoc = function (node) {
+                if (node.children)
+                    return
+                var url = "/medie/" + node.id;
+                var elm = document.getElementById("mediaplayer");
+                var src = 'wmvplayer.xaml';          //xaml文件路径
+                var cfg = {
+                    file: url,       //wmv文件路径
+                    width: '1296',                  //宽度
+                    height: '810',               //高度
+                    autostart: 'true',               //自动播放
+                    start: '0',                   //从第几秒开始播放
+                    backcolor: '000000',               //背景颜色
+                    frontcolor: 'FFFFFF'               //字体颜色
+                };
+                var ply = new jeroenwijering.Player(elm, src, cfg);
+                $("#title").html(node.text)
+            }
+            $(function () {
+
+                $('#tt').tree({
+                    method: "get",
+                    url: 'pathjson.json',
+                    onClick: refreshdoc,
+                    onDblClick: function (node) {
+                        node.children && $("#tt").tree("toggle", node.target)
+                    }
+                });
+                refreshdoc({ id: "/数据结构day01_总结/01_数据结构的总体课程安排_学习思路和方法.wmv", text: "01_数据结构的总体课程安排_学习思路和方法" })
+            })
+        })
+   
+    </script>
+
+</body>
+</html>
