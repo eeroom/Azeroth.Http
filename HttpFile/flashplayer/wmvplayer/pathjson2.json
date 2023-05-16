@@ -1,0 +1,1049 @@
+{
+  "title": "spring5高级",
+  "tree": [
+  {
+    "id": "spring5高级/000-Spring高级49讲-导学.mp4",
+    "text": "000-Spring高级49讲-导学.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/001-第一讲-BeanFactory与ApplicationContext_1.mp4",
+    "text": "001-第一讲-BeanFactory与ApplicationContext_1.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/002-第一讲-BeanFactory功能.mp4",
+    "text": "002-第一讲-BeanFactory功能.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/003-第一讲-ApplicationContext功能1.mp4",
+    "text": "003-第一讲-ApplicationContext功能1.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/004-第一讲-ApplicationContext功能2,3.mp4",
+    "text": "004-第一讲-ApplicationContext功能2,3.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/005-第一讲-ApplicationContext功能4.mp4",
+    "text": "005-第一讲-ApplicationContext功能4.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/006-第一讲-小结.mp4",
+    "text": "006-第一讲-小结.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/007-第二讲-BeanFactory实现.mp4",
+    "text": "007-第二讲-BeanFactory实现.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/008-第二讲-BeanFactory实现.mp4",
+    "text": "008-第二讲-BeanFactory实现.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/009-第二讲-BeanFactory实现-后处理器排序.mp4",
+    "text": "009-第二讲-BeanFactory实现-后处理器排序.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/010-第二讲-ApplicationContext实现1,2.mp4",
+    "text": "010-第二讲-ApplicationContext实现1,2.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/011-第二讲-ApplicationContext实现3.mp4",
+    "text": "011-第二讲-ApplicationContext实现3.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/012-第二讲-ApplicationContext实现4.mp4",
+    "text": "012-第二讲-ApplicationContext实现4.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/013-第三讲-bean生命周期.mp4",
+    "text": "013-第三讲-bean生命周期.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/014-第三讲-模板方法.mp4",
+    "text": "014-第三讲-模板方法.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/015-第四讲-常见bean后处理器1,2.mp4",
+    "text": "015-第四讲-常见bean后处理器1,2.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/016-第四讲-常见bean后处理器3.mp4",
+    "text": "016-第四讲-常见bean后处理器3.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/017-第四讲-@Autowired bean后处理器执行分析.mp4",
+    "text": "017-第四讲-@Autowired bean后处理器执行分析.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/018-第四讲-@Autowired bean后处理器执行分析.mp4",
+    "text": "018-第四讲-@Autowired bean后处理器执行分析.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/019-第五讲-常见工厂后处理器.mp4",
+    "text": "019-第五讲-常见工厂后处理器.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/020-第五讲-工厂后处理器模拟实现-组件扫描.mp4",
+    "text": "020-第五讲-工厂后处理器模拟实现-组件扫描.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/021-第五讲-工厂后处理器模拟实现-组件扫描.mp4",
+    "text": "021-第五讲-工厂后处理器模拟实现-组件扫描.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/022-第五讲-工厂后处理器模拟实现-@Bean.mp4",
+    "text": "022-第五讲-工厂后处理器模拟实现-@Bean.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/023-第五讲-工厂后处理器模拟实现-Mapper.mp4",
+    "text": "023-第五讲-工厂后处理器模拟实现-Mapper.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/024-第五讲-工厂后处理器模拟实现-Mapper.mp4",
+    "text": "024-第五讲-工厂后处理器模拟实现-Mapper.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/025-第六讲-Aware与InitializingBean接口.mp4",
+    "text": "025-第六讲-Aware与InitializingBean接口.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/026-第六讲-@Autowired失效分析.mp4",
+    "text": "026-第六讲-@Autowired失效分析.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/027-第七讲-初始化与销毁.mp4",
+    "text": "027-第七讲-初始化与销毁.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/028-第八讲-Scope.mp4",
+    "text": "028-第八讲-Scope.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/029-第八讲-Scope失效解决1,2.mp4",
+    "text": "029-第八讲-Scope失效解决1,2.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/030-第八讲-Scope失效解决3,4.mp4",
+    "text": "030-第八讲-Scope失效解决3,4.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/031-第九讲-aop之ajc增强.mp4",
+    "text": "031-第九讲-aop之ajc增强.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/032-第十讲-aop之agent增强.mp4",
+    "text": "032-第十讲-aop之agent增强.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/033-第十一讲-aop之proxy增强-jdk.mp4",
+    "text": "033-第十一讲-aop之proxy增强-jdk.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/034-第十一讲-aop之proxy增强-cglib.mp4",
+    "text": "034-第十一讲-aop之proxy增强-cglib.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/035-第十二讲-jdk代理原理.mp4",
+    "text": "035-第十二讲-jdk代理原理.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/036-第十二讲-jdk代理原理.mp4",
+    "text": "036-第十二讲-jdk代理原理.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/037-第十二讲-jdk代理源码.mp4",
+    "text": "037-第十二讲-jdk代理源码.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/038-第十二讲-jdk代理字节码生成.mp4",
+    "text": "038-第十二讲-jdk代理字节码生成.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/039-第十二讲-jdk反射优化.mp4",
+    "text": "039-第十二讲-jdk反射优化.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/040-第十三讲-cglib代理原理.mp4",
+    "text": "040-第十三讲-cglib代理原理.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/041-第十三讲-cglib代理原理-MethodProxy.mp4",
+    "text": "041-第十三讲-cglib代理原理-MethodProxy.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/042-第十四讲-MethodProxy原理.mp4",
+    "text": "042-第十四讲-MethodProxy原理.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/043-第十四讲-MethodProxy原理.mp4",
+    "text": "043-第十四讲-MethodProxy原理.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/044-第十五讲-Spring选择代理.mp4",
+    "text": "044-第十五讲-Spring选择代理.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/045-第十五讲-Spring选择代理.mp4",
+    "text": "045-第十五讲-Spring选择代理.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/046-第十五讲-Spring选择代理.mp4",
+    "text": "046-第十五讲-Spring选择代理.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/047-第十六讲-切点匹配.mp4",
+    "text": "047-第十六讲-切点匹配.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/048-第十六讲-切点匹配.mp4",
+    "text": "048-第十六讲-切点匹配.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/049-第十七讲-Advisor与@Aspect.mp4",
+    "text": "049-第十七讲-Advisor与@Aspect.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/050-第十七讲-findEligibleAdvisors.mp4",
+    "text": "050-第十七讲-findEligibleAdvisors.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/051-第十七讲-wrapIfNecessary.mp4",
+    "text": "051-第十七讲-wrapIfNecessary.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/052-第十七讲-代理创建时机.mp4",
+    "text": "052-第十七讲-代理创建时机.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/053-第十七讲-吐槽@Order.mp4",
+    "text": "053-第十七讲-吐槽@Order.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/054-第十七讲-高级切面转低级切面.mp4",
+    "text": "054-第十七讲-高级切面转低级切面.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/055-第十八讲-统一转换为环绕通知.mp4",
+    "text": "055-第十八讲-统一转换为环绕通知.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/056-第十八讲-统一转换为环绕通知.mp4",
+    "text": "056-第十八讲-统一转换为环绕通知.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/057-第十八讲-适配器模式.mp4",
+    "text": "057-第十八讲-适配器模式.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/058-第十八讲-调用链执行.mp4",
+    "text": "058-第十八讲-调用链执行.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/059-第十八讲-模拟实现调用链.mp4",
+    "text": "059-第十八讲-模拟实现调用链.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/060-第十八讲-模拟实现调用链-责任链模式.mp4",
+    "text": "060-第十八讲-模拟实现调用链-责任链模式.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/061-第十九讲-动态通知调用.mp4",
+    "text": "061-第十九讲-动态通知调用.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/062-第十九讲-动态通知调用.mp4",
+    "text": "062-第十九讲-动态通知调用.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/063-第廿讲-DispatcherServlet初始化时机.mp4",
+    "text": "063-第廿讲-DispatcherServlet初始化时机.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/064-第廿讲-DispatcherServlet初始化时机.mp4",
+    "text": "064-第廿讲-DispatcherServlet初始化时机.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/065-第廿讲-DispatcherServlet初始化执行的操作.mp4",
+    "text": "065-第廿讲-DispatcherServlet初始化执行的操作.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/066-第廿讲-RequestMappingHandlerMapping.mp4",
+    "text": "066-第廿讲-RequestMappingHandlerMapping.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/067-第廿讲-RequestMappingHandlerAdapter.mp4",
+    "text": "067-第廿讲-RequestMappingHandlerAdapter.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/068-第廿讲-RequestMappingHandlerAdapter-参数和返回值解析器.mp4",
+    "text": "068-第廿讲-RequestMappingHandlerAdapter-参数和返回值解析器.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/069-第廿讲-RequestMappingHandlerAdapter-自定义参数解析器.mp4",
+    "text": "069-第廿讲-RequestMappingHandlerAdapter-自定义参数解析器.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/070-第廿讲-RequestMappingHandlerAdapter-自定义返回值解析器.mp4",
+    "text": "070-第廿讲-RequestMappingHandlerAdapter-自定义返回值解析器.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/071-第廿一讲-参数解析器-准备.mp4",
+    "text": "071-第廿一讲-参数解析器-准备.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/072-第廿一讲-参数解析器-准备.mp4",
+    "text": "072-第廿一讲-参数解析器-准备.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/073-第廿一讲-参数解析器-@RequestParam 0-4.mp4",
+    "text": "073-第廿一讲-参数解析器-@RequestParam 0-4.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/074-第廿一讲-参数解析器-组合模式.mp4",
+    "text": "074-第廿一讲-参数解析器-组合模式.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/075-第廿一讲-参数解析器 5-9.mp4",
+    "text": "075-第廿一讲-参数解析器 5-9.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/076-第廿一讲-参数解析器 10-12.mp4",
+    "text": "076-第廿一讲-参数解析器 10-12.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/077-第廿二讲-获取参数名.mp4",
+    "text": "077-第廿二讲-获取参数名.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/078-第廿二讲-获取参数名.mp4",
+    "text": "078-第廿二讲-获取参数名.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/079-第廿三讲-两套底层转换接口.mp4",
+    "text": "079-第廿三讲-两套底层转换接口.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/080-第廿三讲-一套高层转换接口.mp4",
+    "text": "080-第廿三讲-一套高层转换接口.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/081-第廿三讲-类型转换与数据绑定演示.mp4",
+    "text": "081-第廿三讲-类型转换与数据绑定演示.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/082-第廿三讲-web环境下数据绑定演示.mp4",
+    "text": "082-第廿三讲-web环境下数据绑定演示.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/083-第廿三讲-绑定器工厂.mp4",
+    "text": "083-第廿三讲-绑定器工厂.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/084-第廿三讲-绑定器工厂-@InitBinder扩展.mp4",
+    "text": "084-第廿三讲-绑定器工厂-@InitBinder扩展.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/085-第廿三讲-绑定器工厂-ConversionService扩展.mp4",
+    "text": "085-第廿三讲-绑定器工厂-ConversionService扩展.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/086-第廿三讲-绑定器工厂-默认ConversionService.mp4",
+    "text": "086-第廿三讲-绑定器工厂-默认ConversionService.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/087-第廿三讲-加餐-如何获取泛型参数.mp4",
+    "text": "087-第廿三讲-加餐-如何获取泛型参数.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/088-第廿四讲-@ControllerAdvice-@InitBinder.mp4",
+    "text": "088-第廿四讲-@ControllerAdvice-@InitBinder.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/089-第廿四讲-@ControllerAdvice-@InitBinder.mp4",
+    "text": "089-第廿四讲-@ControllerAdvice-@InitBinder.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/090-第廿五讲-控制器方法执行流程.mp4",
+    "text": "090-第廿五讲-控制器方法执行流程.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/091-第廿五讲-控制器方法执行流程.mp4",
+    "text": "091-第廿五讲-控制器方法执行流程.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/092-第廿五讲-控制器方法执行流程-代码.mp4",
+    "text": "092-第廿五讲-控制器方法执行流程-代码.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/093-第廿六讲-@ControllerAdvice-@ModelAttribute.mp4",
+    "text": "093-第廿六讲-@ControllerAdvice-@ModelAttribute.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/094-第廿七讲-返回值处理器.mp4",
+    "text": "094-第廿七讲-返回值处理器.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/095-第廿七讲-返回值处理器-1.mp4",
+    "text": "095-第廿七讲-返回值处理器-1.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/096-第廿七讲-返回值处理器-2-4.mp4",
+    "text": "096-第廿七讲-返回值处理器-2-4.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/097-第廿七讲-返回值处理器-5-7.mp4",
+    "text": "097-第廿七讲-返回值处理器-5-7.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/098-第廿八讲-MessageConverter.mp4",
+    "text": "098-第廿八讲-MessageConverter.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/099-第廿八讲-MessageConverter.mp4",
+    "text": "099-第廿八讲-MessageConverter.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/100-第廿九讲-@ControllerAdvice-ResponseBodyAdvice.mp4",
+    "text": "100-第廿九讲-@ControllerAdvice-ResponseBodyAdvice.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/101-第廿九讲-@ControllerAdvice-ResponseBodyAdvice.mp4",
+    "text": "101-第廿九讲-@ControllerAdvice-ResponseBodyAdvice.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/102-第卅讲-异常处理.mp4",
+    "text": "102-第卅讲-异常处理.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/103-第卅讲-异常处理.mp4",
+    "text": "103-第卅讲-异常处理.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/104-第卅一讲-@ControllerAdvice-@ExceptionHandler.mp4",
+    "text": "104-第卅一讲-@ControllerAdvice-@ExceptionHandler.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/105-第卅二讲-tomcat异常处理.mp4",
+    "text": "105-第卅二讲-tomcat异常处理.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/106-第卅二讲-tomcat异常处理-自定义错误地址.mp4",
+    "text": "106-第卅二讲-tomcat异常处理-自定义错误地址.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/107-第卅二讲-tomcat异常处理-BasicErrorController.mp4",
+    "text": "107-第卅二讲-tomcat异常处理-BasicErrorController.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/108-第卅二讲-tomcat异常处理-BasicErrorController.mp4",
+    "text": "108-第卅二讲-tomcat异常处理-BasicErrorController.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/109-第卅三讲-HandlerMapping与HandlerAdapter-1.mp4",
+    "text": "109-第卅三讲-HandlerMapping与HandlerAdapter-1.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/110-第卅三讲-HandlerMapping与HandlerAdapter-自定义.mp4",
+    "text": "110-第卅三讲-HandlerMapping与HandlerAdapter-自定义.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/111-第卅四讲-HandlerMapping与HandlerAdapter-2.mp4",
+    "text": "111-第卅四讲-HandlerMapping与HandlerAdapter-2.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/112-第卅五讲-HandlerMapping与HandlerAdapter-3.mp4",
+    "text": "112-第卅五讲-HandlerMapping与HandlerAdapter-3.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/113-第卅五讲-HandlerMapping与HandlerAdapter-3-优化.mp4",
+    "text": "113-第卅五讲-HandlerMapping与HandlerAdapter-3-优化.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/114-第卅五讲-HandlerMapping与HandlerAdapter-3-优化.mp4",
+    "text": "114-第卅五讲-HandlerMapping与HandlerAdapter-3-优化.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/115-第卅五讲-HandlerMapping与HandlerAdapter-4-欢迎页.mp4",
+    "text": "115-第卅五讲-HandlerMapping与HandlerAdapter-4-欢迎页.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/116-第卅五讲-HandlerMapping与HandlerAdapter-总结.mp4",
+    "text": "116-第卅五讲-HandlerMapping与HandlerAdapter-总结.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/117-第卅六讲-MVC执行流程.mp4",
+    "text": "117-第卅六讲-MVC执行流程.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/118-第卅六讲-MVC执行流程.mp4",
+    "text": "118-第卅六讲-MVC执行流程.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/119-第卅七讲-构建boot骨架项目.mp4",
+    "text": "119-第卅七讲-构建boot骨架项目.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/120-第卅八讲-构建boot war项目.mp4",
+    "text": "120-第卅八讲-构建boot war项目.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/121-第卅八讲-构建boot war项目-用外置tomcat测试.mp4",
+    "text": "121-第卅八讲-构建boot war项目-用外置tomcat测试.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/122-第卅八讲-构建boot war项目-用内嵌tomcat测试.mp4",
+    "text": "122-第卅八讲-构建boot war项目-用内嵌tomcat测试.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/123-第卅九讲-boot执行流程-构造.mp4",
+    "text": "123-第卅九讲-boot执行流程-构造.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/124-第卅九讲-boot执行流程-构造-1.mp4",
+    "text": "124-第卅九讲-boot执行流程-构造-1.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/125-第卅九讲-boot执行流程-构造-2.mp4",
+    "text": "125-第卅九讲-boot执行流程-构造-2.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/126-第卅九讲-boot执行流程-构造-3.mp4",
+    "text": "126-第卅九讲-boot执行流程-构造-3.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/127-第卅九讲-boot执行流程-构造-4-5.mp4",
+    "text": "127-第卅九讲-boot执行流程-构造-4-5.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/128-第卅九讲-boot执行流程-run-1.mp4",
+    "text": "128-第卅九讲-boot执行流程-run-1.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/129-第卅九讲-boot执行流程-run-1.mp4",
+    "text": "129-第卅九讲-boot执行流程-run-1.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/130-第卅九讲-boot执行流程-run-8-11.mp4",
+    "text": "130-第卅九讲-boot执行流程-run-8-11.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/131-第卅九讲-boot执行流程-run-2,12.mp4",
+    "text": "131-第卅九讲-boot执行流程-run-2,12.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/132-第卅九讲-boot执行流程-run-3.mp4",
+    "text": "132-第卅九讲-boot执行流程-run-3.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/133-第卅九讲-boot执行流程-run-4.mp4",
+    "text": "133-第卅九讲-boot执行流程-run-4.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/134-第卅九讲-boot执行流程-run-5.mp4",
+    "text": "134-第卅九讲-boot执行流程-run-5.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/135-第卅九讲-boot执行流程-run-5.mp4",
+    "text": "135-第卅九讲-boot执行流程-run-5.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/136-第卅九讲-boot执行流程-run-6.mp4",
+    "text": "136-第卅九讲-boot执行流程-run-6.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/137-第卅九讲-boot执行流程-run-7.mp4",
+    "text": "137-第卅九讲-boot执行流程-run-7.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/138-第卅九讲-boot执行流程-小结.mp4",
+    "text": "138-第卅九讲-boot执行流程-小结.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/139-第卌讲-Tomcat重要组件.mp4",
+    "text": "139-第卌讲-Tomcat重要组件.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/140-第卌讲-内嵌Tomcat.mp4",
+    "text": "140-第卌讲-内嵌Tomcat.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/141-第卌讲-内嵌Tomcat与Spring整合.mp4",
+    "text": "141-第卌讲-内嵌Tomcat与Spring整合.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/142-第卌一讲-自动配置类原理.mp4",
+    "text": "142-第卌一讲-自动配置类原理.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/143-第卌一讲-自动配置类原理.mp4",
+    "text": "143-第卌一讲-自动配置类原理.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/144-第卌一讲-AopAutoConfiguration.mp4",
+    "text": "144-第卌一讲-AopAutoConfiguration.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/145-第卌一讲-AopAutoConfiguration.mp4",
+    "text": "145-第卌一讲-AopAutoConfiguration.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/146-第卌一讲-自动配置类2-4概述.mp4",
+    "text": "146-第卌一讲-自动配置类2-4概述.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/147-第卌一讲-自动配置类2-DataSource.mp4",
+    "text": "147-第卌一讲-自动配置类2-DataSource.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/148-第卌一讲-自动配置类3-MyBatis.mp4",
+    "text": "148-第卌一讲-自动配置类3-MyBatis.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/149-第卌一讲-自动配置类3-mapper扫描.mp4",
+    "text": "149-第卌一讲-自动配置类3-mapper扫描.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/150-第卌一讲-自动配置类4-事务.mp4",
+    "text": "150-第卌一讲-自动配置类4-事务.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/151-第卌一讲-自动配置类5-MVC.mp4",
+    "text": "151-第卌一讲-自动配置类5-MVC.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/152-第卌一讲-自定义自动配置类.mp4",
+    "text": "152-第卌一讲-自定义自动配置类.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/153-第卌二讲-条件装配底层1.mp4",
+    "text": "153-第卌二讲-条件装配底层1.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/154-第卌二讲-条件装配底层2.mp4",
+    "text": "154-第卌二讲-条件装配底层2.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/155-第卌三讲-FactoryBean.mp4",
+    "text": "155-第卌三讲-FactoryBean.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/156-第卌四讲-@Indexed.mp4",
+    "text": "156-第卌四讲-@Indexed.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/157-第卌五讲-Spring代理的特点.mp4",
+    "text": "157-第卌五讲-Spring代理的特点.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/158-第卌五讲-Spring代理的特点.mp4",
+    "text": "158-第卌五讲-Spring代理的特点.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/159-第卌六讲-@Value注入底层1.mp4",
+    "text": "159-第卌六讲-@Value注入底层1.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/160-第卌六讲-@Value注入底层2.mp4",
+    "text": "160-第卌六讲-@Value注入底层2.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/161-第卌七讲-@Autowired注入底层-doResolveDependency外1.mp4",
+    "text": "161-第卌七讲-@Autowired注入底层-doResolveDependency外1.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/162-第卌七讲-@Autowired注入底层-doResolveDependency外2.mp4",
+    "text": "162-第卌七讲-@Autowired注入底层-doResolveDependency外2.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/163-第卌七讲-@Autowired注入底层-doResolveDependency内1.mp4",
+    "text": "163-第卌七讲-@Autowired注入底层-doResolveDependency内1.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/164-第卌七讲-@Autowired注入底层-doResolveDependency内2.mp4",
+    "text": "164-第卌七讲-@Autowired注入底层-doResolveDependency内2.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/165-第卌七讲-@Autowired注入底层-doResolveDependency内3.mp4",
+    "text": "165-第卌七讲-@Autowired注入底层-doResolveDependency内3.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/166-第卌七讲-@Autowired注入底层-doResolveDependency内4.mp4",
+    "text": "166-第卌七讲-@Autowired注入底层-doResolveDependency内4.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/167-第卌八讲-事件监听器1.mp4",
+    "text": "167-第卌八讲-事件监听器1.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/168-第卌八讲-事件监听器2.mp4",
+    "text": "168-第卌八讲-事件监听器2.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/169-第卌八讲-事件监听器3.mp4",
+    "text": "169-第卌八讲-事件监听器3.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/170-第卌八讲-事件监听器4.mp4",
+    "text": "170-第卌八讲-事件监听器4.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/171-第卌八讲-事件监听器5.mp4",
+    "text": "171-第卌八讲-事件监听器5.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/172-第卌九讲-事件发布器1.mp4",
+    "text": "172-第卌九讲-事件发布器1.mp4",
+    "children": null,
+    "state": null
+  },
+  {
+    "id": "spring5高级/173-第卌九讲-事件发布器2.mp4",
+    "text": "173-第卌九讲-事件发布器2.mp4",
+    "children": null,
+    "state": null
+  }
+]
+}

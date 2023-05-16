@@ -389,7 +389,8 @@
     <Content Include="silverlight\HttpFileClientTestPage.html" />
     <Content Include="silverlight\Silverlight.js" />
     <Content Include="flashplayer\video.mp4" />
-    <Content Include="flashplayer\wmvplayer\pathjson.json" />
+    <Content Include="flashplayer\wmvplayer\pathjson1.json" />
+    <Content Include="flashplayer\wmvplayer\pathjson2.json" />
     <None Include="jQuey\jquery-1.11.3.intellisense.js" />
     <Content Include="Explorer.aspx" />
     <Content Include="jQuey\jquery-1.11.3.js" />

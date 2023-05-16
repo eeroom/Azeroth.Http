@@ -7,7 +7,10 @@
 <body>
     <div id="title"></div>
     <div id="mediaplayer"></div>
+    <select id="myselect">
+    </select>
     <ul id="tt"></ul>
+
     <script src="../jwplayer.js"></script>
     <script src="silverlight.js"></script>
     <script src="wmvplayer.js"></script>
@@ -30,46 +33,93 @@
             margin-left:10px;
             border:1px #808080 solid;
         }
+        #myselect{
+            display:block;
+             position:absolute;
+              top:20px;
+               right:20px;
+                width:480px;
+        }
         #tt{
             position:absolute;
             top:50px;
             right:20px;
             width:480px;
+            max-height:800px;
+            overflow-y:scroll;
         }
+
     </style>
     <script type="text/javascript">
-        $(function () {
-
-            var refreshdoc = function (node) {
-                if (node.children)
-                    return
-                var url = "/medie/" + node.id;
-                var elm = document.getElementById("mediaplayer");
-                var src = 'wmvplayer.xaml';          //xaml文件路径
-                var cfg = {
-                    file: url,       //wmv文件路径
-                    width: '1296',                  //宽度
-                    height: '810',               //高度
-                    autostart: 'true',               //自动播放
-                    start: '0',                   //从第几秒开始播放
-                    backcolor: '000000',               //背景颜色
-                    frontcolor: 'FFFFFF'               //字体颜色
-                };
-                var ply = new jeroenwijering.Player(elm, src, cfg);
-                $("#title").html(node.text)
+        function refreshdoc(node) {
+            if (node.children) {
+                refreshdoc(node.children[0])
+                return
             }
-            $(function () {
+            var url = "/medie/" + node.id;
+            var elm = document.getElementById("mediaplayer");
+            var src = 'wmvplayer.xaml';          //xaml文件路径
+            var cfg = {
+                file: url,       //wmv文件路径
+                width: '1296',                  //宽度
+                height: '810',               //高度
+                autostart: 'true',               //自动播放
+                start: '0',                   //从第几秒开始播放
+                backcolor: '000000',               //背景颜色
+                frontcolor: 'FFFFFF'               //字体颜色
+            };
+            var ply = new jeroenwijering.Player(elm, src, cfg);
+            $("#title").html(node.text)
+        }
 
+        function initmenu(lstpathjson) {
+            refreshdoc(lstpathjson[0].tree[0])
+            var option = '<option selected="selected" value="'+lstpathjson[0].title+'">'+lstpathjson[0].title+'</option>'
+            var option2 = lstpathjson.slice(1).map(function (x) {
+                return x.title
+            })
+            .map(function (x) {
+                return '<option value="' + x + '">' + x + '</option>'
+            })
+            .join("")
+            $("#myselect").append(option + option2);
+            $("#myselect").trigger("change")
+        }
+
+       function getpathjson(cindex, max, lstpathjson) {
+            if (cindex >= max) {
+                initmenu(lstpathjson);
+                return;
+            }
+            $.ajax({
+                url: "pathjson" + cindex + ".json",
+                type: "get",
+                success: function (data) {
+                    lstpathjson.push(data);
+                    getpathjson(cindex + 1, max, lstpathjson);
+                },
+                error: function () {
+                    initmenu(lstpathjson);
+                }
+            })
+        }
+        $(function () {
+            var lstpathjson=[]
+            $("#myselect").change(function () {
+                var title = $("#myselect").val();
+                var pathjson = lstpathjson.filter(function (x) {
+                    return x.title == title
+                })[0];
                 $('#tt').tree({
-                    method: "get",
-                    url: 'pathjson.json',
+                    data: pathjson.tree,
                     onClick: refreshdoc,
                     onDblClick: function (node) {
                         node.children && $("#tt").tree("toggle", node.target)
                     }
                 });
-                refreshdoc({ id: "/数据结构day01_总结/01_数据结构的总体课程安排_学习思路和方法.wmv", text: "01_数据结构的总体课程安排_学习思路和方法" })
+                refreshdoc(pathjson.tree[0])
             })
+            getpathjson(1, 100, lstpathjson);
         })
    
     </script>
