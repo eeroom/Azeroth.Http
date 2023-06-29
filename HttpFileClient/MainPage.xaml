@@ -9,5 +9,6 @@
     <StackPanel Orientation="Vertical">
         <Button Click="Button_Click">点我一下</Button>
         <TextBlock>hello world</TextBlock>
+        <Button MouseEnter="Button_MouseEnter">打开文件2</Button>
     </StackPanel>
 </UserControl>

@@ -23,5 +23,20 @@ namespace HttpFileClient
         {
             MessageBox.Show("你点我了");
         }
+
+        private void Button_MouseEnter(object sender, MouseEventArgs e)
+        {
+           
+            SL4PopupMenu.PopupMenu menu = new SL4PopupMenu.PopupMenu(this);
+            menu.AddItem("文件夹", (sd,ev) =>
+            {
+                MessageBox.Show("你点了文件夹");
+            });
+            var btn= sender as Button;
+            var point= btn.TransformToVisual(null);
+            var menupoint= point.Transform(new Point());
+            menupoint.Y = menupoint.Y + btn.Height;
+            menu.Open(menupoint, false, false);
+        }
     }
 }
