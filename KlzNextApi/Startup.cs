@@ -15,6 +15,31 @@ namespace KlzNextApi
     {
         public void Configure(IApplicationBuilder app)
         {
+            app.Use((Microsoft.AspNetCore.Http.HttpContext context,Func<Task> fac)=>{
+                if (context.Request.Method.ToLower() != "OPTIONS".ToLower())
+                {
+                    var headerOrigin = context.Request.Headers["Origin"];
+                    context.Response.Headers.Add("Access-Control-Allow-Origin", headerOrigin);
+                    //允许浏览器端js读取响应的cookie
+                    context.Response.Headers.Add("Access-Control-Allow-Credentials", "true");
+                    //允许浏览器端js读取响应头Authorization的值
+                    context.Response.Headers.Add("Access-Control-Expose-Headers", "Authorization");
+                    return fac();
+                }
+                else
+                {
+                    var headerOrigin = context.Request.Headers["Origin"];
+                    context.Response.Headers.Add("Access-Control-Allow-Origin", headerOrigin);
+                    context.Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, PUT");
+                    //这个allow header，高版本火狐有x-request-header
+                    //context.OutgoingResponse.Headers.Add("Access-Control-Allow-Headers", "content-type");
+                    context.Response.Headers.Add("Access-Control-Allow-Headers", context.Request.Headers["Access-Control-Request-Headers"]);
+                    context.Response.Headers.Add("Access-Control-Max-Age", "1728000");
+                    return Task.FromResult(string.Empty);
+                }
+
+                
+            });
             app.UseMvc(HandlerMvcRoute);
         }
 
