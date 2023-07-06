@@ -77,7 +77,7 @@
                 console.log("calMd5");
                 var blobSlice = File.prototype.slice || File.prototype.mozSlice || File.prototype.webkitSlice,
                     file = this.files[0],
-                    chunkSize = 1024 * 1024 * 1,                             // Read in chunks of 2MB
+                    chunkSize = 1024 * 1024 * 5,                             // Read in chunks of 2MB
                     chunks = Math.ceil(file.size / chunkSize),
                     currentChunk = 0,
                     spark = new SparkMD5.ArrayBuffer(),
