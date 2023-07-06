@@ -7,7 +7,7 @@ namespace HttpFile {
     /// <summary>
     /// Download03 的摘要说明
     /// </summary>
-    public class Download03 : IHttpHandler {
+    public class Download4Range : IHttpHandler {
 
         public void ProcessRequest(HttpContext context) {
             

@@ -8,7 +8,7 @@ namespace HttpFile
     /// <summary>
     /// Upload 的摘要说明
     /// </summary>
-    public class Upload : IHttpHandler
+    public class Upload4Chunked : IHttpHandler
     {
 
         public void ProcessRequest(HttpContext context)

@@ -165,7 +165,7 @@
     <Content Include="Bootstrap3.3.7\js\bootstrap.min.js" />
     <Content Include="css\ie10-viewport-bug-workaround.css" />
     <Content Include="css\layout-fluid.css" />
-    <Content Include="Download03.ashx" />
+    <Content Include="Download4Range.ashx" />
     <Content Include="Bootstrap3.3.7\config.json" />
     <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.ttf" />
@@ -418,11 +418,11 @@
     <Compile Include="Download.ashx.cs">
       <DependentUpon>Download.ashx</DependentUpon>
     </Compile>
-    <Compile Include="Download02.ashx.cs">
-      <DependentUpon>Download02.ashx</DependentUpon>
+    <Compile Include="Download4Zip.ashx.cs">
+      <DependentUpon>Download4Zip.ashx</DependentUpon>
     </Compile>
-    <Compile Include="Download03.ashx.cs">
-      <DependentUpon>Download03.ashx</DependentUpon>
+    <Compile Include="Download4Range.ashx.cs">
+      <DependentUpon>Download4Range.ashx</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202111250849413_v20211125.cs" />
     <Compile Include="Migrations\202111250849413_v20211125.Designer.cs">
@@ -445,17 +445,17 @@
     <Compile Include="Model\HFDbContext.cs" />
     <Compile Include="Model\UploadStep.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Upload.ashx.cs">
-      <DependentUpon>Upload.ashx</DependentUpon>
+    <Compile Include="Upload4Chunked.ashx.cs">
+      <DependentUpon>Upload4Chunked.ashx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Download.ashx" />
-    <Content Include="Download02.ashx" />
+    <Content Include="Download4Zip.ashx" />
     <Content Include="packages.config" />
     <Content Include="jQuey\jquery-1.11.3.min.map" />
     <Content Include="jQuey\jquery-1.9.1.min.map" />
-    <Content Include="Upload.ashx" />
+    <Content Include="Upload4Chunked.ashx" />
     <Content Include="spark-md5\LICENSE" />
     <Content Include="spark-md5\package.json" />
     <Content Include="spark-md5\README.md" />

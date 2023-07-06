@@ -8,7 +8,7 @@ namespace HttpFile
     /// <summary>
     /// Download02 的摘要说明
     /// </summary>
-    public class Download02 : IHttpHandler
+    public class DownloadByZip : IHttpHandler
     {
         /// <summary>
         /// 边打包边下载，
