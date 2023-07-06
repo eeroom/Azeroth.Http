@@ -448,6 +448,9 @@
     <Compile Include="Upload4Chunked.ashx.cs">
       <DependentUpon>Upload4Chunked.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Upload4Stream.ashx.cs">
+      <DependentUpon>Upload4Stream.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Download.ashx" />
@@ -460,6 +463,7 @@
     <Content Include="spark-md5\package.json" />
     <Content Include="spark-md5\README.md" />
     <Content Include="lib\sqlservercompact4.0_native.rar" />
+    <Content Include="Upload4Stream.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
