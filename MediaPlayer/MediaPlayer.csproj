@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HttpPlayer</RootNamespace>
-    <AssemblyName>HttpPlayer</AssemblyName>
+    <RootNamespace>MediaPlayer</RootNamespace>
+    <AssemblyName>MediaPlayer</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -24,7 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <SilverlightApplicationList>{22E9E578-62FE-4CF0-83C7-6F27FA2B67A8}|..\HttpFileClient\HttpFileClient.csproj|silverlight|False</SilverlightApplicationList>
+    <SilverlightApplicationList>{22E9E578-62FE-4CF0-83C7-6F27FA2B67A8}|..\GoodPlayer\GoodPlayer.csproj|silverlight|False</SilverlightApplicationList>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -71,7 +71,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="silverlight\HttpFileClient.xap" />
+    <Content Include="silverlight\goodplayer.html" />
+    <Content Include="silverlight\GoodPlayer.xap" />
     <Content Include="wmvplayer\pathjson1.json" />
     <Content Include="wmvplayer\pathjson2.json" />
     <Content Include="jQuey\jquery-1.11.3.min.map" />
@@ -305,7 +306,6 @@
     <Content Include="wmvplayer\wmvplayer.html" />
     <Content Include="wmvplayer\wmvplayer.js" />
     <Content Include="flashplayer\yt.swf" />
-    <Content Include="silverlight\HttpFileClientTestPage.html" />
     <Content Include="silverlight\Silverlight.js" />
     <Content Include="Web.config" />
   </ItemGroup>
