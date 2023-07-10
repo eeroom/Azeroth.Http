@@ -14,13 +14,20 @@
         <li><a href="Download.ashx">浏览器下载：中文的文件名同时兼容ie,firefox,chrome，不乱码</a></li>
         <li><a href="Download02.ashx">浏览器下载：边打包边下载，无进度</a></li>
         <li><a href="Download03.ashx">浏览器下载：支持下载进度，断点续传</a></li>
-        <li><a id="btnAjaxDownload" href="#" >ajax下载：不能处理大文件</a></li>
+        <li><a id="btnAjaxDownload" href="#">ajax下载：不能处理大文件</a></li>
         <li>
             <div>
                 <p>浏览器上传：多文件，多任务，分片</p>
                 <input type="file" name="chunkUpload" value="选择文件" placeholder="选择文件" multiple />
                 <input type="file" name="chunkUploadDir" value="选择文件夹" placeholder="选择文件夹" webkitdirectory />
                 <ul id="lstUploadFile"></ul>
+            </div>
+        </li>
+        <li>
+            <div>
+                <p>浏览器上传：stream</p>
+                <input type="file" name="streamUploadDir" value="选择文件" placeholder="选择文件" multiple />
+                <ul id="lstUploadFile2"></ul>
             </div>
         </li>
         <li>
@@ -73,6 +80,21 @@
             $("input[name='chunkUploadDir']").change(function (sender) {
                 uploadHandler(this.files);
             });
+            $("input[name='streamUploadDir']").change(function (sender) {
+                fetch('Upload4Stream.ashx', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/octet-stream',
+                        'Transfer-Encoding': 'chunked'
+                    },
+                    duplex: 'half',
+                    body: this.files[0]
+                });
+
+                //fetch("Upload4Stream.ashx", { method: "POST", body: this.files[0].stream(), duplex: "half" })
+
+            })
+
             $("input[name='calMd5']").change(function () {
                 console.log("calMd5");
                 var blobSlice = File.prototype.slice || File.prototype.mozSlice || File.prototype.webkitSlice,
@@ -116,7 +138,7 @@
                 var xhr = new XMLHttpRequest();
                 xhr.responseType = "blob";
                 xhr.onreadystatechange = function () {
-                    if(xhr.readyState!=4 || xhr.status!=200)
+                    if (xhr.readyState != 4 || xhr.status != 200)
                         return
                     var file = new Blob([xhr.response]);
                     var url = window.URL.createObjectURL(file);
