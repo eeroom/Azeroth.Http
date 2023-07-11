@@ -4,9 +4,9 @@ using System.Linq;
 using System.ServiceProcess;
 using System.Text;
 
-namespace WindowsServerHostWcf
+namespace WCF4WindowsService
 {
-    class Program
+    class App
     {
         static void Main(string[] args)
         {

@@ -7,8 +7,8 @@
     <ProjectGuid>{6948F8F2-BFDF-45DE-BB12-362FFDBA6BFB}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WindowsServerHostWcf</RootNamespace>
-    <AssemblyName>WindowsServerHostWcf</AssemblyName>
+    <RootNamespace>WCF4WindowsService</RootNamespace>
+    <AssemblyName>WCF4WindowsService</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -50,7 +50,7 @@
     <Compile Include="Home.cs" />
     <Compile Include="IHome.cs" />
     <Compile Include="P1Service.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

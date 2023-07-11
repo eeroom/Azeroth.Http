@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace WindowsServerHostWcf
+namespace WCF4WindowsService
 {
     /// <summary>
     /// 这里嵌套了class只是为了避免类继承System.ServiceProcess.ServiceBase后，导致vs默认打开设计器
