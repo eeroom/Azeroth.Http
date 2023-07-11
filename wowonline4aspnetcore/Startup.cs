@@ -6,7 +6,7 @@ using System;
 using System.Threading.Tasks;
 using System.Web.Cors;
 using System.Collections.Generic;
-namespace SelfHostSignalR
+namespace wowonline4aspnetcore
 {
 
     public class Startup {

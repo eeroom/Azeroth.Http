@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace SelfHostSignalR
+namespace wowonline4aspnetcore
 {
-    public class HomeController : ApiController {
+    public class WorldChannelController : ApiController {
         [HttpGet]
         public List<int> GetEntities() {
             var lst = System.Linq.Enumerable.Range(0, 10).ToList();
@@ -16,9 +16,9 @@ namespace SelfHostSignalR
 
         [HttpPost]
         public void Msg(ChatContent cc) {
-            var hubcontext = Microsoft.AspNet.SignalR.GlobalHost.ConnectionManager.GetHubContext<LolHub>();
+            var hubcontext = Microsoft.AspNet.SignalR.GlobalHost.ConnectionManager.GetHubContext<WorldChannelHub>();
             var all = hubcontext.Clients.All;
-            all.refresh("未知",cc.Msg);
+            all.reciveMsg("未知",cc.Msg);
         }
     }
 

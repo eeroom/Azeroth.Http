@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过下列特性集
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("KlzSignalRClient")]
+[assembly: AssemblyTitle("wowonline4aspnetcoreView")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("KlzSignalRClient")]
+[assembly: AssemblyProduct("wowonline4aspnetcoreView")]
 [assembly: AssemblyCopyright("版权所有(C)  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

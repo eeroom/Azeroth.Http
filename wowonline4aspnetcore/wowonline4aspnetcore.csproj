@@ -7,8 +7,8 @@
     <ProjectGuid>{D7D964FE-53AB-4D78-BF6B-7E9FF5E2E1CA}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DinglingServer</RootNamespace>
-    <AssemblyName>DinglingServer</AssemblyName>
+    <RootNamespace>wowonline4aspnetcore</RootNamespace>
+    <AssemblyName>wowonline4aspnetcore</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -96,8 +96,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HomeController.cs" />
-    <Compile Include="LolHub.cs" />
+    <Compile Include="WorldChannelController.cs" />
+    <Compile Include="WorldChannelHub.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
+    <title>艾泽拉斯世界频道</title>
     <script src="/Scripts/jquery-1.6.4.js"></script>
     <script src="/Scripts/jquery.signalR-1.1.4.js"></script>
     <script src="/signalr/hubs"></script>

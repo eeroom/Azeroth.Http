@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>聊天室</title>
+    <title>艾泽拉斯世界频道</title>
 	<meta charset="utf-8" />
     <script src="Scripts/jquery-1.6.4.js"></script>
     <!--<script src="Scripts/jquery-1.6.4-vsdoc.js"></script>-->
@@ -25,10 +25,17 @@
         };
 
         $(function () {
+            $.connection.hub.url = "http://localhost:8016/signalr";
+            var worldChannelHub = $.connection.worldChannelHub;
+            worldChannelHub.client.reciveMsg = function (username, msg) {
+                $("ul").append("<li>" + username + ":" + msg + "</li>");
+            }
+            $.connection.hub.start();
+
 
             $("form").submit(function () {
                 var formdata= $(this).serializeObject();
-                $.ajax("http://localhost:8016/Home/Msg", {
+                $.ajax("http://localhost:8016/WorldChannel/Msg", {
                     type: "POST",
                     contentType: "application/json",
                     data: JSON.stringify(formdata),
@@ -40,14 +47,7 @@
                 });
                 return false;
             });
-            $.connection.hub.url = "http://localhost:8016/signalr";
-            var lolHub = $.connection.lolHub;
-            lolHub.client.refresh = function (username, msg) {
-
-                $("ul").append("<li>" + username + ":" + msg + "</li>");
-            }
-
-            $.connection.hub.start();
+            
         });
     </script>
 </head>
