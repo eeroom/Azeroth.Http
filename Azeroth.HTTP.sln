@@ -65,7 +65,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodPlayer", "GoodPlayer\Go
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormsAuthentication", "FormsAuthentication\FormsAuthentication.csproj", "{6B5DD1B8-1F80-4AF3-BD7A-29EA40C5841A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaPlayer", "MediaPlayer\MediaPlayer.csproj", "{22AC0F90-5F2D-418F-BE0A-DE043D0356A9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPlayer", "MediaPlayer\WebPlayer.csproj", "{22AC0F90-5F2D-418F-BE0A-DE043D0356A9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mono", "mono", "{7F1B1B2E-7F13-404E-85C4-488D6076D786}"
 EndProject
