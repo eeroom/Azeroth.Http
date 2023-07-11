@@ -67,20 +67,22 @@
     <Content Include="Bootstrap3.3.7\js\bootstrap.min.js" />
     <Content Include="css\ie10-viewport-bug-workaround.css" />
     <Content Include="css\layout-fluid.css" />
-    <None Include="jQuey\jquery-1.11.3.intellisense.js" />
+    <None Include="jQuery\jquery-1.11.3.intellisense.js" />
     <Content Include="default.aspx" />
-    <Content Include="jQuey\jquery-1.11.3.js" />
-    <Content Include="jQuey\jquery-1.11.3.min.js" />
-    <None Include="jQuey\jquery-1.9.1.intellisense.js" />
-    <Content Include="jQuey\jquery-1.9.1.js" />
-    <Content Include="jQuey\jquery-1.9.1.min.js" />
+    <Content Include="jQuery\jquery-1.11.3.js" />
+    <Content Include="jQuery\jquery-1.11.3.min.js" />
+    <None Include="jQuery\jquery-1.9.1.intellisense.js" />
+    <Content Include="jQuery\jquery-1.9.1.js" />
+    <Content Include="jQuery\jquery-1.9.1.min.js" />
     <Content Include="js\html5shiv.min.js" />
     <Content Include="js\ie-emulation-modes-warning.js" />
     <Content Include="js\ie10-viewport-bug-workaround.js" />
     <Content Include="js\ie8-responsive-file-warning.js" />
+    <Content Include="js\menu.js" />
     <Content Include="js\respond.min.js" />
     <Content Include="login.aspx" />
     <Content Include="Web.config" />
+    <Content Include="logout.ashx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="default.aspx.cs">
@@ -97,6 +99,9 @@
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="logout.ashx.cs">
+      <DependentUpon>logout.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -105,8 +110,8 @@
     <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="jQuey\jquery-1.11.3.min.map" />
-    <Content Include="jQuey\jquery-1.9.1.min.map" />
+    <Content Include="jQuery\jquery-1.11.3.min.map" />
+    <Content Include="jQuery\jquery-1.9.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

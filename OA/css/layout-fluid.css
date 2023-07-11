@@ -25,6 +25,22 @@ body {
   border: 0;
 }
 
+
+
+.navbar-nav > li > a:hover {
+  border-bottom: 2px solid #ff0000;
+  transition: 0.2s;
+}
+.navbar-nav > .active > a {
+  border-bottom: 2px solid #ff0000;
+}
+
+.navbar-toggle{
+float: none;
+position: absolute;
+right: 0;
+}
+
 /*
  * Sidebar
  */
@@ -49,22 +65,51 @@ body {
   }
 }
 
-/* Sidebar navigation */
-.nav-sidebar {
+.sidebar .nav-sidebar {
   margin-right: -21px; /* 20px padding + 1px border */
-  margin-bottom: 20px;
   margin-left: -20px;
 }
-.nav-sidebar > li > a {
+.sidebar .nav-sidebar > li > a {
   padding-right: 20px;
   padding-left: 20px;
+  font-weight: 700;
 }
-.nav-sidebar > .active > a,
-.nav-sidebar > .active > a:hover,
-.nav-sidebar > .active > a:focus {
+.sidebar .nav-sidebar .nav-sub > li > a > span {
+  padding-left: 15px;
+}
+
+.sidebar .active > a {
   color: #fff;
   background-color: #428bca;
 }
+
+.sidebar .nav-sub> li > a:hover,
+.nav > .menu-l1 > a:hover{
+  color: rgb(8, 8, 8) ;
+  background-color: #b5b5b6;
+  transition: 0.2s;
+}
+
+.sidebar .nav-sub> .active > a:hover,.sidebar .nav-sub> .active > a:focus,
+.nav > .active > a:hover,.nav > .active > a:focus{
+  color: #fff;
+  background-color: #428bca;
+}
+
+.sidebar .nav-sub> li > a:hover::after,
+.nav > .menu-l1 > a:hover::after{
+  content: '';
+  position:absolute;
+  top: 12px;
+  right: -8px;
+  width: 15px;
+  height: 15px;
+  background-color: rgb(87, 85, 85);
+  transform: rotate(45deg);
+}
+
+/* Sidebar navigation */
+
 
 
 /*
@@ -103,4 +148,3 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
-

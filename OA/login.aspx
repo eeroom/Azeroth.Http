@@ -86,11 +86,11 @@
             <label for="inputEmail" class="sr-only">用户名</label>
             <input name="userName" type="text" id="inputEmail" class="form-control" placeholder="请输入用户名" required autofocus value="<%=this.UserName %>" />
             <label for="inputPassword" class="sr-only">密码</label>
-            <input name="pwd" type="password" id="inputPassword" class="form-control" placeholder="Password" required value="<%=this.Pwd %>" />
+            <input name="pwd" type="password" id="inputPassword" class="form-control" placeholder="请输入密码" required value="<%=this.Pwd %>" />
             <div class="checkbox">
                 <label>
                     <input type="checkbox" value="remember-me" />
-                    Remember me
+                    记住我
                 </label>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">确定</button>

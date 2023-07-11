@@ -17,7 +17,12 @@ namespace OA
         {
             this.UserName = this.Request["UserName"];
             this.Pwd = this.Request["Pwd"];
-            if (string.IsNullOrEmpty(this.UserName) || string.IsNullOrEmpty(this.Pwd))
+            if (string.IsNullOrEmpty(this.Pwd))
+            {
+                this.Pwd = "123456";
+                return;
+            }
+            if (string.IsNullOrEmpty(this.UserName))
                 return;
             if (this.Pwd != "123456")
                 return;
