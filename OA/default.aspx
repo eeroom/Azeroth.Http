@@ -80,7 +80,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%=this.Context.User.Identity.Name %> <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a  href="#">
+                                <a href="#">
                                     <form method="post" enctype="application/x-www-form-urlencoded" action="logout.ashx">
                                         <input class="btn-quit" type="submit" value="退出" />
                                     </form>
@@ -132,12 +132,37 @@
                 </ul>
             </div>
             <div class="col-md-21 col-md-offset-3 main">
-                <p>
-                    An ORM class library realizes the creation, reading, updating and deletion of single table data in
-                    the database. All these operations are completed by lambda. Nalu translates lambda expressions into
-                    SQL statements, then executes queries, and then maps data to entity objects, which is very different
-                    from traditional ORM such as mybatis.
-                </p>
+                <blockquote>
+                    <p class="lead">待我处理的流程</p>
+                </blockquote>
+                <table class="table table-hover">
+                    <tr>
+                        <td>单号</td>
+                        <td>流程类别</td>
+                        <td>申请人</td>
+                        <td>申请时间</td>
+                        <td>状态</td>
+                        <td>当前处理人</td>
+                        <td>操作</td>
+                    </tr>
+                    <asp:Repeater runat="server" DataSource="<%#this.LstProcessSheet %>">
+                        <ItemTemplate>
+                            <tr>
+                                <td><%# ((OA.ProcessSheet)Container.DataItem).Id %></td>
+                                <td><%# ((OA.ProcessSheet)Container.DataItem).Category %></td>
+                                <td><%# ((OA.ProcessSheet)Container.DataItem).Creator %></td>
+                                <td><%# ((OA.ProcessSheet)Container.DataItem).CreatTime.ToString("yyyy-MM-dd HH:mm") %></td>
+                                <td><%# ((OA.ProcessSheet)Container.DataItem).Status %></td>
+                                <td><%# ((OA.ProcessSheet)Container.DataItem).CurrentHandler %></td>
+                                <td>
+                                    <button data-psid="<%# ((OA.ProcessSheet)Container.DataItem).Id %>" type="button" class="btn btn-primary">同意</button>
+                                    <button data-psid="<%# ((OA.ProcessSheet)Container.DataItem).Id %>" type="button" class="btn btn-danger">驳回</button>
+                                    <button data-psid="<%# ((OA.ProcessSheet)Container.DataItem).Id %>" type="button" class="btn btn-default">详情</button>
+                                </td>
+                            </tr>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </table>
             </div>
         </div>
     </div>
