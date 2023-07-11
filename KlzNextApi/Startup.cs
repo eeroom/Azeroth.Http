@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace KlzNextApi
+namespace KlzApiNext
 {
     public class Startup : Microsoft.AspNetCore.Hosting.IStartup
     {
