@@ -6,8 +6,8 @@ using System.Web.Http;
 using System.Net.Http;
 using Owin;
 using Microsoft.Web.Http;
-[assembly: Microsoft.Owin.OwinStartup(typeof(KlzOwinApi.Startup))]
-namespace KlzOwinApi
+[assembly: Microsoft.Owin.OwinStartup(typeof(KlzApi4Owin.Startup))]
+namespace KlzApi4Owin
 {
     public class Startup
     {
