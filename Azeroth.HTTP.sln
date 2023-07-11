@@ -35,15 +35,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwoWayAuthenticationWcfClie
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "webform", "webform", "{EE6537A9-62F7-4ABE-B14A-1B70E57D6C41}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api和mvc(asp.net)", "api和mvc(asp.net)", "{19A556FB-2CDC-4CE6-8BB9-84A0BE9D40F7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "asp.net", "asp.net", "{19A556FB-2CDC-4CE6-8BB9-84A0BE9D40F7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api和mvc(aspnetcore)", "api和mvc(aspnetcore)", "{263089E2-A041-4A23-A776-118DC51C1B36}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "aspnetcore", "aspnetcore", "{263089E2-A041-4A23-A776-118DC51C1B36}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api和mvc(selfhost)", "api和mvc(selfhost)", "{43FA8D23-FE8C-4C94-9DE3-BD40E0922384}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "自托管", "自托管", "{43FA8D23-FE8C-4C94-9DE3-BD40E0922384}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "signalr", "signalr", "{8B264A6E-57F3-4251-AF1E-940B1F95D71B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SignalR", "SignalR", "{8B264A6E-57F3-4251-AF1E-940B1F95D71B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "soap和esb", "soap和esb", "{BFE5A452-753E-4070-BAF8-9BAD075B86E7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WCF和WebService", "WCF和WebService", "{BFE5A452-753E-4070-BAF8-9BAD075B86E7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TcpChannelServer", "TcpChannelServer\TcpChannelServer.csproj", "{8F6D84C1-D28A-4055-835A-1932BEA68B21}"
 EndProject
@@ -59,11 +59,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wowonline4aspnetcore", "wow
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wowonline4aspnetcoreView", "wowonline4aspnetcoreView\wowonline4aspnetcoreView.csproj", "{3C6A7CFF-EA7C-42EF-9980-8C5DEBC1FE03}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "remoting", "remoting", "{20764DBA-40AC-48AB-A0C8-146B112C9867}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Remoting", "Remoting", "{20764DBA-40AC-48AB-A0C8-146B112C9867}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsServerHostWcf", "WindowsServerHostWcf\WindowsServerHostWcf.csproj", "{6948F8F2-BFDF-45DE-BB12-362FFDBA6BFB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "silverlight", "silverlight", "{3757D38A-4E05-4FD8-8763-BCB4042C56F4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SilverLight", "SilverLight", "{3757D38A-4E05-4FD8-8763-BCB4042C56F4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodPlayer", "GoodPlayer\GoodPlayer.csproj", "{22E9E578-62FE-4CF0-83C7-6F27FA2B67A8}"
 EndProject
