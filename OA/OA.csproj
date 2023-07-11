@@ -113,6 +113,7 @@
     <Content Include="js\menu.js" />
     <Content Include="js\respond.min.js" />
     <Content Include="login.aspx" />
+    <Content Include="mylist.aspx" />
     <Content Include="Web.config" />
     <Content Include="logout.ashx" />
     <Content Include="packages.config">
@@ -143,6 +144,13 @@
     </Compile>
     <Compile Include="logout.ashx.cs">
       <DependentUpon>logout.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="mylist.aspx.cs">
+      <DependentUpon>mylist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mylist.aspx.designer.cs">
+      <DependentUpon>mylist.aspx</DependentUpon>
     </Compile>
     <Compile Include="OADbContext.cs" />
     <Compile Include="ProcessSheet.cs" />
