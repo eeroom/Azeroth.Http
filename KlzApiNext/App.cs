@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 namespace KlzApiNext
 {
-    class Program
+    class App
     {
         static void Main(string[] args)
         {

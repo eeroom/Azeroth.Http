@@ -7,7 +7,7 @@ using System.Web.Http;
 using System.Net.Http;
 namespace KlzApi4SelfHost
 {
-    class Program
+    class App
     {
         static void Main(string[] args)
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace wowonline4aspnetcore
 {
-    class Program {
+    class App {
         static void Main(string[] args) {
             string baseAddress = "http://localhost:8016/";
             // 启动 OWIN host

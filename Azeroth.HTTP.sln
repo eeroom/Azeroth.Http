@@ -5,33 +5,33 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzApi", "KlzApi\KlzApi.csproj", "{E8D7A096-166C-4D87-9AE6-86AA798FED61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzApi4SelfHost", "SelfHostApi\KlzApi4SelfHost.csproj", "{99EB3FA3-CE3C-43DC-9768-011B65EA1A0C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzApi4SelfHost", "KlzApi4SelfHost\KlzApi4SelfHost.csproj", "{99EB3FA3-CE3C-43DC-9768-011B65EA1A0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzApi4Owin", "KlzOwinApi\KlzApi4Owin.csproj", "{FF383145-EA10-4D08-8EA0-AD055FC07A18}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzApi4Owin", "KlzApi4Owin\KlzApi4Owin.csproj", "{FF383145-EA10-4D08-8EA0-AD055FC07A18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzApi4OwinSelfHost", "SelfHostOwinApi\KlzApi4OwinSelfHost.csproj", "{AEF4FA91-1F68-4931-910C-D16F24B73C66}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzApi4OwinSelfHost", "KlzApi4OwinSelfHost\KlzApi4OwinSelfHost.csproj", "{AEF4FA91-1F68-4931-910C-D16F24B73C66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzApiNext", "KlzNextApi\KlzApiNext.csproj", "{000EA1FF-F888-43FA-9736-8F687DF6665D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzApiNext", "KlzApiNext\KlzApiNext.csproj", "{000EA1FF-F888-43FA-9736-8F687DF6665D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzApiNancy", "KlzNancyApi\KlzApiNancy.csproj", "{68DC7121-609E-4B2D-AE13-BAEEEAD9F36B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzApiNancy", "KlzApiNancy\KlzApiNancy.csproj", "{68DC7121-609E-4B2D-AE13-BAEEEAD9F36B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherService", "MSWebService\WeatherService.csproj", "{ABC3C937-487A-43E1-B808-3074452E9121}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherService", "WeatherService\WeatherService.csproj", "{ABC3C937-487A-43E1-B808-3074452E9121}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspxTemplateEngine", "TemplateEngine\AspxTemplateEngine.csproj", "{72F24378-AAB8-4357-987B-DE51722726D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspxTemplateEngine", "AspxTemplateEngine\AspxTemplateEngine.csproj", "{72F24378-AAB8-4357-987B-DE51722726D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebForm4SelfHost", "SelfHostWebform\WebForm4SelfHost.csproj", "{75FBC2A0-F2BF-4A7B-9ACA-4884A8463E0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebForm4SelfHost", "WebForm4SelfHost\WebForm4SelfHost.csproj", "{75FBC2A0-F2BF-4A7B-9ACA-4884A8463E0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF4RestfulCors", "RestfulCorsWcf\WCF4RestfulCors.csproj", "{6144E1C9-8CF6-4994-8FE1-4E3D0A0E1491}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF4RestfulCors", "WCF4RestfulCors\WCF4RestfulCors.csproj", "{6144E1C9-8CF6-4994-8FE1-4E3D0A0E1491}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF4RestfulCorsClient", "RestfulCorsWcfClient\WCF4RestfulCorsClient.csproj", "{80084A09-1469-4BDB-A426-9A61B868F030}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF4RestfulCorsClient", "WCF4RestfulCorsClient\WCF4RestfulCorsClient.csproj", "{80084A09-1469-4BDB-A426-9A61B868F030}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF4TwoWayAuthen", "TwoWayAuthenticationWcf\WCF4TwoWayAuthen.csproj", "{4B58E8AD-5626-4024-9940-7EFC4F33D667}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF4TwoWayAuthen", "WCF4TwoWayAuthen\WCF4TwoWayAuthen.csproj", "{4B58E8AD-5626-4024-9940-7EFC4F33D667}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wowonline", "wowonline\wowonline.csproj", "{8090842D-B9B0-46B8-BBB0-16E42A1B101C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpFile", "HttpFile\HttpFile.csproj", "{020E50FA-2472-422A-8AAF-C4E5F8DCFC6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF4TwoWayAuthenClient", "TwoWayAuthenticationWcfClient\WCF4TwoWayAuthenClient.csproj", "{5E51F407-EAFF-492D-BC08-59C0626FFEFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF4TwoWayAuthenClient", "WCF4TwoWayAuthenClient\WCF4TwoWayAuthenClient.csproj", "{5E51F407-EAFF-492D-BC08-59C0626FFEFB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "asp.net", "asp.net", "{19A556FB-2CDC-4CE6-8BB9-84A0BE9D40F7}"
 EndProject
@@ -49,7 +49,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpChannelServer", "HttpCh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpChannelClient", "HttpChannelClient\HttpChannelClient.csproj", "{AB3CA89A-9984-440A-AC65-3478BD20B292}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClient", "KlzClient\HttpClient.csproj", "{2F5ED2F3-1478-448A-B52F-11D2F7C05041}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClient", "HttpClient\HttpClient.csproj", "{2F5ED2F3-1478-448A-B52F-11D2F7C05041}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wowonline4aspnetcore", "wowonline4aspnetcore\wowonline4aspnetcore.csproj", "{D7D964FE-53AB-4D78-BF6B-7E9FF5E2E1CA}"
 EndProject
@@ -57,7 +57,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wowonline4aspnetcoreView", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Remoting", "Remoting", "{20764DBA-40AC-48AB-A0C8-146B112C9867}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF4WindowsService", "WindowsServerHostWcf\WCF4WindowsService.csproj", "{6948F8F2-BFDF-45DE-BB12-362FFDBA6BFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF4WindowsService", "WCF4WindowsService\WCF4WindowsService.csproj", "{6948F8F2-BFDF-45DE-BB12-362FFDBA6BFB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "silverlight", "silverlight", "{3757D38A-4E05-4FD8-8763-BCB4042C56F4}"
 EndProject
@@ -65,7 +65,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodPlayer", "GoodPlayer\Go
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormsAuthentication", "FormsAuthentication\FormsAuthentication.csproj", "{6B5DD1B8-1F80-4AF3-BD7A-29EA40C5841A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPlayer", "MediaPlayer\WebPlayer.csproj", "{22AC0F90-5F2D-418F-BE0A-DE043D0356A9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPlayer", "WebPlayer\WebPlayer.csproj", "{22AC0F90-5F2D-418F-BE0A-DE043D0356A9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mono", "mono", "{7F1B1B2E-7F13-404E-85C4-488D6076D786}"
 EndProject
