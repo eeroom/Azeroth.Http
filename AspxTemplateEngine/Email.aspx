@@ -8,7 +8,7 @@
 </head>
 <body>
     <div>
-       <% =this.Context.Server.MachineName %>
+       姓名:<% =this.Name %>,年龄:<%=this.Age %>
     </div>
     <%rptAge.DataSource = this.MyProperty;rptAge.DataBind(); %>
     <asp:Repeater runat="server" ID="rptAge">

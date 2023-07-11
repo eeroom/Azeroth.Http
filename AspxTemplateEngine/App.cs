@@ -23,7 +23,7 @@ namespace AspxTemplateEngine
                 var fileName = "Email.aspx";
                 using (var ms = new System.IO.MemoryStream())
                 {
-                    msh.ProcessRequest(fileName, "", ms);
+                    msh.ProcessRequest(fileName, "name=张三&age=101", ms);
                     ms.Position = 0;
                     var reader = new System.IO.StreamReader(ms);
                     Console.WriteLine(reader.ReadToEnd());

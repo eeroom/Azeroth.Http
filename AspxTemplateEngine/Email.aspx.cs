@@ -14,9 +14,15 @@ using System.Xml.Linq;
 public partial class Email : System.Web.UI.Page
 {
     public System.Collections.Generic.List<int> MyProperty { get; set; }
+    public string Name { get; set; }
+
+    public int Age { get; set; }
     protected override void OnLoad(EventArgs e)
     {
-        this.MyProperty = System.Linq.Enumerable.Range(1, 100).ToList();
+        this.Name = this.Request["name"];
+        this.Age = int.Parse(this.Request["age"]);
+
+        this.MyProperty = System.Linq.Enumerable.Range(1, 10).ToList();
         
     }
 }
