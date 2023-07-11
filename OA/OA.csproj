@@ -43,6 +43,9 @@
       <HintPath>..\packages\Azeroth.ORM.1.0.0\Azeroth.Nalu.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Activities" />
     <Reference Include="System.Activities.DurableInstancing" />
     <Reference Include="System.Web.DynamicData" />
@@ -64,6 +67,25 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="askforleave.aspx" />
+    <Content Include="bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker.css" />
+    <Content Include="bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker.min.css" />
+    <Content Include="bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker.standalone.css" />
+    <Content Include="bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker.standalone.min.css" />
+    <Content Include="bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker3.css" />
+    <Content Include="bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker3.min.css" />
+    <Content Include="bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker3.standalone.css" />
+    <Content Include="bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker3.standalone.min.css" />
+    <Content Include="bootstrap-datepicker-1.9.0-dist\js\bootstrap-datepicker.js" />
+    <Content Include="bootstrap-datepicker-1.9.0-dist\js\bootstrap-datepicker.min.js" />
+    <Content Include="bootstrap-datepicker-1.9.0-dist\locales\bootstrap-datepicker.en-AU.min.js" />
+    <Content Include="bootstrap-datepicker-1.9.0-dist\locales\bootstrap-datepicker.en-CA.min.js" />
+    <Content Include="bootstrap-datepicker-1.9.0-dist\locales\bootstrap-datepicker.en-GB.min.js" />
+    <Content Include="bootstrap-datepicker-1.9.0-dist\locales\bootstrap-datepicker.en-IE.min.js" />
+    <Content Include="bootstrap-datepicker-1.9.0-dist\locales\bootstrap-datepicker.en-NZ.min.js" />
+    <Content Include="bootstrap-datepicker-1.9.0-dist\locales\bootstrap-datepicker.en-ZA.min.js" />
+    <Content Include="bootstrap-datepicker-1.9.0-dist\locales\bootstrap-datepicker.zh-CN.min.js" />
+    <Content Include="bootstrap-datepicker-1.9.0-dist\locales\bootstrap-datepicker.zh-TW.min.js" />
     <Content Include="Bootstrap3.3.7\css\bootstrap-theme.css" />
     <Content Include="Bootstrap3.3.7\css\bootstrap-theme.min.css" />
     <Content Include="Bootstrap3.3.7\css\bootstrap.css" />
@@ -73,6 +95,10 @@
     <Content Include="Bootstrap3.3.7\js\bootstrap.min.js" />
     <Content Include="css\ie10-viewport-bug-workaround.css" />
     <Content Include="css\layout-fluid.css" />
+    <Content Include="bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker.css.map" />
+    <Content Include="bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker.standalone.css.map" />
+    <Content Include="bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker3.css.map" />
+    <Content Include="bootstrap-datepicker-1.9.0-dist\css\bootstrap-datepicker3.standalone.css.map" />
     <None Include="jQuery\jquery-1.11.3.intellisense.js" />
     <Content Include="default.aspx" />
     <Content Include="jQuery\jquery-1.11.3.js" />
@@ -94,6 +120,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="askforleave.aspx.cs">
+      <DependentUpon>askforleave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="askforleave.aspx.designer.cs">
+      <DependentUpon>askforleave.aspx</DependentUpon>
+    </Compile>
     <Compile Include="default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
