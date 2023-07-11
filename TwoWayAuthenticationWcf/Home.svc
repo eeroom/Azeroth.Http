@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="TwoWayAuthenticationWcf.Home" CodeBehind="Home.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="WCF4TwoWayAuthen.Home" CodeBehind="Home.svc.cs" %>
