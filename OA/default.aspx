@@ -38,20 +38,12 @@
     <script src="/js/ie10-viewport-bug-workaround.js"></script>
     <script src="/js/menu.js"></script>
     <style type="text/css">
-    </style>
-    <script type="text/javascript">
-        $("#btnQuit").click(function () {
-
-            return false;
-        })
-    </script>
-    <style>
         .btn-quit {
             display: block;
-           width:100%;
-           background:transparent;
-           border:none;
-           text-align:left
+            width: 100%;
+            background: transparent;
+            border: none;
+            text-align: left;
         }
     </style>
 
