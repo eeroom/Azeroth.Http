@@ -7,8 +7,8 @@
     <ProjectGuid>{5E51F407-EAFF-492D-BC08-59C0626FFEFB}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TwoWayAuthenticationWcfClient</RootNamespace>
-    <AssemblyName>TwoWayAuthenticationWcfClient</AssemblyName>
+    <RootNamespace>WCF4TwoWayAuthenClient</RootNamespace>
+    <AssemblyName>WCF4TwoWayAuthenClient</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

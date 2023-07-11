@@ -6,7 +6,7 @@ using System.Text;
 
 namespace WcfTwoWayAuthenticationClient
 {
-    class Program
+    class App
     {
         static void Main(string[] args)
         {
