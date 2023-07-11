@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 
-namespace KlzClient
+namespace HttpClient
 {
     public class HttpChannelFactory<T> : System.Runtime.Remoting.Proxies.RealProxy
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 
-namespace KlzClient
+namespace HttpClient
 {
     /// <summary>
     /// 使用场景，老项目已经使用工具生成了客户端代码，但需要增加异常处理，超时检测等

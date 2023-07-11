@@ -7,8 +7,8 @@
     <ProjectGuid>{2F5ED2F3-1478-448A-B52F-11D2F7C05041}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KlzClient</RootNamespace>
-    <AssemblyName>KlzClient</AssemblyName>
+    <RootNamespace>HttpClient</RootNamespace>
+    <AssemblyName>HttpClient</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -54,7 +54,7 @@
     <Compile Include="SoapChannelFactory.cs" />
     <Compile Include="HttpChannelFactory.cs" />
     <Compile Include="IHome.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WcfClientBase.cs" />
   </ItemGroup>

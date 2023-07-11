@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace KlzClient {
-    class Program {
+namespace HttpClient {
+    class App {
         static void Main(string[] args) {
             var urlHome = System.Configuration.ConfigurationManager.AppSettings["urlHome"];
             var client = SoapChannelFactory<IHome>.CreateChannel(urlHome);
