@@ -12,7 +12,7 @@
     <meta name="author" content="">
 
 
-    <title>我的待办</title>
+    <title>待我处理</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/Bootstrap3.3.7/css/bootstrap.css" rel="stylesheet" />
@@ -44,6 +44,9 @@
             background: transparent;
             border: none;
             text-align: left;
+        }
+        .td-handler form{
+            display:inline
         }
     </style>
 
@@ -145,19 +148,30 @@
                         <td>当前处理人</td>
                         <td>操作</td>
                     </tr>
-                    <asp:Repeater runat="server" DataSource="<%#this.LstProcessSheet %>">
+                    <asp:Repeater runat="server" id="rptProcessSheet">
                         <ItemTemplate>
                             <tr>
                                 <td><%# ((OA.ProcessSheet)Container.DataItem).Id %></td>
-                                <td><%# ((OA.ProcessSheet)Container.DataItem).Category %></td>
+                                <td><%# this.GetCategory((OA.ProcessSheet)Container.DataItem) %></td>
                                 <td><%# ((OA.ProcessSheet)Container.DataItem).Creator %></td>
                                 <td><%# ((OA.ProcessSheet)Container.DataItem).CreatTime.ToString("yyyy-MM-dd HH:mm") %></td>
                                 <td><%# ((OA.ProcessSheet)Container.DataItem).Status %></td>
                                 <td><%# ((OA.ProcessSheet)Container.DataItem).CurrentHandler %></td>
-                                <td>
-                                    <button data-psid="<%# ((OA.ProcessSheet)Container.DataItem).Id %>" type="button" class="btn btn-primary">同意</button>
-                                    <button data-psid="<%# ((OA.ProcessSheet)Container.DataItem).Id %>" type="button" class="btn btn-danger">驳回</button>
-                                    <button data-psid="<%# ((OA.ProcessSheet)Container.DataItem).Id %>" type="button" class="btn btn-default">详情</button>
+                                <td class="td-handler">
+                                    <form method="post" action="ActivityExecutor.ashx" enctype="application/x-www-form-urlencoded">
+                                        <input type="hidden" name="psheetId" value="<%# ((OA.ProcessSheet)Container.DataItem).Id %>" />
+                                        <input type="hidden" name="approve" value="ok" />
+                                        <button data-psid="<%# ((OA.ProcessSheet)Container.DataItem).Id %>" type="submit" class="btn btn-primary btn-xs">同意</button>
+                                    </form>
+                                    <form method="post" action="ActivityExecutor.ashx" enctype="application/x-www-form-urlencoded">
+                                        <input type="hidden" name="psheetId" value="<%# ((OA.ProcessSheet)Container.DataItem).Id %>" />
+                                        <input type="hidden" name="approve" value="notok" />
+                                        <button data-psid="<%# ((OA.ProcessSheet)Container.DataItem).Id %>" type="submit" class="btn btn-danger btn-xs">驳回</button>
+                                    </form>
+                                    <form>
+                                        <button data-psid="<%# ((OA.ProcessSheet)Container.DataItem).Id %>" type="button" class="btn btn-default btn-xs">详情</button>
+                                    </form>
+                                    
                                 </td>
                             </tr>
                         </ItemTemplate>

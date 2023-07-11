@@ -27,7 +27,16 @@ namespace OA
                     x.WorkFlowId
                 });
             container.WHERE = processsheet.Col(x => x.CurrentHandler) == this.Context.User.Identity.Name;
-            var lst= container.ToList<ProcessSheet>();
+            this.LstProcessSheet= container.ToList<ProcessSheet>();
+            this.rptProcessSheet.DataSource = this.LstProcessSheet;
+            this.rptProcessSheet.DataBind();
+        }
+
+        protected string GetCategory(ProcessSheet processSheet)
+        {
+            if (string.IsNullOrEmpty(processSheet.Remark))
+                return processSheet.Category;
+            return $"{processSheet.Category}({processSheet.Remark})";
         }
     }
 }
