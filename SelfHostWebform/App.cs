@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SelfHostWebform
+namespace WebForm4SelfHost
 {
-    class Program
+    class App
     {
         static void Main(string[] args)
         {
-            //需要在程序根目录下建立bin目录，把程序拷一份让asp.net加载
+            //需要在程序根目录下建立bin目录，把生成的WebForm4SelfHost.exe复制到bin目录，让asp.net加载
             //aspx文件用的codefile模式，不是codebehind模式
             //aspx文件复制到程序运行目录
             var path = System.Environment.CurrentDirectory;
-            SimpleHost msh = (SimpleHost)System.Web.Hosting.ApplicationHost.CreateApplicationHost(typeof(SimpleHost), "/", path);
+            SimpleWebServerHost msh = (SimpleWebServerHost)System.Web.Hosting.ApplicationHost.CreateApplicationHost(typeof(SimpleWebServerHost), "/", path);
             using (var ls = new System.Net.HttpListener())
             {
                 ls.Prefixes.Add("http://localhost:8054/");

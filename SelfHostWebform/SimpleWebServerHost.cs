@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SelfHostWebform
+namespace WebForm4SelfHost
 {
-    class SimpleHost:System.MarshalByRefObject
+    class SimpleWebServerHost:System.MarshalByRefObject
     {
         public void ProcessRequest(Uri url, System.IO.Stream stream)
         {

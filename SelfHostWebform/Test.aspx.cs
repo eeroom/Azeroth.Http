@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
-public partial class TestHost : System.Web.UI.Page
+public partial class Test : System.Web.UI.Page
 {
     public System.Collections.Generic.List<int> MyProperty { get; set; }
     protected override void OnLoad(EventArgs e)
