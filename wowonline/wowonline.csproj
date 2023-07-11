@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KlzSignalR</RootNamespace>
-    <AssemblyName>KlzSignalR</AssemblyName>
+    <RootNamespace>wowonline</RootNamespace>
+    <AssemblyName>wowonline</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -91,7 +91,7 @@
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
-    <Content Include="ChatRoom.aspx" />
+    <Content Include="WorldChannel.aspx" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery.signalR-1.1.4.js" />
     <Content Include="Web.config" />
@@ -101,7 +101,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="IAnonymousPage.cs" />
-    <Compile Include="LolHub.cs" />
+    <Compile Include="WorldChannelHub.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -112,12 +112,12 @@
     <Compile Include="CmdPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ChatRoom.aspx.cs">
-      <DependentUpon>ChatRoom.aspx</DependentUpon>
+    <Compile Include="WorldChannel.aspx.cs">
+      <DependentUpon>WorldChannel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ChatRoom.aspx.designer.cs">
-      <DependentUpon>ChatRoom.aspx</DependentUpon>
+    <Compile Include="WorldChannel.aspx.designer.cs">
+      <DependentUpon>WorldChannel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

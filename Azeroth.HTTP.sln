@@ -27,7 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestfulCorsWcfClient", "Res
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwoWayAuthenticationWcf", "TwoWayAuthenticationWcf\TwoWayAuthenticationWcf.csproj", "{4B58E8AD-5626-4024-9940-7EFC4F33D667}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzSignalR", "KlzSignalR\KlzSignalR.csproj", "{8090842D-B9B0-46B8-BBB0-16E42A1B101C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wowonline", "wowonline\wowonline.csproj", "{8090842D-B9B0-46B8-BBB0-16E42A1B101C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpFile", "HttpFile\HttpFile.csproj", "{020E50FA-2472-422A-8AAF-C4E5F8DCFC6E}"
 EndProject

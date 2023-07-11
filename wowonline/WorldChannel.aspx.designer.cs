@@ -7,9 +7,9 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace KlzSignalR {
+namespace wowonline {
     
     
-    public partial class ChatRoom {
+    public partial class WorldChannel {
     }
 }

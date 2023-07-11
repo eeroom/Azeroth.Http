@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace KlzSignalR {
+namespace wowonline {
     public interface IAnonymousPage {
     }
 }

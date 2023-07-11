@@ -5,12 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace KlzSignalR
+namespace wowonline
 {
     public partial class Login : CmdPage<Login>,IAnonymousPage
     {
-        public void In(HttpContext context) {
-            string userName = context.Request["UserName"];
+        protected override void OnLoad(EventArgs e)
+        {
+            string userName = this.Request["UserName"];
             System.Web.Security.FormsAuthentication.RedirectFromLoginPage(userName, true);
         }
     }

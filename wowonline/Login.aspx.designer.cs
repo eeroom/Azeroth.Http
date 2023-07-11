@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace KlzSignalR {
+namespace wowonline {
     
     
     public partial class Login {

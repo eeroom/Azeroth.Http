@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace KlzSignalR
+namespace wowonline
 {
     public class CmdPage<T>:System.Web.UI.Page
     {
@@ -36,12 +36,6 @@ namespace KlzSignalR
             if (fid.Ticket.IssueDate.AddMinutes(5) < DateTime.Now) {
                 System.Web.Security.FormsAuthentication.SetAuthCookie(context.User.Identity.Name, true);
             }
-        }
-
-        protected override void OnInit(EventArgs e)
-        {
-
-            //base.OnInit(e);
         }
     }
 }
