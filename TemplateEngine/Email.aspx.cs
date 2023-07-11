@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
-public partial class MailToBossTemplate : System.Web.UI.Page
+public partial class Email : System.Web.UI.Page
 {
     public System.Collections.Generic.List<int> MyProperty { get; set; }
     protected override void OnLoad(EventArgs e)

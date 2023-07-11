@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KlzApiNancy", "KlzNancyApi\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherService", "MSWebService\WeatherService.csproj", "{ABC3C937-487A-43E1-B808-3074452E9121}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspxEngine", "TemplateEngine\AspxEngine.csproj", "{72F24378-AAB8-4357-987B-DE51722726D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspxTemplateEngine", "TemplateEngine\AspxTemplateEngine.csproj", "{72F24378-AAB8-4357-987B-DE51722726D2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebForm4SelfHost", "SelfHostWebform\WebForm4SelfHost.csproj", "{75FBC2A0-F2BF-4A7B-9ACA-4884A8463E0A}"
 EndProject

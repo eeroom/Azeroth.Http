@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TemplateEngine
+namespace AspxTemplateEngine
 {
-    public class SimpleHost : MarshalByRefObject
+    public class SimpleLocalServerHost : MarshalByRefObject
     {
         public void ProcessRequest(string page,string query, System.IO.Stream stream)
         {
             var wt = new System.IO.StreamWriter(stream);
-            TemplateRequest swr = new TemplateRequest(page, query, wt);
+            WorkerRequest4Utf8 swr = new WorkerRequest4Utf8(page, query, wt);
             System.Web.HttpRuntime.ProcessRequest(swr);
             wt.Flush();
         }

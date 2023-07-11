@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TemplateEngine
+namespace AspxTemplateEngine
 {
     /// <summary>
     /// 解决中文乱码
     /// </summary>
-    public class TemplateRequest : System.Web.Hosting.SimpleWorkerRequest
+    public class WorkerRequest4Utf8 : System.Web.Hosting.SimpleWorkerRequest
     {
         private System.IO.TextWriter Output;
-        public TemplateRequest(string a1, string a2, System.IO.TextWriter a3) : base(a1, a2, a3)
+        public WorkerRequest4Utf8(string a1, string a2, System.IO.TextWriter a3) : base(a1, a2, a3)
         {
             Output = a3;
         }
