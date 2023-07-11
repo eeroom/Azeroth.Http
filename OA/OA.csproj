@@ -46,8 +46,11 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System.Activities" />
     <Reference Include="System.Activities.DurableInstancing" />
+    <Reference Include="System.Activities.Presentation" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -65,6 +68,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="askforleave.aspx" />
@@ -122,9 +126,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivityDesigner1.xaml.cs">
+      <DependentUpon>ActivityDesigner1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ActivityExecutor.ashx.cs">
       <DependentUpon>ActivityExecutor.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ApproveActivity.cs" />
     <Compile Include="askforleave.aspx.cs">
       <DependentUpon>askforleave.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -139,6 +147,8 @@
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FindApproverMode.cs" />
+    <Compile Include="HzWorkFlowContext.cs" />
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -157,8 +167,12 @@
       <DependentUpon>mylist.aspx</DependentUpon>
     </Compile>
     <Compile Include="OADbContext.cs" />
+    <Compile Include="OrginazitionNode.cs" />
+    <Compile Include="OrginazitionNodeType.cs" />
     <Compile Include="ProcessSheet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QinJiaFormdata.cs" />
+    <Compile Include="WorkFlowRole.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Bootstrap3.3.7\config.json" />
@@ -174,6 +188,16 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="ActivityDesigner1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <XamlAppDef Include="请假流程.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </XamlAppDef>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
