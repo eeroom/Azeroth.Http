@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace RestfulCorsWcf
+namespace WCF4RestfulCors
 {
     [StormServiceBehavior]
     public class UserInfo:CrossDomainEnable,IUserInfo
