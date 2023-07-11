@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SelfHostOwinApi
+namespace KlzApi4OwinSelfHost
 {
-    class Program
+    class App
     {
         static void Main(string[] args)
         {

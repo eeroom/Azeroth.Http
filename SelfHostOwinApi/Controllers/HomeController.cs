@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace SelfHostOwinApi.Controllers
+namespace KlzApi4OwinSelfHost.Controllers
 {
     public class HomeController:ApiController
     {
