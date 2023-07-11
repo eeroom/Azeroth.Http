@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 
-namespace MSWebService
+namespace WeatherService
 {
     /// <summary>
     /// Home 的摘要说明
