@@ -58,12 +58,39 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bootstrap3.3.7\css\bootstrap-theme.css" />
+    <Content Include="Bootstrap3.3.7\css\bootstrap-theme.min.css" />
+    <Content Include="Bootstrap3.3.7\css\bootstrap.css" />
+    <Content Include="Bootstrap3.3.7\css\bootstrap.min.css" />
+    <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Bootstrap3.3.7\js\bootstrap.js" />
+    <Content Include="Bootstrap3.3.7\js\bootstrap.min.js" />
+    <Content Include="css\ie10-viewport-bug-workaround.css" />
+    <Content Include="css\layout-fluid.css" />
+    <None Include="jQuey\jquery-1.11.3.intellisense.js" />
+    <Content Include="jQuey\jquery-1.11.3.js" />
+    <Content Include="jQuey\jquery-1.11.3.min.js" />
+    <None Include="jQuey\jquery-1.9.1.intellisense.js" />
+    <Content Include="jQuey\jquery-1.9.1.js" />
+    <Content Include="jQuey\jquery-1.9.1.min.js" />
+    <Content Include="js\html5shiv.min.js" />
+    <Content Include="js\ie-emulation-modes-warning.js" />
+    <Content Include="js\ie10-viewport-bug-workaround.js" />
+    <Content Include="js\ie8-responsive-file-warning.js" />
+    <Content Include="js\respond.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bootstrap3.3.7\config.json" />
+    <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Bootstrap3.3.7\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="jQuey\jquery-1.11.3.min.map" />
+    <Content Include="jQuey\jquery-1.9.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
