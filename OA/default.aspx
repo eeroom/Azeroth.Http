@@ -50,6 +50,22 @@
         }
     </style>
 
+    <script type="text/javascript">
+        $("#btnOk").click(function () {
+            var parameters = $("#formOk").serializeArray();
+            var parameter = {};
+            for (var i = 0; i < parameters.length; i++) {
+                if (parameters[i].name == "formdata")
+                    continue;
+                parameter[parameters[i].name] = parameters[i].value;
+            }
+            $("#formOkformdata").val(JSON.stringify(parameter));
+            return true;
+        })
+    </script>
+
+    
+
 </head>
 
 <body>
@@ -158,15 +174,15 @@
                                 <td><%# ((OA.ProcessSheet)Container.DataItem).Status %></td>
                                 <td><%# ((OA.ProcessSheet)Container.DataItem).CurrentHandler %></td>
                                 <td class="td-handler">
-                                    <form method="post" action="ActivityExecutor.ashx" enctype="application/x-www-form-urlencoded">
+                                    <form  method="post" action="ActivityExecutor.ashx" enctype="application/x-www-form-urlencoded">
                                         <input type="hidden" name="psheetId" value="<%# ((OA.ProcessSheet)Container.DataItem).Id %>" />
-                                        <input type="hidden" name="approve" value="ok" />
-                                        <button data-psid="<%# ((OA.ProcessSheet)Container.DataItem).Id %>" type="submit" class="btn btn-primary btn-xs">同意</button>
+                                        <input type="hidden" name="approve" value="同意" />
+                                        <button type="submit" class="btn btn-primary btn-xs">同意</button>
                                     </form>
                                     <form method="post" action="ActivityExecutor.ashx" enctype="application/x-www-form-urlencoded">
                                         <input type="hidden" name="psheetId" value="<%# ((OA.ProcessSheet)Container.DataItem).Id %>" />
-                                        <input type="hidden" name="approve" value="notok" />
-                                        <button data-psid="<%# ((OA.ProcessSheet)Container.DataItem).Id %>" type="submit" class="btn btn-danger btn-xs">驳回</button>
+                                        <input type="hidden" name="approve" value="驳回" />
+                                        <button  type="submit" class="btn btn-danger btn-xs">驳回</button>
                                     </form>
                                     <form>
                                         <button data-psid="<%# ((OA.ProcessSheet)Container.DataItem).Id %>" type="button" class="btn btn-default btn-xs">详情</button>

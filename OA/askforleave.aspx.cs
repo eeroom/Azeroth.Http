@@ -21,20 +21,7 @@ namespace OA
 
         protected override void OnLoad(EventArgs e)
         {
-            if (this.Request.HttpMethod.ToLower() != "post")
-                return;
-            this.Category = this.Request["Category"];
-            this.LeavType = this.Request["LeavType"];
-            this.Reason = this.Request["Reason"];
-            if (string.IsNullOrEmpty(this.Category) || string.IsNullOrEmpty(this.LeavType))
-                return;
-            DateTime startTime;
-            if (!DateTime.TryParse(this.Request["StartTime"], out startTime))
-                return;
-            this.StartTime = startTime;
-            DateTime endTime;
-            if (!DateTime.TryParse(this.Request["EndTime"], out endTime))
-                return;
+           
             
         }
     }

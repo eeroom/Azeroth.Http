@@ -16,19 +16,25 @@ namespace OA
         {
             ProcessSheet psheet = new ProcessSheet();
             psheet.Formdata = context.Request["formdata"];
-            var formdata = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, object>>(psheet.Formdata);
-           
-            psheet.Category = formdata["Category"]?.ToString();
+            var formdata = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(psheet.Formdata);
+            psheet.GId = Guid.NewGuid();
+            formdata["GId"] = psheet.GId.ToString();
+            psheet.Category = formdata["Category"];
             psheet.Creator = context.User.Identity.Name;
+            formdata["Creator"] = psheet.Creator;
             psheet.CreatTime = DateTime.Now;
+            formdata["CreatTime"] = psheet.CreatTime.ToString("yyyy-MM-dd HH:mm:ss");
             psheet.CurrentHandler = context.User.Identity.Name;
+            formdata["CurrentHandler"] = psheet.CurrentHandler;
             psheet.Status = "处理中";
             psheet.WorkFlowId = Guid.Empty;
-            psheet.Tag = formdata[formdata["TagField"].ToString()]?.ToString();
+            psheet.Tag = formdata[formdata["TagField"]];
+            psheet.WorkFlowXaml = formdata["WorkFlowXaml"];
             var dbcontext = new OADbContext();
             var cud = dbcontext.Cud<ProcessSheet>();
             cud.Select(x => new
             {
+                x.GId,
                 x.Category,
                 x.Creator,
                 x.CreatTime,
@@ -36,7 +42,8 @@ namespace OA
                 x.Formdata,
                 x.Tag,
                 x.Status,
-                x.WorkFlowId
+                x.WorkFlowId,
+                x.WorkFlowXaml
             });
             cud.Insert(psheet);
             var rt = dbcontext.SaveChange(cud);
@@ -47,12 +54,16 @@ namespace OA
                 LocalAssembly = System.Reflection.Assembly.GetExecutingAssembly()
             };
             System.Activities.Activity act = null;
-            using (var reader = new System.Xaml.XamlXmlReader(formdata["WorkFlowXaml"].ToString(), st))
+            var xamlfilePath = System.IO.Path.Combine(System.Web.HttpRuntime.AppDomainAppPath, formdata["WorkFlowXaml"]);
+            using (var reader = new System.Xaml.XamlXmlReader(xamlfilePath, st))
             {
                 act = System.Activities.XamlIntegration.ActivityXamlServices.Load(reader);
             }
-            
-            var wfa = new System.Activities.WorkflowApplication(act, formdata);
+
+            var dict = new Dictionary<string, object>();
+            dict.Add("GId", psheet.GId);
+            dict.Add("formdata", formdata);
+            var wfa = new System.Activities.WorkflowApplication(act, dict);
             ConfigWfa(wfa);
             wfa.Run();
             context.Response.Redirect("mylist.aspx", true);

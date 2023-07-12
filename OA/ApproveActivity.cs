@@ -7,7 +7,6 @@ using System.Activities;
 namespace OA{
 
     public sealed class ApproveActivity : NativeActivity {
-        public InArgument<HzWorkFlowContext> HzWfContext { get; set; }
 
         /// <summary>
         /// 找审批人的模式
@@ -39,6 +38,8 @@ namespace OA{
         /// </summary>
         public InArgument<string> BookMark { get; set; }
 
+        public InArgument<Guid> Gid { get; set; }
+
         protected override bool CanInduceIdle {
             get {
                 return true;
@@ -46,27 +47,73 @@ namespace OA{
         }
 
         protected override void Execute(NativeActivityContext context) {
-            var bookmark = this.BookMark.Get(context);
-            Console.WriteLine(bookmark+":通过各项参数找到审批人，为该审批人添加一条审批任务，并向他发送通知");
-          
+            ProcessSheet psheet = new ProcessSheet();
+            psheet.GId = this.Gid.Get(context);
+            psheet.WorkFlowId = context.WorkflowInstanceId;
+            psheet.Bookmark = this.BookMark.Get(context);
+            psheet.Status = this.DisplayName;
 
-            //Program.bookmark = bookmark;
-            //Program.workflowId = context.WorkflowInstanceId;
-            context.CreateBookmark(bookmark, OnApproveCommit);
+            var role= this.ApproverRole.Get(context);
+            if (role == WorkFlowRole.主管)
+                psheet.CurrentHandler = "wch";
+            else if (role == WorkFlowRole.总经理)
+                psheet.CurrentHandler = "lili";
+
+            var dbcontext = new OADbContext();
+            var cud = dbcontext.Cud<ProcessSheet>();
+            cud.WHERE = cud.Col(x => x.GId) == psheet.GId;
+            cud.Select(x => new
+            {
+                x.CurrentHandler,
+                x.Status,
+                x.Bookmark,
+                x.WorkFlowId
+            });
+            cud.Update(psheet);
+            dbcontext.SaveChange(cud);
+            context.CreateBookmark(psheet.Bookmark, this.OnApproveCommit);
 
         }
 
         private void OnApproveCommit(NativeActivityContext context, Bookmark bookmark, object value) {
-            var flag = (bool)value;
+           
+            var dbcontext = new OADbContext();
+            var container= dbcontext.CreateContainer();
+            var processSheetSet= dbcontext.Set<ProcessSheet>(container);
+            processSheetSet.Select(x => new { x.Id,x.CurrentHandler});
+            var gid = this.Gid.Get(context);
+            container.WHERE = processSheetSet.Col(x => x.GId) == gid;
+            var processSheet= container.ToList<ProcessSheet>().First();
+
+            var psc = new ProcessSheetCommit();
+            psc.Id = Guid.NewGuid();
+            psc.HandlerTime = DateTime.Now;
+            psc.SheetId = processSheet.Id;
+            psc.HandlerName = processSheet.CurrentHandler;
+
+            var dict = (Dictionary<string, string>)value;
+            psc.HandlerValue = dict["approve"];
+
+             var cud= dbcontext.Cud<ProcessSheetCommit>();
+            cud.Select(x => new { x.Id, x.SheetId, x.HandlerValue, x.HandlerTime, x.HandlerName });
+            cud.Insert(psc);
+            var lstcud = new List<Azeroth.Nalu.ICud>();
+            lstcud.Add(cud);
+            if(psc.HandlerValue== "驳回")
+            {
+                processSheet.CurrentHandler = string.Empty;
+                processSheet.Status = $"{this.DisplayName}({psc.HandlerValue})";
+                var cudps = dbcontext.Cud<ProcessSheet>();
+                cudps.WHERE = cudps.Col(x => x.GId) == gid;
+                cudps.Select(x => new { x.CurrentHandler, x.Status });
+                cudps.Update(processSheet);
+                lstcud.Add(cudps);
+            }
+            dbcontext.SaveChange(lstcud.ToArray());
             //转审操作由审批页面的业务代码处理，不进入工作流，本质就是对被转审人增加一条审批任务
-            if (flag) {
-                Console.WriteLine("审批通过，流程继续");
-            } else {
-                Console.WriteLine("审批驳回，流程终止");
-                //做一些补偿操作，记录驳回的流程实例，后续利用terminal方法删除
+            if (psc.HandlerValue == "驳回") {
                 context.Abort(new ArgumentException("审批驳回，流程终止"));
             }
-
         }
     }
 }

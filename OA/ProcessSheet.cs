@@ -24,5 +24,13 @@ namespace OA
         public string Status { get; set; }
 
         public string Formdata { get; set; }
+
+        public Guid GId { get; set; }
+
+        public string Bookmark { get; set; }
+
+        public string WorkFlowXaml { get; set; }
+
+
     }
 }
