@@ -77,6 +77,18 @@
                 , minViewMode: 0//天选择
                 , maxViewMode: 2//年,这个往下一级是10年，世纪等
             });
+            $("#btnsubmitleave").click(function () {
+                console.log("formLeave", $("#formLeave"))
+                var parameters = $("#formLeave").serializeArray();
+                var parameter = {};
+                for (var i = 0; i < parameters.length; i++) {
+                    if (parameters[i].name == "formdata")
+                        continue;
+                    parameter[parameters[i].name] = parameters[i].value;
+                }
+                $("#formdata").val(JSON.stringify(parameter));
+                return true;
+            })
         });
     </script>
 
@@ -168,8 +180,11 @@
                 <blockquote>
                     <p class="lead">请假申请</p>
                 </blockquote>
-                <form class="form-md" method="post" action="askforleave.aspx" enctype="application/x-www-form-urlencoded">
+                <form id="formLeave" class="form-md" method="post" action="workflowStart.ashx" enctype="application/x-www-form-urlencoded">
                     <input type="hidden" name="Category" value="请假申请" />
+                    <input type="hidden" name="WorkFlowXaml" value="请假流程.xaml" />
+                    <input type="hidden" name="formdata" id="formdata" />
+                    <input type="hidden" name="TagField"  value="LeavType" />
                     <div class="form-group">
                         <label >类别</label>
                         <select class="form-control" name="LeavType">
@@ -192,7 +207,7 @@
                         <label for="reason">原因</label>
                         <textarea class="form-control" rows="3" name="Reason" id="reason" ></textarea>
                     </div>
-                    <button type="submit" class="btn btn-default">提交</button>
+                    <button id="btnsubmitleave" type="submit" class="btn btn-default">提交</button>
                 </form>
             </div>
         </div>

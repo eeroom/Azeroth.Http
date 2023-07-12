@@ -25,7 +25,7 @@ namespace OA
                    x.CurrentHandler,
                    x.Formdata,
                    x.Id,
-                   x.Remark,
+                   x.Tag,
                    x.Status,
                    x.WorkFlowId
                });

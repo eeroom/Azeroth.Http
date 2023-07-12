@@ -35,32 +35,7 @@ namespace OA
             DateTime endTime;
             if (!DateTime.TryParse(this.Request["EndTime"], out endTime))
                 return;
-            this.EndTime = endTime;
-            ProcessSheet psheet = new ProcessSheet();
-            psheet.Category = this.Category;
-            psheet.Creator = this.Context.User.Identity.Name;
-            psheet.CreatTime = DateTime.Now;
-            psheet.CurrentHandler = this.Context.User.Identity.Name;
-            psheet.Status = "处理中";
-            psheet.WorkFlowId = Guid.NewGuid();
-            psheet.Remark = this.LeavType;
-            psheet.Formdata = Newtonsoft.Json.JsonConvert.SerializeObject(new { this.LeavType, this.StartTime, this.EndTime, this.Reason });
-            var dbcontext = new OADbContext();
-            var cud= dbcontext.Cud<ProcessSheet>();
-            cud.Select(x => new
-            {
-                x.Category,
-                x.Creator,
-                x.CreatTime,
-                x.CurrentHandler,
-                x.Formdata,
-                x.Remark,
-                x.Status,
-                x.WorkFlowId
-            });
-            cud.Insert(psheet);
-            var rt= dbcontext.SaveChange(cud);
-            this.Response.Redirect("mylist.aspx", true);
+            
         }
     }
 }

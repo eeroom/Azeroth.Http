@@ -17,7 +17,7 @@ namespace OA
 
         public DateTime CreatTime { get; set; }
 
-        public string Remark { get; set; }
+        public string Tag { get; set; }
 
         public string CurrentHandler { get; set; }
 

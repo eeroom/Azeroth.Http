@@ -22,7 +22,7 @@ namespace OA
                    x.CurrentHandler,
                    x.Formdata,
                    x.Id,
-                   x.Remark,
+                   x.Tag,
                    x.Status,
                    x.WorkFlowId
                });
@@ -35,9 +35,9 @@ namespace OA
 
         protected string GetCategory(ProcessSheet processSheet)
         {
-            if (string.IsNullOrEmpty(processSheet.Remark))
+            if (string.IsNullOrEmpty(processSheet.Tag))
                 return processSheet.Category;
-            return $"{processSheet.Category}({processSheet.Remark})";
+            return $"{processSheet.Category}({processSheet.Tag})";
         }
     }
 }
