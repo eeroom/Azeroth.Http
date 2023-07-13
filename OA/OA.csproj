@@ -147,7 +147,6 @@
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="FindApproverMode.cs" />
-    <Compile Include="HzWorkFlowContext.cs" />
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -171,7 +170,6 @@
     <Compile Include="ProcessSheet.cs" />
     <Compile Include="ProcessSheetCommit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QinJiaFormdata.cs" />
     <Compile Include="WorkFlowEnd.cs" />
     <Compile Include="WorkFlowRole.cs" />
     <Compile Include="workflowStart.ashx.cs">
