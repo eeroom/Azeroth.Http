@@ -1,7 +1,7 @@
 ﻿## silverlight项目A关联web项目B
 ```
 A项目的项目文件不做改动
-B项目的项目文件进行修改，找到节点PropertyGroup，然后增加一条信息
+B项目的项目文件进行修改，找到节点PropertyGroup，然后 增加一条信息
 <SilverlightApplicationList>{22E9E578-62FE-4CF0-83C7-6F27FA2B67A8}|..\HttpFileClient\HttpFileClient.csproj|silverlight|False</SilverlightApplicationList>
 
 关联后的效果就是：A项目编译后，会生成一个xap文件到B项目的silverlight目录下，
