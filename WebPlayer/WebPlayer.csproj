@@ -72,7 +72,6 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="silverlight\goodplayer.html" />
-    <Content Include="silverlight\GoodPlayer.xap" />
     <Content Include="wmvplayer\pathjson1.json" />
     <Content Include="wmvplayer\pathjson2.json" />
     <Content Include="jQuey\jquery-1.11.3.min.map" />
